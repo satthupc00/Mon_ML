@@ -1,0 +1,24 @@
+const s = (body, extra = 'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"') =>
+  `<svg viewBox="0 0 24 24" ${extra} aria-hidden="true">${body}</svg>`;
+export const I = {
+  search: s('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
+  more: s('<circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/>', 'fill="currentColor"'),
+  l: s('<path d="m15 6-6 6 6 6"/>'),
+  r: s('<path d="m9 6 6 6-6 6"/>'),
+  x: s('<path d="M6 6l12 12M18 6 6 18"/>'),
+  flow: s('<path d="M5 6h14M5 11h14M5 16h9"/>'),
+  cal: s('<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/>'),
+  plus: s('<path d="M12 5v14M5 12h14"/>', 'fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"'),
+  trash: s('<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>'),
+  up: s('<path d="M12 16V4m-5 5 5-5 5 5M4 20h16"/>'),
+  down: s('<path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/>'),
+  doc: s('<path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/>'),
+  cloud: s('<path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 18z"/>'),
+  key: s('<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9m-4 4 3 3"/>'),
+  lock: s('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+  today: s('<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/><circle cx="12" cy="15" r="2" fill="currentColor"/>'),
+  refresh: s('<path d="M20 11a8 8 0 0 0-14.6-4.5M4 4v4h4M4 13a8 8 0 0 0 14.6 4.5M20 20v-4h-4"/>'),
+  fp: s('<path d="M6.5 8.5A6.5 6.5 0 0 1 18.5 11v2M5 12v1a8 8 0 0 0 1 4M12 11v3a6 6 0 0 0 1.5 4M9 13.5V11a3 3 0 0 1 6 0v2.5a9 9 0 0 0 .8 4M17.8 16.5A10 10 0 0 0 18.5 13"/>', 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"'),
+  back: s('<path d="M20 12H8m4-5-5 5 5 5"/>'),
+  eye: s('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'),
+};

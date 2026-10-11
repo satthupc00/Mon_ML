@@ -1,0 +1,79 @@
+{
+  "name": "mon-ml",
+  "productName": "Mon ML",
+  "version": "1.0.0",
+  "description": "Mon ML - nhật ký đời mình, đồng bộ PC & điện thoại",
+  "author": "Mondiro",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "dev": "npm run build:web && electron .",
+    "dist:win": "npm run build:web && electron-builder --win --publish never",
+    "release:win": "npm run build:web && electron-builder --win --publish always",
+    "android:sync": "npm run build:web && npx cap sync android",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "build": {
+    "appId": "com.mondiro.monml",
+    "productName": "Mon ML",
+    "copyright": "Mondiro",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "www/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "MonML-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Mon ML"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "satthupc00",
+        "repo": "Mon_ML",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
+  },
+  "devDependencies": {
+    "@aparajita/capacitor-biometric-auth": "^10.0.0",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.4",
+    "@capacitor/share": "^8.0.3",
+    "@capacitor/status-bar": "^8.0.4",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@fontsource/patrick-hand": "^5.3.0",
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "firebase": "^13.0.0",
+    "png-to-ico": "^3.0.2"
+  }
+}

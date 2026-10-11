@@ -1,0 +1,12 @@
+{
+  "appId": "com.mondiro.monml",
+  "appName": "Mon ML",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#FFF8F0",
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "SystemBars": { "insetsHandling": "css", "style": "DARK" }
+  }
+}
