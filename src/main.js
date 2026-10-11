@@ -3,6 +3,7 @@ import store, { LS, parseFirebaseConfig, authMessage } from './store.js';
 import { showLock, checkPin, setPin } from './lock.js';
 import { sheet, closeTopSheet, confirmBox, alertBox, busy, esc, I } from './dialogs.js';
 import { exportJSON, exportTXT, parseImport, saveFile, stamp } from './io.js';
+import { htmlToRich } from './rich.js';
 import { initUpdates, checkNow } from './update.js';
 import { platform, isAndroid, appVersion } from './platform.js';
 
@@ -76,11 +77,18 @@ function openImport() {
     <p class="sub">Chọn file <b>.json</b> (xuất từ Mon ML) hoặc <b>.txt</b>, hoặc dán thẳng văn bản từ Google Docs. Mỗi ngày bắt đầu bằng dòng dạng <b>8/10 t5 …</b></p>
     <div class="row" style="margin-bottom:12px"><button class="btn" data-file>${I.up}Chọn file</button></div>
     <input type="file" accept=".json,.txt,application/json,text/plain" hidden data-input>
-    <label class="field">Hoặc dán văn bản<textarea data-text placeholder="ML 2026&#10;4/10 cn đám giỗ má…&#10;5/10 t2 họp team…"></textarea></label>
+    <label class="field">Hoặc dán văn bản (chữ in đậm sẽ hiện dạng **chữ**)<textarea data-text placeholder="ML 2026&#10;4/10 cn đám giỗ má…&#10;5/10 t2 họp team…"></textarea></label>
     <label class="field">Năm của văn bản (nếu văn bản không ghi năm)<input type="number" data-year value="${ui.year}" min="1900" max="2999"></label>
     <div class="err" data-err></div>
     <div class="row"><button class="btn" data-no>Hủy</button><button class="btn primary" data-ok>Xem trước</button></div>`);
   const ta = s.el.querySelector('[data-text]'), inp = s.el.querySelector('[data-input]');
+  // Dán từ Google Docs: giữ chữ in đậm dưới dạng **…**
+  ta.addEventListener('paste', e => {
+    const html = e.clipboardData.getData('text/html');
+    if (!html) return;
+    e.preventDefault();
+    ta.setRangeText(htmlToRich(html), ta.selectionStart, ta.selectionEnd, 'end');
+  });
   s.el.querySelector('[data-file]').onclick = () => inp.click();
   inp.onchange = async () => { const f = inp.files[0]; if (f) ta.value = await f.text(); };
   s.el.querySelector('[data-no]').onclick = () => s.close();

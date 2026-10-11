@@ -2,7 +2,7 @@ import { I } from './icons.js';
 import { label, addDay, keyOf, pad2, todayKey, parseK } from './dates.js';
 import store from './store.js';
 import { confirmBox } from './dialogs.js';
-import { plain, toHTML, fromDOM } from './rich.js';
+import { plain, toHTML, fromDOM, htmlToRich } from './rich.js';
 
 export const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -326,11 +326,14 @@ export class AppUI {
         store.set(t.dataset.k, { text }, 'type'); // lưu nháp liên tục, ✓ để chốt
       }
     });
-    // Dán chữ: chỉ lấy văn bản thường
+    // Dán chữ: giữ chữ in đậm (vd copy từ Google Docs), bỏ các định dạng khác
     R.addEventListener('paste', ev => {
       if (!ev.target.closest?.('.txt[contenteditable=true]')) return;
       ev.preventDefault();
-      document.execCommand('insertText', false, ev.clipboardData.getData('text/plain'));
+      const html = ev.clipboardData.getData('text/html');
+      const rich = html ? htmlToRich(html) : ev.clipboardData.getData('text/plain');
+      if (rich.includes('**')) document.execCommand('insertHTML', false, toHTML(rich, esc));
+      else document.execCommand('insertText', false, rich);
     });
     // Nhớ vùng chữ đang chọn (bấm nút trên màn cảm ứng có thể làm mất vùng chọn)
     document.addEventListener('selectionchange', () => {
