@@ -1,16 +1,42 @@
 # Build Mon ML cho Windows (.exe) và Android (.apk) rồi đăng lên GitHub Releases.
-# Chạy khi đẩy tag dạng v1.2.3 (số phải trùng "version" trong package.json).
+# Tự chạy khi push code: nếu "version" trong package.json chưa có bản phát hành v<version> thì build + phát hành.
 name: Release
 
 on:
   push:
-    tags: ['v*']
+    paths-ignore: ['mockup/**', '**.md']
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      exists: ${{ steps.v.outputs.exists }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          if gh release view "v$VER" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"; echo "v$VER đã phát hành, bỏ qua"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"; echo "Sẽ phát hành v$VER"
+          fi
+
   windows:
+    needs: check
+    if: needs.check.outputs.exists == 'false'
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +51,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   android:
-    needs: windows
+    needs: [check, windows]
     runs-on: ubuntu-latest
     env:
       ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
@@ -55,5 +81,5 @@ jobs:
       - name: Upload APK to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: v${{ needs.check.outputs.version }}
           files: MonML-*.apk
