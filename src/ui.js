@@ -1,5 +1,5 @@
 import { I } from './icons.js';
-import { label, addDay, keyOf, pad2, todayKey } from './dates.js';
+import { label, addDay, keyOf, pad2, todayKey, parseK } from './dates.js';
 import store from './store.js';
 import { confirmBox } from './dialogs.js';
 
@@ -29,7 +29,7 @@ export class AppUI {
     this.extra = new Set(); // ngày vừa thêm bằng nút + nhưng chưa viết gì
     root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''}" data-mode="flow">
       <header class="top">
-        <div class="brand"><img src="icon.svg" alt=""><div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">ML</span></div><div class="brand-desc">Nhật ký đời mình · đồng bộ PC & điện thoại</div></div></div>
+        <div class="brand"><img src="icon.svg" alt=""><div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">ML</span></div><div class="brand-desc">Nhật kí</div></div></div>
         <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
         <div class="year"><button class="ibtn" data-y="-1" title="Năm trước" aria-label="Năm trước">${I.l}</button><b data-yl></b><button class="ibtn" data-y="1" title="Năm sau" aria-label="Năm sau">${I.r}</button></div>
         <button class="ibtn only-mob" data-act="search" title="Tìm kiếm" aria-label="Tìm kiếm">${I.search}</button>
@@ -43,7 +43,7 @@ export class AppUI {
       <div class="views"><div class="track">
         <div class="pane flowp"><div class="flow" data-flow></div></div>
         <div class="pane calp"><div class="cal" data-cal></div></div>
-      </div></div>
+      </div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button></div>
       <footer class="foot"><button class="sync" data-act="sync"><i></i><span data-st></span></button><span class="credit">Created by Mondiro</span></footer>
     </div>`;
     this.root = root.firstElementChild;
@@ -51,7 +51,8 @@ export class AppUI {
     this.calEl = this.$('[data-cal]');
     this.flowP = this.$('.flowp');
     this.calP = this.$('.calp');
-    new ResizeObserver(() => this.checkWide()).observe(this.root);
+    new ResizeObserver(() => { this.checkWide(); this.checkBottom(); }).observe(this.root);
+    this.flowP.addEventListener('scroll', () => this.checkBottom(), { passive: true });
     this.checkWide();
     this.bind();
     store.on(ev => this.onStore(ev));
@@ -98,8 +99,15 @@ export class AppUI {
     this.renderCal();
     this.flowP.scrollTop = s1; this.calP.scrollTop = s2;
     this.updateCount();
+    this.checkBottom();
     this.pendingRebuild = false;
     if (focusKey) this.focusEntry(focusKey, true);
+  }
+  // Nút mũi tên xuống cuối: hiện khi đang ở các dòng phía trên
+  checkBottom() {
+    const p = this.flowP;
+    const far = p.scrollHeight - p.scrollTop - p.clientHeight > 240;
+    this.$('.tobottom').classList.toggle('show', far);
   }
   updateCount() {
     const n = this.q.trim() ? this.daysOfYear().filter(k => this.match(k)).length : 0;
@@ -111,7 +119,8 @@ export class AppUI {
   }
   entCls(k) {
     const e = store.get(k);
-    return ['ent', e?.mood || '', e?.text.trim() ? '' : 'empty', this.open === k ? 'open' : ''].filter(Boolean).join(' ');
+    const wd = parseK(k).getDay();
+    return ['ent', wd === 6 ? 'sat' : wd === 0 ? 'sun' : '', e?.mood || '', e?.text.trim() ? '' : 'empty', this.open === k ? 'open' : ''].filter(Boolean).join(' ');
   }
   actsHTML(k) {
     const m = store.get(k)?.mood;
@@ -143,7 +152,6 @@ export class AppUI {
       }
       h += `<div class="mhead" data-month="${m}"><h4>Tháng ${m + 1}</h4><span>${cnt ? cnt + ' ngày đã viết' : ''}</span></div><div class="month"><div class="wk">${['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(x => `<div>${x}</div>`).join('')}</div><div class="grid">${cells}</div></div>`;
     }
-    h += `<div class="legend"><span><i style="background:var(--has)"></i>Đã viết</span><span><i style="background:var(--pos)"></i>Tích cực</span><span><i style="background:var(--neg)"></i>Tiêu cực</span><span><i style="background:var(--hit)"></i>Có từ khóa</span><span><i style="background:var(--cell);box-shadow:inset 0 0 0 2px var(--ink)"></i>Hôm nay</span></div>`;
     this.calEl.innerHTML = h;
   }
   patchCells(keys) {
@@ -263,6 +271,7 @@ export class AppUI {
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
       else if (d.act === 'menu') { if (!this.closeMenu()) this.onMenu(this); }
       else if (d.act === 'sync') this.onSync();
+      else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
     R.addEventListener('input', ev => {
       const t = ev.target;

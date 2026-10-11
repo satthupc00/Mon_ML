@@ -13,6 +13,7 @@ const html = readFileSync('www/index.html', 'utf8')
   .replace(/<meta http-equiv="Content-Security-Policy"[^>]*>\n?/, '')
   .replace('<link rel="icon" href="icon.svg">', `<link rel="icon" href="${icon}">`)
   .replace('<link rel="stylesheet" href="app.css">', () => `<style>${css}</style>`)
+  .replace('<script src="err.js"></script>', () => `<script>${readFileSync('www/err.js', 'utf8')}</script>`)
   .replace('<script type="module" src="app.js"></script>', () => `<script type="module">${js}</script>`);
 mkdirSync('release-files', { recursive: true });
 writeFileSync('release-files/MonML-preview.html', html);

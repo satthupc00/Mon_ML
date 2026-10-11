@@ -17,5 +17,5 @@ await build({
   bundle: true, minify: true, outdir: 'www', assetNames: 'fonts/[name]',
   loader: { '.woff2': 'file', '.woff': 'file' }, logLevel: 'warning',
 });
-for (const f of ['index.html', 'icon.svg']) copyFileSync('src/' + f, 'www/' + f);
+for (const f of ['index.html', 'icon.svg', 'err.js']) copyFileSync('src/' + f, 'www/' + f);
 console.log('www/ built, version', pkg.version);

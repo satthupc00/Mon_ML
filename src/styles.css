@@ -76,6 +76,10 @@ input,textarea{font:inherit;color:inherit}
 .empty-year{color:var(--muted);font-size:14px;margin:4px 0 12px}
 .ent{margin:0 -6px 12px;font-size:16px;line-height:1.6;border-radius:10px;padding:2px 6px;transition:background .3s}
 .ent.empty{margin-bottom:8px}
+.ent.sat{background:#FFF6D8}
+.ent.sun{background:#FFEEF2}
+.ent.pos .txt{color:var(--pos-ink)}
+.ent.neg .txt{color:#6E4A3A}
 .ent.flash{animation:flash 1.4s}
 @keyframes flash{0%,40%{background:var(--butter)}100%{background:transparent}}
 .ent.pop{animation:pop .5s var(--spring)}
@@ -105,6 +109,17 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .add:hover .plus{transform:rotate(90deg)}
 .add .plus svg{width:16px;height:16px}
 .add .nd{font:400 19px var(--hand);color:var(--date)}
+
+/* Nút xuống cuối */
+.tobottom{position:absolute;right:calc(18px + var(--sar));bottom:16px;z-index:5;width:46px;height:46px;border-radius:50%;background:var(--cover);color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 22px -8px rgba(46,42,43,.55);opacity:0;transform:translateY(10px) scale(.9);pointer-events:none;
+  transition:opacity .45s ease,transform .45s var(--spring)}
+.tobottom.show{opacity:.92;transform:none;pointer-events:auto}
+.tobottom:hover{opacity:1}
+.tobottom:active{transform:scale(.88)}
+.tobottom svg{width:22px;height:22px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(3px)}}
+.app:not(.wide)[data-mode=cal] .tobottom{opacity:0;pointer-events:none}
 
 /* ===== Lịch ===== */
 .cal{padding:4px calc(14px + var(--sar)) 40px calc(14px + var(--sal));user-select:none}

@@ -19,18 +19,20 @@ export async function checkPin(v) {
 }
 export async function setPin(v) { LS.set('monml.pin', await sha(v)); }
 
+// Lưu ý: KHÔNG trả thẳng plugin Capacitor từ hàm async (proxy của plugin bị coi là "thenable"
+// nên await sẽ treo mãi). Bọc trong object { auth }.
 async function biometry() {
   if (!isAndroid) return null;
   try {
     const { BiometricAuth } = await import('@aparajita/capacitor-biometric-auth');
-    const info = await BiometricAuth.checkBiometry();
-    return info.isAvailable ? BiometricAuth : null;
+    const info = await Promise.race([BiometricAuth.checkBiometry(), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))]);
+    return info.isAvailable ? { auth: BiometricAuth } : null;
   } catch { return null; }
 }
 
 export function showLock() {
-  return new Promise(async resolve => {
-    const bio = await biometry();
+  return new Promise(resolve => {
+    let bio = null;
     const firstTime = !LS.get('monml.verified', false);
     const mobile = isAndroid || (!window.monml && matchMedia('(pointer:coarse)').matches);
     const el = document.createElement('div');
@@ -38,12 +40,12 @@ export function showLock() {
     el.innerHTML = `<img class="logo" src="icon.svg" alt=""><h2><span class="m">Mon</span> ML</h2>
       <p class="msg" data-msg></p>
       ${mobile ? `<div class="dots" data-dots>${'<i></i>'.repeat(4)}</div>
-      <div class="keypad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button data-n="${n}">${n}</button>`).join('')}<button class="fp" data-fp aria-label="Mở bằng vân tay" ${bio && !firstTime ? '' : 'hidden'}>${I.fp}</button><button data-n="0">0</button><button data-bk aria-label="Xóa">${I.back}</button></div>`
+      <div class="keypad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button data-n="${n}">${n}</button>`).join('')}<button class="fp" data-fp aria-label="Mở bằng vân tay" hidden>${I.fp}</button><button data-n="0">0</button><button data-bk aria-label="Xóa">${I.back}</button></div>`
       : `<form class="pw" data-pw autocomplete="off"><input type="password" placeholder="Mật khẩu" aria-label="Mật khẩu" autofocus><button type="button" class="ibtn" data-eye title="Hiện/ẩn mật khẩu">${I.eye}</button><button class="ibtn go" title="Mở khóa (Enter)">${I.r}</button></form>`}
       <span class="credit">Created by Mondiro</span>`;
     document.body.appendChild(el);
     const msg = el.querySelector('[data-msg]');
-    msg.textContent = mobile ? (firstTime ? 'Nhập mật khẩu lần đầu' : bio ? 'Chạm cảm biến vân tay để mở' : 'Nhập mật khẩu') : 'Nhập mật khẩu để mở nhật ký';
+    msg.textContent = mobile ? (firstTime ? 'Nhập mật khẩu lần đầu' : 'Nhập mật khẩu') : 'Nhập mật khẩu để mở nhật ký';
 
     const done = () => {
       LS.set('monml.verified', true);
@@ -61,7 +63,7 @@ export function showLock() {
     const tryBio = async () => {
       if (!bio) return;
       try {
-        await bio.authenticate({ reason: 'Mở nhật ký Mon ML', androidTitle: 'Mon ML', androidSubtitle: 'Chạm vân tay để mở nhật ký', cancelTitle: 'Dùng mật khẩu', allowDeviceCredential: false, androidConfirmationRequired: false });
+        await bio.auth.authenticate({ reason: 'Mở nhật ký Mon ML', androidTitle: 'Mon ML', androidSubtitle: 'Chạm vân tay để mở nhật ký', cancelTitle: 'Dùng mật khẩu', allowDeviceCredential: false, androidConfirmationRequired: false });
         done();
       } catch { msg.textContent = 'Nhập mật khẩu hoặc chạm biểu tượng vân tay'; }
     };
@@ -100,6 +102,13 @@ export function showLock() {
         if (await checkPin(inp.value)) done(); else { wrong(form); inp.select(); }
       });
     }
-    if (bio && !firstTime) setTimeout(tryBio, 350);
+    // Màn khóa đã hiện; giờ mới hỏi cảm biến vân tay
+    if (isAndroid && !firstTime) biometry().then(b => {
+      if (!b || !el.isConnected) return;
+      bio = b;
+      el.querySelector('[data-fp]')?.removeAttribute('hidden');
+      msg.textContent = 'Chạm cảm biến vân tay để mở';
+      setTimeout(tryBio, 250);
+    });
   });
 }
