@@ -12,6 +12,7 @@
   --red:#E5383B; --imp-bg:#FDE3E1; --imp-ink:#C42B2E; --hit:#FFE48A;
   --date:#6B5BD2; --date-bg:#EEEBFC; --cover:#2E2A2B; --cover-2:#3A3536;
   --mint:#D7F0E6; --sky:#DDEBFA; --butter:#FFF1C9;
+  --pos:#F9D3DF; --pos-ink:#A2405F; --neg:#8A6552; --has:#DCF1E3; --has-ink:#2F6B4C;
   --r:16px; --spring:cubic-bezier(.34,1.56,.64,1);
 }
 *{box-sizing:border-box}
@@ -85,22 +86,26 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webki
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
 .date{font:400 18px/1 Patrick Hand;color:var(--date);background:var(--date-bg);padding:3px 8px 2px;border-radius:8px;margin-right:6px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:transform .25s var(--spring);white-space:nowrap}
 .date:active{transform:scale(.92)}
-.ent.imp .date{color:var(--imp-ink);background:var(--imp-bg)}
+.ent.pos .date{color:var(--pos-ink);background:var(--pos)}
+.ent.neg .date{color:#fff;background:var(--neg)}
+.ent.empty{margin-bottom:8px}
 .date svg{width:13px;height:13px}
 .chip{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:999px;margin-right:4px;vertical-align:2px;background:var(--sky);color:#3B5B85}
 .chip.c-gd{background:var(--mint);color:#2E6B55}.chip.c-bb{background:var(--butter);color:#7A5B12}
 .txt{outline:none;white-space:pre-wrap;word-break:break-word}
-.txt:empty::before{content:"Viết gì đó cho ngày này…";color:#C6B9B0}
+.txt:empty:focus::before{content:"Viết gì đó cho ngày này…";color:#C6B9B0}
 mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .acts{display:none;gap:6px;flex-wrap:wrap;margin:6px 0 2px;animation:drop .3s var(--spring)}
 .ent.open .acts{display:flex}
 .tgl{font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;display:inline-flex;gap:5px;align-items:center;transition:transform .25s var(--spring),background .2s}
 .tgl:active{transform:scale(.9)}
 .tgl svg{width:14px;height:14px}
-.tgl.on{background:var(--imp-bg);border-color:#F6C4C0;color:var(--imp-ink)}
-.tgl.on.t2{background:var(--sky);border-color:#BFD5F0;color:#3B5B85}
-.tgl.on.t3{background:var(--mint);border-color:#B5DFCF;color:#2E6B55}
-.tgl.on.t4{background:var(--butter);border-color:#F0DCA0;color:#7A5B12}
+.mood{width:32px;height:32px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #E6D8CE,0 3px 8px -4px rgba(80,40,20,.4);transition:transform .35s var(--spring),box-shadow .2s}
+.mood:active{transform:scale(.8)}
+.mood.pos{background:var(--pos)}.mood.neg{background:var(--neg)}
+.mood.on{box-shadow:0 0 0 2px var(--ink);transform:scale(1.12)}
+.acts{align-items:center}
+.acts .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
 .add{width:100%;margin:6px 0 4px;height:48px;border:2px dashed #E9CFC4;border-radius:14px;color:var(--red);font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .3s var(--spring),background .2s,border-color .2s}
 .add:hover{background:#FFF1EC;border-color:var(--red)}
 .add:active{transform:scale(.96)}
@@ -120,11 +125,12 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .cell{aspect-ratio:1;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:14px;position:relative;transition:transform .3s var(--spring),background .2s,box-shadow .2s;background:#FBF5EF}
 .cell:hover{transform:translateY(-2px)}.cell:active{transform:scale(.88)}
 .cell.blank{background:none;pointer-events:none}
-.cell .dot{width:5px;height:5px;border-radius:50%;background:var(--date);margin-top:3px;opacity:0}
-.cell.has .dot{opacity:1}
-.cell.imp{background:var(--imp-bg);color:var(--imp-ink)}.cell.imp .dot{background:var(--imp-ink)}
-.cell.hit{background:var(--hit);box-shadow:0 0 0 2px #F2C443;animation:hit .5s var(--spring)}
-.cell.imp.hit{background:linear-gradient(135deg,var(--imp-bg) 50%,var(--hit) 50%)}
+.cell.has{background:var(--has);color:var(--has-ink)}
+.cell.pos{background:var(--pos);color:var(--pos-ink)}
+.cell.neg{background:var(--neg);color:#fff}
+.cell.hit{background:var(--hit);color:var(--ink);box-shadow:0 0 0 2px #F2C443;animation:hit .5s var(--spring)}
+.cell.pos.hit{background:linear-gradient(135deg,var(--pos) 50%,var(--hit) 50%)}
+.cell.neg.hit{background:linear-gradient(135deg,var(--neg) 50%,var(--hit) 50%)}
 @keyframes hit{from{transform:scale(.8)}}
 .cell.today{box-shadow:inset 0 0 0 2px var(--ink)}
 .cell.sel{box-shadow:inset 0 0 0 2px var(--date)}
@@ -184,20 +190,35 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .unlocked{animation:unl .6s var(--spring) forwards}
 @keyframes unl{to{opacity:0;transform:scale(1.08)}}
 
+/* Màn khóa PC */
+.lockpc{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(180deg,#FFF8F0,#FDE9E1);position:relative}
+.lockpc .logo svg{width:88px;height:88px;filter:drop-shadow(0 12px 18px rgba(60,30,20,.25))}
+.lockpc h2{margin:0;font-size:24px}.lockpc h2 .m{color:var(--red)}
+.lockpc p{margin:-8px 0 4px;color:var(--muted)}
+.pw{display:flex;align-items:center;gap:6px;width:360px;max-width:80%;height:52px;background:#fff;border-radius:16px;padding:0 6px 0 16px;box-shadow:0 0 0 1px var(--line),0 10px 24px -14px rgba(80,40,20,.4);transition:box-shadow .2s}
+.pw:focus-within{box-shadow:0 0 0 2px var(--red),0 10px 24px -14px rgba(80,40,20,.4)}
+.pw.err{animation:shake .4s}
+.pw input{flex:1;border:0;outline:0;font:600 17px Nunito;letter-spacing:.1em;background:none;color:var(--ink);min-width:0}
+.pw .ibtn{width:40px;height:40px;color:var(--muted)}
+.pw .go{background:var(--red);color:#fff;border-radius:12px}
+.pw .go:hover{background:#cf2f32}
+.lockpc .credit{position:absolute;bottom:14px;right:18px;font-size:11px;color:#A79A92}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="page">
   <div class="intro">
-    <h1><span class="m">Mondiro</span> Mon ML · phác layout</h1>
+    <h1><span class="m">Mon</span> ML · phác layout (bản 2)</h1>
     <p>Bản phác có thể bấm thử: các màn hình dùng chung một dữ liệu, sửa ở màn này thì màn kia cập nhật ngay, giống như khi đồng bộ.</p>
   </div>
   <div class="tabs" id="tabs">
     <button class="tab on" data-f="outer">Z Fold 7 · màn ngoài</button>
     <button class="tab" data-f="inner">Z Fold 7 · màn trong</button>
     <button class="tab" data-f="desk">Windows desktop</button>
-    <button class="tab" data-f="lock">Màn khóa</button>
+    <button class="tab" data-f="lock">Màn khóa điện thoại</button>
+    <button class="tab" data-f="lockpc">Màn khóa PC</button>
   </div>
   <div class="stage" id="stage"></div>
 
@@ -205,10 +226,10 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
     <div class="note"><h3>Thử thế nào</h3><ul>
       <li>Bấm nút <b>+</b> cuối trang: app tự thêm ngày tiếp theo, ví dụ <b>12/10 t2</b></li>
       <li>Vuốt mạnh sang trái hoặc phải, hoặc bấm nút trên cùng để đổi giữa <b>Dòng chảy</b> và <b>Lịch</b></li>
-      <li>Bấm vào nhãn ngày (chữ tím) để gán tag. Tag <b>Quan trọng</b> sẽ tô đỏ nhạt ô ngày đó trong lịch</li>
+      <li>Bấm vào nhãn ngày để gán tag màu: <b style="color:#A2405F">hồng</b> = tích cực, <b style="color:#8A6552">nâu</b> = tiêu cực. Bấm lại để bỏ</li><li>Ngày đã qua mà chưa viết vẫn hiện nhãn ngày, chỉ để trống. Trên lịch, ngày đã viết có màu xanh nhạt</li>
       <li>Bấm kính lúp rồi gõ, ví dụ "hủ tíu": các ô ngày có từ đó sẽ sáng vàng</li>
       <li>Bấm ‹ › cạnh số năm để chuyển năm. Bấm ⋮ để xuất hoặc nhập dữ liệu</li>
-      <li>Ở màn khóa, nhập <b>0935</b></li>
+      <li>Màn khóa: điện thoại nhập <b>0935</b> hoặc chạm vân tay. PC gõ <b>0935</b> vào ô rồi Enter</li>
     </ul></div>
     <div class="note"><h3>Đề xuất thêm</h3><ul>
       <li><b>Nhập từ Google Docs</b>: dán nguyên văn bản "ML 2026" vào, app tự tách theo dòng "d/m tX". Dữ liệu cũ của bạn vào app ngay</li>
@@ -254,23 +275,20 @@ const pad2=n=>String(n).padStart(2,'0');
 const keyOf=d=>`${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
 const parseK=k=>{const[a,b,c]=k.split('-').map(Number);return new Date(a,b-1,c)};
 const label=k=>{const d=parseK(k);return `${d.getDate()}/${d.getMonth()+1} ${WD[d.getDay()]}`};
-const TAGS=[{id:'imp',name:'Quan trọng',cls:''},{id:'cv',name:'Công việc',cls:'t2'},{id:'gd',name:'Gia đình',cls:'t3'},{id:'bb',name:'Bạn bè',cls:'t4'}];
-const chipCls={cv:'',gd:'c-gd',bb:'c-bb'};
-
+const ensure=k=>DB.entries[k]||(DB.entries[k]={text:'',mood:null});
+const addDay=(k,n)=>{const d=parseK(k);d.setDate(d.getDate()+n);return keyOf(d)};
 const DB={entries:{
- '2026-09-12':{text:'Đi Đà Lạt với team, trời lạnh, ăn bánh căn.',tags:['imp','bb']},
- '2026-09-20':{text:'Dọn lại góc làm việc, mua đèn mới.',tags:[]},
- '2026-09-28':{text:'Hoàn thành rig Spine con rồng cho game mới.',tags:['cv']},
- '2026-10-03':{text:'Đi câu mấy lần, nghi chắc do ăn thịt sống ở ushi.',tags:[]},
- '2026-10-04':{text:'Đám giỗ má, nhưng ko ai làm gì cả. cM đi khám sức khỏe ở phường, trưa mình đi mua cơm cho ba, mua luôn cho nó. chơi game FFR tới khúc aries và cloud đánh cái nhà. tối tự đi ăn hủ tíu nam vang, xong mua xôi ở HL2 ra cafe Phoenix ngồi 1 mình',tags:['imp','gd']},
- '2026-10-05':{text:'Họp team làm game 3D, nhắn tin hỏi Jade HR vụ bảo hiểm tiếp, tối đi ăn hủ tíu gõ xong đi coi phim Trại buôn người với Fong, Tâm, Bảo',tags:['cv']},
- '2026-10-06':{text:'Tối đi ăn đồ nướng ở The Chill với Vân, Fong, Din và Chồng. Xong mình chở Vân về',tags:['bb']},
- '2026-10-07':{text:'Dùng AI làm cái ánh sáng payline chạy qua cho game Dê, team họp phổ biến quy trình mới của con baby. tối trời mưa lớn, đi làm về đi đường vòng qua Hòa Bình, ghé ăn hủ tíu gõ bà cô nói nhìu',tags:[]},
- '2026-10-08':{text:'Team họp transfer Jira mới qua vortech, sinh nhật Ý, mn hùn tiền mua mấy cái bánh kem tặng nó. Fong, Tâm lên L5 ăn chung. Dùng giờ nghỉ trưa để làm cái tool Glowboard để cài lên máy mn. Tối trời mưa ngủ ngon',tags:['imp']},
- '2026-10-09':{text:'Ở cty làm cái tool VFXForge. Khoe Chec. trưa đi ăn cơm LM81 với Đạt, Hoài, sửa lại cái tool Payline generation save dc cho Din, tối ghé ăn cơm Phụng, xong ra cafe the rich do ku An nó than trầm cảm, đợi đến 9h nó ko ra nên mình về luôn, về nhà mò dc cách gọi skill frontend-design để thiết kế lại app weight tracking',tags:['cv']},
- '2026-10-10':{text:'',tags:[]},
- '2026-10-11':{text:'',tags:[]},
- '2025-12-31':{text:'Giao thừa ở nhà, xem pháo hoa trên TV.',tags:['gd']}
+ '2026-09-12':{text:'Đi Đà Lạt với team, trời lạnh, ăn bánh căn.',mood:'pos'},
+ '2026-09-20':{text:'Dọn lại góc làm việc, mua đèn mới.',mood:null},
+ '2026-09-28':{text:'Hoàn thành rig Spine con rồng cho game mới.',mood:null},
+ '2026-10-03':{text:'Đi câu mấy lần, nghi chắc do ăn thịt sống ở ushi.',mood:null},
+ '2026-10-04':{text:'Đám giỗ má, nhưng ko ai làm gì cả. cM đi khám sức khỏe ở phường, trưa mình đi mua cơm cho ba, mua luôn cho nó. chơi game FFR tới khúc aries và cloud đánh cái nhà. tối tự đi ăn hủ tíu nam vang, xong mua xôi ở HL2 ra cafe Phoenix ngồi 1 mình',mood:'neg'},
+ '2026-10-05':{text:'Họp team làm game 3D, nhắn tin hỏi Jade HR vụ bảo hiểm tiếp, tối đi ăn hủ tíu gõ xong đi coi phim Trại buôn người với Fong, Tâm, Bảo',mood:null},
+ '2026-10-06':{text:'Tối đi ăn đồ nướng ở The Chill với Vân, Fong, Din và Chồng. Xong mình chở Vân về',mood:'pos'},
+ '2026-10-07':{text:'Dùng AI làm cái ánh sáng payline chạy qua cho game Dê, team họp phổ biến quy trình mới của con baby. tối trời mưa lớn, đi làm về đi đường vòng qua Hòa Bình, ghé ăn hủ tíu gõ bà cô nói nhìu',mood:'neg'},
+ '2026-10-08':{text:'Team họp transfer Jira mới qua vortech, sinh nhật Ý, mn hùn tiền mua mấy cái bánh kem tặng nó. Fong, Tâm lên L5 ăn chung. Dùng giờ nghỉ trưa để làm cái tool Glowboard để cài lên máy mn. Tối trời mưa ngủ ngon',mood:'pos'},
+ '2026-10-09':{text:'Ở cty làm cái tool VFXForge. Khoe Chec. trưa đi ăn cơm LM81 với Đạt, Hoài, sửa lại cái tool Payline generation save dc cho Din, tối ghé ăn cơm Phụng, xong ra cafe the rich do ku An nó than trầm cảm, đợi đến 9h nó ko ra nên mình về luôn, về nhà mò dc cách gọi skill frontend-design để thiết kế lại app weight tracking',mood:null},
+ '2025-12-31':{text:'Giao thừa ở nhà, xem pháo hoa trên TV.',mood:null}
 }};
 const apps=[];
 function emit(src,focusKey){apps.forEach(a=>a.refresh(a===src?focusKey:null,a!==src))}
@@ -282,7 +300,7 @@ class App{
   this.el=el;this.layout=layout;this.mode='flow';this.year=2026;this.q='';this.open=null;
   el.innerHTML=`<div class="app ${layout!=='outer'?'wide':''} ${layout==='desk'?'desk':''}" data-mode="flow">
    <header class="top">
-    <div class="brand">${ICON}<div style="min-width:0"><div class="brand-name"><span class="m">Mondiro</span> <span class="a">Mon ML</span></div><div class="brand-desc">Nhật ký đời mình · đồng bộ PC & điện thoại</div></div></div>
+    <div class="brand">${ICON}<div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">ML</span></div><div class="brand-desc">Nhật ký đời mình · đồng bộ PC & điện thoại</div></div></div>
     <label class="searchbar only-desk">${I.search}<input placeholder="Tìm từ khóa…" data-q><span class="cnt" data-cnt></span></label>
     <div class="year"><button class="ibtn" data-y="-1" title="Năm trước">${I.l}</button><b data-yl>2026</b><button class="ibtn" data-y="1" title="Năm sau">${I.r}</button></div>
     <button class="ibtn only-mob" data-act="search" title="Tìm kiếm">${I.search}</button>
@@ -302,25 +320,30 @@ class App{
  }
  $(s){return this.root.querySelector(s)}
  entriesOfYear(){return Object.keys(DB.entries).filter(k=>k.startsWith(this.year+'-')).sort()}
- match(k){const q=this.q.trim().toLowerCase();return q&&DB.entries[k].text.toLowerCase().includes(q)}
+ // Mọi ngày từ ngày viết đầu tiên tới hôm nay (năm cũ: tới 31/12): ngày chưa viết vẫn hiện nhãn
+ daysOfYear(){const ks=this.entriesOfYear(),ty=+TODAY.slice(0,4);
+  let a=ks[0],b=ks.at(-1);
+  if(this.year===ty){a=a&&a<TODAY?a:TODAY;b=b&&b>TODAY?b:TODAY}else if(this.year<ty&&a)b=`${this.year}-12-31`;
+  if(!a)return[];const out=[];for(let k=a;k<=b;k=addDay(k,1))out.push(k);return out}
+ match(k){const q=this.q.trim().toLowerCase();return q&&DB.entries[k]&&DB.entries[k].text.toLowerCase().includes(q)}
  hl(t){const q=this.q.trim();if(!q)return esc(t);const re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');return esc(t).replace(re,'<mark>$1</mark>')}
  refresh(focusKey,remote){
   const fl=this.$('.flowp'),cl=this.$('.calp'),s1=fl.scrollTop,s2=cl.scrollTop;
   this.$('[data-yl]').textContent=this.year;
   this.renderFlow();this.renderCal();
   fl.scrollTop=s1;cl.scrollTop=s2;
-  const n=this.q.trim()?this.entriesOfYear().filter(k=>this.match(k)).length:0;
+  const n=this.q.trim()?this.daysOfYear().filter(k=>this.match(k)).length:0;
   this.root.querySelectorAll('[data-cnt]').forEach(c=>c.textContent=this.q.trim()?n+' ngày':'');
   if(remote){const s=this.$('[data-sync]');s.classList.add('busy');s.lastChild.textContent='Đang đồng bộ…';clearTimeout(this._t);this._t=setTimeout(()=>{s.classList.remove('busy');s.lastChild.textContent='Đã đồng bộ'},700)}
   if(focusKey){const e=this.$(`.ent[data-k="${focusKey}"]`);if(e){e.classList.add('pop');e.scrollIntoView({block:'center',behavior:'smooth'});const t=e.querySelector('.txt');setTimeout(()=>{t.focus();placeEnd(t)},350)}}
  }
  renderFlow(){
-  const ks=this.entriesOfYear();
+  const ds=this.daysOfYear();
   let h=`<div class="flow-paper"><p class="ym">ML ${this.year}</p>`;
-  for(const k of ks){const e=DB.entries[k],imp=e.tags.includes('imp');
-   h+=`<p class="ent ${imp?'imp':''} ${this.open===k?'open':''}" data-k="${k}"><span class="date" data-open="${k}" title="Gán tag">${imp?I.heart:''}${label(k)}</span>${e.tags.filter(t=>t!=='imp').map(t=>`<span class="chip ${chipCls[t]}">${TAGS.find(x=>x.id===t).name}</span>`).join('')}<span class="txt" contenteditable="true" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span>
-   <span class="acts">${TAGS.map(t=>`<button class="tgl ${t.cls} ${e.tags.includes(t.id)?'on':''}" data-tag="${t.id}" data-k="${k}">${t.id==='imp'?I.heart:I.tag}${t.name}</button>`).join('')}<button class="tgl" data-del="${k}">${I.trash}Xóa</button></span></p>`}
-  const next=ks.length?(()=>{const d=parseK(ks.at(-1));d.setDate(d.getDate()+1);return keyOf(d)})():`${this.year}-01-01`;
+  for(const k of ds){const e=DB.entries[k]||{text:'',mood:null};
+   h+=`<p class="ent ${e.mood||''} ${e.text.trim()?'':'empty'} ${this.open===k?'open':''}" data-k="${k}"><span class="date" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" contenteditable="true" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span>
+   <span class="acts"><button class="mood pos ${e.mood==='pos'?'on':''}" data-mood="pos" data-k="${k}" title="Tích cực" aria-label="Tích cực"></button><button class="mood neg ${e.mood==='neg'?'on':''}" data-mood="neg" data-k="${k}" title="Tiêu cực" aria-label="Tiêu cực"></button><span class="sep"></span><button class="tgl" data-del="${k}">${I.trash}Xóa nội dung</button></span></p>`}
+  const next=ds.length?addDay(ds.at(-1),1):`${this.year}-01-01`;
   this.nextKey=next;
   h+=`<button class="add" data-add title="Thêm ngày tiếp theo"><span class="plus">${I.plus}</span>Thêm <span class="nd">${label(next)}</span></button></div>`;
   this.$('[data-flow]').innerHTML=h;
@@ -331,10 +354,10 @@ class App{
    const first=new Date(this.year,m,1),days=new Date(this.year,m+1,0).getDate(),off=(first.getDay()+6)%7;
    let cnt=0,cells='';for(let i=0;i<off;i++)cells+='<div class="cell blank"></div>';
    for(let d=1;d<=days;d++){const k=`${this.year}-${pad2(m+1)}-${pad2(d)}`,e=DB.entries[k];
-    const has=e&&e.text.trim(),cls=['cell',has?'has':'',e&&e.tags.includes('imp')?'imp':'',e&&this.match(k)?'hit':'',k===TODAY?'today':'',k===this.open?'sel':''].join(' ');
-    if(has)cnt++;cells+=`<button class="${cls}" data-day="${k}" title="${label(k)}">${d}<span class="dot"></span></button>`}
+    const has=e&&e.text.trim(),cls=['cell',has?'has':'',e&&e.mood?e.mood:'',e&&this.match(k)?'hit':'',k===TODAY?'today':'',k===this.open?'sel':''].join(' ');
+    if(has)cnt++;cells+=`<button class="${cls}" data-day="${k}" title="${label(k)}">${d}</button>`}
    h+=`<div class="mhead"><h4>Tháng ${m+1}</h4><span>${cnt?cnt+' ngày đã viết':''}</span></div><div class="month"><div class="wk">${['T2','T3','T4','T5','T6','T7','CN'].map(x=>`<div>${x}</div>`).join('')}</div><div class="grid">${cells}</div></div>`}
-  h+=`<div class="legend"><span><i style="background:var(--imp-bg)"></i>Quan trọng</span><span><i style="background:var(--hit)"></i>Có từ khóa</span><span><i style="background:#FBF5EF;box-shadow:inset 0 0 0 2px var(--ink)"></i>Hôm nay</span></div>`;
+  h+=`<div class="legend"><span><i style="background:var(--has)"></i>Đã viết</span><span><i style="background:var(--pos)"></i>Tích cực</span><span><i style="background:var(--neg)"></i>Tiêu cực</span><span><i style="background:var(--hit)"></i>Có từ khóa</span><span><i style="background:#FBF5EF;box-shadow:inset 0 0 0 2px var(--ink)"></i>Hôm nay</span></div>`;
   this.$('[data-cal]').innerHTML=h;
 
  }
@@ -349,10 +372,10 @@ class App{
    if(b.dataset.m)this.setMode(b.dataset.m);
    else if(b.dataset.y){this.year+=+b.dataset.y;this.open=null;this.refresh()}
    else if(b.dataset.open){this.open=this.open===b.dataset.open?null:b.dataset.open;this.refresh()}
-   else if(b.dataset.tag){const e=DB.entries[b.dataset.k],t=b.dataset.tag;e.tags=e.tags.includes(t)?e.tags.filter(x=>x!==t):[...e.tags,t];emit(this)}
-   else if(b.dataset.del){delete DB.entries[b.dataset.del];this.open=null;emit(this)}
-   else if(b.hasAttribute('data-add')){const k=this.nextKey;DB.entries[k]={text:'',tags:[]};this.open=null;emit(this,k)}
-   else if(b.dataset.day){const k=b.dataset.day;if(!DB.entries[k])DB.entries[k]={text:'',tags:[]};this.open=k;
+   else if(b.dataset.mood){const e=ensure(b.dataset.k),m=b.dataset.mood;e.mood=e.mood===m?null:m;emit(this)}
+   else if(b.dataset.del){ensure(b.dataset.del).text='';this.open=null;emit(this)}
+   else if(b.hasAttribute('data-add')){const k=this.nextKey;ensure(k);this.open=null;emit(this,k)}
+   else if(b.dataset.day){const k=b.dataset.day;ensure(k);this.open=k;
      if(this.layout==='outer')this.setMode('flow');emit(this);
      setTimeout(()=>{const e=this.$(`.ent[data-k="${k}"]`);e.scrollIntoView({block:'center',behavior:'smooth'});e.classList.add('flash')},this.layout==='outer'?380:30)}
    else if(b.dataset.act==='search'){R.classList.toggle('searching');if(R.classList.contains('searching'))R.querySelector('.subbar [data-q]').focus();else{this.q='';R.querySelectorAll('[data-q]').forEach(i=>i.value='');this.refresh()}}
@@ -362,7 +385,7 @@ class App{
   });
   R.addEventListener('input',ev=>{
    if(ev.target.dataset.q!==undefined){this.q=ev.target.value;this.refresh();return}
-   const t=ev.target.closest('.txt');if(t){DB.entries[t.dataset.k].text=t.innerText;apps.forEach(a=>a!==this&&a.refresh(null,true));
+   const t=ev.target.closest('.txt');if(t){ensure(t.dataset.k).text=t.innerText;apps.forEach(a=>a!==this&&a.refresh(null,true));
      const c=this.$(`.cell[data-day="${t.dataset.k}"]`);if(c)c.classList.toggle('has',!!t.innerText.trim())}
   });
   // vuốt mạnh để đổi chế độ
@@ -373,7 +396,7 @@ class App{
  }
  menu(k){
   if(k==='exp'){download(`MonML-${this.year}.json`,JSON.stringify(DB,null,1));this.toast('Đã xuất dữ liệu')}
-  else if(k==='txt'){download(`ML ${this.year}.txt`,this.entriesOfYear().map(x=>label(x)+' '+DB.entries[x].text).join('\n'));this.toast('Đã xuất văn bản')}
+  else if(k==='txt'){download(`ML ${this.year}.txt`,this.daysOfYear().map(x=>label(x)+' '+(DB.entries[x]?.text||'')).join('\n'));this.toast('Đã xuất văn bản')}
   else if(k==='imp'){const t=prompt('Dán văn bản dạng "8/10 t5 nội dung…" (mỗi ngày một dòng):');if(t){const n=importText(t,this.year);emit(this);this.toast(`Đã nhập ${n} ngày`)}}
   else if(k==='sync')this.toast('Đang đăng nhập: bạn@gmail.com · Đã đồng bộ');
   else if(k==='pin')this.toast('Đổi mật khẩu (mặc định 0935)');
@@ -382,7 +405,7 @@ class App{
 }
 function importText(t,year){let n=0,cur=null;
  for(const line of t.split(/\r?\n/)){const m=line.match(/^\s*(\d{1,2})\/(\d{1,2})(?:\s+(?:t[2-7]|cn))?\b[\s.,:-]*(.*)$/i);
-  if(m){cur=`${year}-${pad2(m[2])}-${pad2(m[1])}`;DB.entries[cur]={text:m[3],tags:DB.entries[cur]?.tags||[]};n++}
+  if(m){cur=`${year}-${pad2(m[2])}-${pad2(m[1])}`;DB.entries[cur]={text:m[3],mood:DB.entries[cur]?.mood||null};n++}
   else if(cur&&line.trim())DB.entries[cur].text+=(DB.entries[cur].text?'\n':'')+line.trim()}
  return n}
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
@@ -391,7 +414,7 @@ function download(n,c){const a=document.createElement('a');a.href=URL.createObje
 
 // ---------- Màn khóa ----------
 function lockScreen(el){
- el.innerHTML=`<div class="lock"><div class="logo">${ICON}</div><h2><span class="m">Mondiro</span> Mon ML</h2><p data-msg>Nhập mật khẩu lần đầu</p>
+ el.innerHTML=`<div class="lock"><div class="logo">${ICON}</div><h2><span class="m">Mon</span> ML</h2><p data-msg>Nhập mật khẩu lần đầu</p>
  <div class="dots" data-dots>${'<i></i>'.repeat(4)}</div>
  <div class="pad">${[1,2,3,4,5,6,7,8,9].map(n=>`<button data-n="${n}">${n}</button>`).join('')}<button class="fp" data-fp title="Mở bằng vân tay">${I.fp}</button><button data-n="0">0</button><button data-bk title="Xóa">${I.back}</button></div>
  <span class="credit">Created by Mondiro</span></div>`;
@@ -404,18 +427,27 @@ function lockScreen(el){
   else if(b.hasAttribute('data-fp')){msg.textContent='Đã nhận vân tay';setTimeout(ok,300)}});
 }
 
+function lockPC(el){
+ el.innerHTML=`<div class="lockpc"><div class="logo">${ICON}</div><h2><span class="m">Mon</span> ML</h2><p data-msg>Nhập mật khẩu để mở nhật ký</p>
+ <form class="pw" data-pw><input type="password" placeholder="Mật khẩu" autocomplete="off" aria-label="Mật khẩu"><button type="button" class="ibtn" data-eye title="Hiện/ẩn mật khẩu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ibtn go" title="Mở khóa (Enter)">${I.r}</button></form>
+ <span class="credit">Created by Mondiro</span></div>`;
+ const L=el.firstElementChild,f=L.querySelector('[data-pw]'),inp=f.querySelector('input'),msg=L.querySelector('[data-msg]');
+ L.querySelector('[data-eye]').onclick=()=>{inp.type=inp.type==='password'?'text':'password';inp.focus()};
+ f.onsubmit=e=>{e.preventDefault();if(inp.value==='0935'){L.classList.add('unlocked');setTimeout(()=>{L.classList.remove('unlocked');inp.value='';msg.textContent='Đã mở khóa (bản thật sẽ vào thẳng app)'},1100)}else{f.classList.remove('err');void f.offsetWidth;f.classList.add('err');msg.textContent='Sai mật khẩu, thử lại';inp.select()}};
+}
+
 // ---------- Khung thiết bị ----------
-const SIZES={outer:[372,820],inner:[740,668],desk:[1120,700],lock:[372,820]};
+const SIZES={outer:[372,820],inner:[740,668],desk:[1120,700],lock:[372,820],lockpc:[1120,700]};
 const stage=document.getElementById('stage');const frames={};
 for(const f of Object.keys(SIZES)){
  const fit=document.createElement('div');fit.className='fit';fit.style.display='none';
- const fr=document.createElement('div');fr.className='frame'+(f==='desk'?' desk':'');fr.style.width=SIZES[f][0]+'px';fr.style.height=SIZES[f][1]+'px';
+ const fr=document.createElement('div');fr.className='frame'+(f==='desk'||f==='lockpc'?' desk':'');fr.style.width=SIZES[f][0]+'px';fr.style.height=SIZES[f][1]+'px';
  fit.appendChild(fr);stage.appendChild(fit);frames[f]=fit;
- if(f==='lock')lockScreen(fr);else apps.push(new App(fr,f));
+ if(f==='lock')lockScreen(fr);else if(f==='lockpc')lockPC(fr);else apps.push(new App(fr,f));
 }
 let cur='outer';
-function layout(){const f=frames[cur],[w,h]=SIZES[cur],pad=cur==='desk'?2:24,avail=Math.min(stage.clientWidth||innerWidth-32,1200)-pad,s=Math.min(1,avail/w);
- const fr=f.firstElementChild;fr.style.transform=`scale(${s})`;fr.style.left=(cur==='desk'?0:10*s)+'px';fr.style.top='10px';f.style.width=(w*s+(cur==='desk'?0:20*s))+'px';f.style.height=(h*s+20)+'px'}
+function layout(){const f=frames[cur],[w,h]=SIZES[cur],pad=/desk|lockpc/.test(cur)?2:24,avail=Math.min(stage.clientWidth||innerWidth-32,1200)-pad,s=Math.min(1,avail/w);
+ const fr=f.firstElementChild;fr.style.transform=`scale(${s})`;fr.style.left=(/desk|lockpc/.test(cur)?0:10*s)+'px';fr.style.top='10px';f.style.width=(w*s+(/desk|lockpc/.test(cur)?0:20*s))+'px';f.style.height=(h*s+20)+'px'}
 function show(f){Object.entries(frames).forEach(([k,el])=>el.style.display=k===f?'block':'none');cur=f;layout();const a=apps.find(x=>x.layout===f);if(a&&!a._j){a._j=1;a.jumpNow()}}
 document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t===b));show(b.dataset.f)});
 addEventListener('resize',layout);show('outer');
