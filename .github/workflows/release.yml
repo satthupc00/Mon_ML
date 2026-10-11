@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.v.outputs.version }}
-      exists: ${{ steps.v.outputs.exists }}
+      need_win: ${{ steps.v.outputs.need_win }}
+      need_apk: ${{ steps.v.outputs.need_apk }}
     steps:
       - uses: actions/checkout@v4
       - id: v
@@ -28,15 +29,15 @@ jobs:
         run: |
           VER=$(node -p "require('./package.json').version")
           echo "version=$VER" >> "$GITHUB_OUTPUT"
-          if gh release view "v$VER" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"; echo "v$VER đã phát hành, bỏ qua"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"; echo "Sẽ phát hành v$VER"
-          fi
+          # Chỉ build phần còn thiếu trong bản phát hành v<version>
+          ASSETS=$(gh release view "v$VER" --repo "$GITHUB_REPOSITORY" --json assets -q '.assets[].name' 2>/dev/null || true)
+          if echo "$ASSETS" | grep -q '^latest.yml$'; then echo "need_win=false" >> "$GITHUB_OUTPUT"; else echo "need_win=true" >> "$GITHUB_OUTPUT"; fi
+          if echo "$ASSETS" | grep -q '\.apk$'; then echo "need_apk=false" >> "$GITHUB_OUTPUT"; else echo "need_apk=true" >> "$GITHUB_OUTPUT"; fi
+          echo "v$VER assets: $ASSETS"
 
   windows:
     needs: check
-    if: needs.check.outputs.exists == 'false'
+    if: needs.check.outputs.need_win == 'true'
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,6 +65,7 @@ jobs:
 
   android:
     needs: [check, windows]
+    if: ${{ !cancelled() && needs.check.outputs.need_apk == 'true' && needs.windows.result != 'failure' }}
     runs-on: ubuntu-latest
     env:
       ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
@@ -77,7 +79,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: android-actions/setup-android@v3
       - run: npm ci
       - name: Build web + sync Capacitor
         run: npm run android:sync
