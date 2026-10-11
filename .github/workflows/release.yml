@@ -32,6 +32,10 @@ jobs:
             echo "exists=true" >> "$GITHUB_OUTPUT"; echo "v$VER đã phát hành, bỏ qua"
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"; echo "Sẽ phát hành v$VER"
+            # Tạo tag v<version> trỏ vào commit này (Releases cần tag có sẵn)
+            if ! gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/v$VER" >/dev/null 2>&1; then
+              gh api "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/v$VER" -f sha="$GITHUB_SHA"
+            fi
           fi
 
   windows:
