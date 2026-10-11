@@ -9,3 +9,4 @@ android/app/src/main/assets/public/
 android/capacitor-cordova-android-plugins/
 *.log
 .DS_Store
+release-files/
