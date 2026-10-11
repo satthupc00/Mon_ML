@@ -57,6 +57,16 @@ app.whenReady().then(() => {
     return true;
   });
   ipcMain.handle('install-update', () => autoUpdater.quitAndInstall(false, true));
+  // Nút "Kiểm tra cập nhật" trong menu
+  ipcMain.handle('check-update', async () => {
+    if (!app.isPackaged) return { status: 'dev', version: app.getVersion() };
+    try {
+      const r = await autoUpdater.checkForUpdates();
+      const v = r?.updateInfo?.version;
+      if (v && v !== app.getVersion()) return { status: 'available', version: v };
+      return { status: 'latest', version: app.getVersion() };
+    } catch (e) { return { status: 'error', message: e.message }; }
+  });
 
   createWindow();
   setupUpdates();

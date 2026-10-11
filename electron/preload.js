@@ -6,4 +6,5 @@ contextBridge.exposeInMainWorld('monml', {
   saveFile: (name, content) => ipcRenderer.invoke('save-file', { name, content }),
   onUpdate: cb => ipcRenderer.on('update', (_e, d) => cb(d)),
   installUpdate: () => ipcRenderer.invoke('install-update'),
+  checkUpdate: () => ipcRenderer.invoke('check-update'),
 });

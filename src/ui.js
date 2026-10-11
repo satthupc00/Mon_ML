@@ -2,6 +2,7 @@ import { I } from './icons.js';
 import { label, addDay, keyOf, pad2, todayKey, parseK } from './dates.js';
 import store from './store.js';
 import { confirmBox } from './dialogs.js';
+import { plain, toHTML, fromDOM } from './rich.js';
 
 export const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -43,7 +44,8 @@ export class AppUI {
       <div class="views"><div class="track">
         <div class="pane flowp"><div class="flow" data-flow></div></div>
         <div class="pane calp"><div class="cal" data-cal></div></div>
-      </div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button></div>
+      </div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
+      <div class="editbar"><button data-act="bold" title="In đậm (Ctrl+B)" aria-label="In đậm"><b>B</b></button><button data-act="done" class="done" title="Xong, lưu và đồng bộ (Esc)" aria-label="Xong">${I.check}</button></div></div>
       <footer class="foot"><button class="sync" data-act="sync"><i></i><span data-st></span></button><span class="credit">Created by Mondiro</span></footer>
     </div>`;
     this.root = root.firstElementChild;
@@ -83,13 +85,14 @@ export class AppUI {
   }
   match(k) {
     const q = norm(this.q.trim()), e = store.get(k);
-    return !!(q && e && norm(e.text).includes(q));
+    return !!(q && e && norm(plain(e.text)).includes(q));
   }
-  hl(t) {
+  hlPlain(t) {
     const q = this.q.trim();
     if (!q) return esc(t);
     return esc(t).replace(new RegExp('(' + reEsc(esc(q)) + ')', 'gi'), '<mark>$1</mark>');
   }
+  hl(t) { return toHTML(t, s => this.hlPlain(s)); }
 
   // ----- Vẽ -----
   refresh(focusKey) {
@@ -115,16 +118,16 @@ export class AppUI {
   }
   entHTML(k) {
     const e = store.get(k) || { text: '', mood: null };
-    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" contenteditable="plaintext-only" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span><span class="acts">${this.actsHTML(k)}</span></p>`;
+    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span><span class="acts">${this.actsHTML(k)}</span></p>`;
   }
   entCls(k) {
     const e = store.get(k);
     const wd = parseK(k).getDay();
-    return ['ent', wd === 6 ? 'sat' : wd === 0 ? 'sun' : '', e?.mood || '', e?.text.trim() ? '' : 'empty', this.open === k ? 'open' : ''].filter(Boolean).join(' ');
+    return ['ent', wd === 6 ? 'sat' : wd === 0 ? 'sun' : '', e?.mood || '', plain(e?.text).trim() ? '' : 'empty', this.open === k ? 'open' : '', this.editing === k ? 'editing' : ''].filter(Boolean).join(' ');
   }
   actsHTML(k) {
     const m = store.get(k)?.mood;
-    return `<button class="mood pos ${m === 'pos' ? 'on' : ''}" data-mood="pos" data-k="${k}" title="Tích cực" aria-label="Tích cực"></button><button class="mood neg ${m === 'neg' ? 'on' : ''}" data-mood="neg" data-k="${k}" title="Tiêu cực" aria-label="Tiêu cực"></button><span class="sep"></span><button class="tgl" data-del="${k}">${I.trash}Xóa nội dung</button>`;
+    return `<button class="mood pos ${m === 'pos' ? 'on' : ''}" data-mood="pos" data-k="${k}" title="Tích cực" aria-label="Tích cực"></button><button class="mood neg ${m === 'neg' ? 'on' : ''}" data-mood="neg" data-k="${k}" title="Tiêu cực" aria-label="Tiêu cực"></button><button class="mood trip ${m === 'trip' ? 'on' : ''}" data-mood="trip" data-k="${k}" title="Đi du lịch" aria-label="Đi du lịch"></button><span class="sep"></span><button class="tgl" data-del="${k}">${I.trash}Xóa nội dung</button>`;
   }
   renderFlow() {
     const ds = this.daysOfYear();
@@ -138,7 +141,7 @@ export class AppUI {
   }
   cellCls(k) {
     const e = store.get(k);
-    return ['cell', e?.text.trim() ? 'has' : '', e?.mood || '', this.match(k) ? 'hit' : '', k === todayKey() ? 'today' : '', k === this.open ? 'sel' : ''].filter(Boolean).join(' ');
+    return ['cell', plain(e?.text).trim() ? 'has' : '', e?.mood || '', this.match(k) ? 'hit' : '', k === todayKey() ? 'today' : '', k === this.open ? 'sel' : ''].filter(Boolean).join(' ');
   }
   renderCal() {
     let h = '';
@@ -147,7 +150,7 @@ export class AppUI {
       let cnt = 0, cells = '<div class="cell blank"></div>'.repeat(off);
       for (let d = 1; d <= days; d++) {
         const k = `${this.year}-${pad2(m + 1)}-${pad2(d)}`;
-        if (store.get(k)?.text.trim()) cnt++;
+        if (plain(store.get(k)?.text).trim()) cnt++;
         cells += `<button class="${this.cellCls(k)}" data-day="${k}" title="${label(k)}">${d}</button>`;
       }
       h += `<div class="mhead" data-month="${m}"><h4>Tháng ${m + 1}</h4><span>${cnt ? cnt + ' ngày đã viết' : ''}</span></div><div class="month"><div class="wk">${['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(x => `<div>${x}</div>`).join('')}</div><div class="grid">${cells}</div></div>`;
@@ -162,7 +165,7 @@ export class AppUI {
     if (!el) return false;
     el.className = this.entCls(k);
     const t = el.querySelector('.txt');
-    if (document.activeElement !== t) t.innerHTML = this.hl(store.get(k)?.text || '');
+    if (this.editing !== k) t.innerHTML = this.hl(store.get(k)?.text || '');
     el.querySelector('.acts').innerHTML = this.actsHTML(k);
     return true;
   }
@@ -170,9 +173,8 @@ export class AppUI {
   onStore(ev) {
     if (ev.type === 'status') return this.showStatus();
     if (ev.type === 'reset') return this.refresh();
-    const editing = document.activeElement?.classList?.contains('txt') && this.flowEl.contains(document.activeElement);
     if (ev.origin === 'type') { this.patchCells(ev.keys); this.updateCount(); return; }
-    if (!editing) return this.refresh();
+    if (!this.editing) return this.refresh();
     // Đang gõ: chỉ vá từng dòng, phần còn lại vẽ lại khi rời ô
     for (const k of ev.keys) if (!this.patchEntry(k) && k.startsWith(this.year + '-')) this.pendingRebuild = true;
     this.patchCells(ev.keys);
@@ -204,16 +206,55 @@ export class AppUI {
     this.flowP.scrollTop = this.flowP.scrollHeight;
     this.scrollCalTo(new Date().getMonth());
   }
-  focusEntry(k, caret) {
+  focusEntry(k, edit) {
     const e = this.flowEl.querySelector(`.ent[data-k="${k}"]`);
     if (!e) return;
     e.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    e.classList.add(caret ? 'pop' : 'flash');
+    e.classList.add(edit ? 'pop' : 'flash');
     setTimeout(() => e.classList.remove('pop', 'flash'), 1500);
-    if (caret) {
-      const t = e.querySelector('.txt');
-      setTimeout(() => { t.focus({ preventScroll: true }); placeEnd(t); }, 320);
-    }
+    if (edit) setTimeout(() => this.startEdit(k), 320);
+  }
+
+  // ----- Chế độ gõ: chạm 2 lần vào 1 ngày để gõ, bấm ✓ để xong và đồng bộ -----
+  startEdit(k, x, y) {
+    if (this.editing === k) return;
+    if (this.editing) this.commitEdit();
+    const ent = this.flowEl.querySelector(`.ent[data-k="${k}"]`);
+    if (!ent) return;
+    const t = ent.querySelector('.txt');
+    this.editing = k;
+    this.open = null;
+    ent.className = this.entCls(k);
+    t.innerHTML = toHTML(store.get(k)?.text || '', esc);
+    t.contentEditable = 'true';
+    this.root.classList.add('editmode');
+    t.focus({ preventScroll: true });
+    const r = x != null && document.caretRangeFromPoint?.(x, y);
+    if (r && t.contains(r.startContainer)) { const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    else placeEnd(t);
+    this.updateBold();
+  }
+  commitEdit() {
+    const k = this.editing;
+    if (!k) return;
+    const t = this.flowEl.querySelector(`.ent[data-k="${k}"] .txt`);
+    this.editing = null;
+    this.savedRange = null;
+    this.root.classList.remove('editmode');
+    if (t) { const text = fromDOM(t); t.contentEditable = 'false'; t.blur(); store.set(k, { text }); }
+    else this.refresh();
+    store.flush();
+  }
+  restoreSel() {
+    const t = this.$('.ent.editing .txt');
+    if (!t) return;
+    if (document.activeElement !== t) t.focus({ preventScroll: true });
+    if (this.savedRange && t.contains(this.savedRange.startContainer)) { const sel = getSelection(); sel.removeAllRanges(); sel.addRange(this.savedRange); }
+  }
+  updateBold() {
+    let on = false;
+    try { on = !!this.editing && document.queryCommandState('bold'); } catch { /* bỏ qua */ }
+    this.$('[data-act=bold]').classList.toggle('on', on);
   }
   openDay(k) {
     if (+k.slice(0, 4) !== this.year) this.year = +k.slice(0, 4);
@@ -221,7 +262,7 @@ export class AppUI {
     this.open = k;
     if (!this.wide) this.setMode('flow');
     this.refresh();
-    setTimeout(() => this.focusEntry(k, !store.get(k)?.text.trim()), this.wide ? 20 : 380);
+    setTimeout(() => this.focusEntry(k, !plain(store.get(k)?.text).trim()), this.wide ? 20 : 380);
   }
   setQuery(v) {
     this.q = v;
@@ -247,6 +288,7 @@ export class AppUI {
   // Nút Back của Android: đóng lớp trên cùng, trả về false nếu không còn gì để đóng
   back() {
     if (this.closeMenu()) return true;
+    if (this.editing) { this.commitEdit(); return true; }
     if (this.open) { this.open = null; this.refresh(); return true; }
     if (this.root.classList.contains('searching')) { this.toggleSearch(false); return true; }
     if (!this.wide && this.mode === 'cal') { this.setMode('flow'); return true; }
@@ -265,41 +307,75 @@ export class AppUI {
       else if (d.open) { this.open = this.open === d.open ? null : d.open; this.refresh(); }
       else if (d.mood) { const cur = store.get(d.k)?.mood; store.set(d.k, { mood: cur === d.mood ? null : d.mood }); }
       else if (d.del) { const k = d.del; confirmBox(`Xóa nội dung ngày ${label(k)}?`, 'Xóa').then(ok => { if (ok) { this.open = null; store.set(k, { text: '', mood: null }); } }); }
-      else if (b.hasAttribute('data-add')) { const k = this.nextKey; this.extra.add(k); this.open = null; this.refresh(k); }
+      else if (b.hasAttribute('data-add')) { if (this.editing) this.commitEdit(); const k = this.nextKey; this.extra.add(k); this.open = null; this.refresh(k); }
       else if (d.day) this.openDay(d.day);
       else if (d.act === 'search') this.toggleSearch();
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
       else if (d.act === 'menu') { if (!this.closeMenu()) this.onMenu(this); }
       else if (d.act === 'sync') this.onSync();
+      else if (d.act === 'done') this.commitEdit();
+      else if (d.act === 'bold') { this.restoreSel(); document.execCommand('bold'); this.updateBold(); const t = this.$('.ent.editing .txt'); if (t) store.set(this.editing, { text: fromDOM(t) }, 'type'); }
       else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
     R.addEventListener('input', ev => {
       const t = ev.target;
       if (t.dataset.q !== undefined) { this.setQuery(t.value); return; }
-      if (t.classList.contains('txt')) {
-        const k = t.dataset.k;
-        const text = t.innerText.replace(/\n$/, '');
-        t.closest('.ent').classList.toggle('empty', !text.trim());
-        store.set(k, { text }, 'type');
+      if (t.classList.contains('txt') && t.dataset.k === this.editing) {
+        const text = fromDOM(t);
+        t.closest('.ent').classList.toggle('empty', !plain(text).trim());
+        store.set(t.dataset.k, { text }, 'type'); // lưu nháp liên tục, ✓ để chốt
       }
     });
-    R.addEventListener('focusout', ev => {
-      if (ev.target.classList?.contains('txt') && this.pendingRebuild) setTimeout(() => {
-        if (!document.activeElement?.classList?.contains('txt')) this.refresh();
-      }, 0);
+    // Dán chữ: chỉ lấy văn bản thường
+    R.addEventListener('paste', ev => {
+      if (!ev.target.closest?.('.txt[contenteditable=true]')) return;
+      ev.preventDefault();
+      document.execCommand('insertText', false, ev.clipboardData.getData('text/plain'));
     });
+    // Nhớ vùng chữ đang chọn (bấm nút trên màn cảm ứng có thể làm mất vùng chọn)
+    document.addEventListener('selectionchange', () => {
+      if (!this.editing) return;
+      const sel = getSelection(), t = this.$('.ent.editing .txt');
+      if (sel.rangeCount && t && t.contains(sel.anchorNode)) this.savedRange = sel.getRangeAt(0).cloneRange();
+      this.updateBold();
+    });
+    // Nút B, ✓ không lấy mất con trỏ/vùng chọn
+    this.$('.editbar').addEventListener('pointerdown', e => e.preventDefault());
     R.addEventListener('keydown', ev => {
-      if (ev.target.classList?.contains('txt') && ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey)) {
-        ev.preventDefault(); this.$('[data-add]').click();
-      }
+      if (!ev.target.classList?.contains('txt')) return;
+      if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey)) { ev.preventDefault(); this.$('[data-add]').click(); }
+      else if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); this.commitEdit(); }
     });
+    // Chạm 2 lần (hoặc double-click) vào nội dung 1 ngày để vào chế độ gõ
+    let tap = null, down = null;
+    this.flowEl.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+    this.flowEl.addEventListener('pointerup', e => {
+      if (!down) return;
+      const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y), dt = performance.now() - down.t;
+      down = null;
+      if (moved > 12 || dt > 400) { tap = null; return; }
+      const ent = e.target.closest('.ent');
+      if (!ent || e.target.closest('.date,.acts') || ent.dataset.k === this.editing) { tap = null; return; }
+      const now = performance.now();
+      if (tap && tap.k === ent.dataset.k && now - tap.t < 420 && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 40) {
+        tap = null;
+        getSelection().removeAllRanges();
+        this.startEdit(ent.dataset.k, e.clientX, e.clientY);
+      } else tap = { k: ent.dataset.k, t: now, x: e.clientX, y: e.clientY };
+    });
+    // Bàn phím ảo che màn hình: đẩy thanh B / ✓ lên trên bàn phím
+    const vv = window.visualViewport;
+    if (vv) {
+      const fit = () => this.root.style.setProperty('--kb', Math.max(0, innerHeight - vv.height - vv.offsetTop) + 'px');
+      vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit);
+    }
     document.addEventListener('keydown', ev => {
       if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'f') {
         ev.preventDefault();
         const i = this.$('.app.desk.wide .searchbar.only-desk input') || (this.toggleSearch(true), null);
         i?.focus(); i?.select();
       } else if (ev.key === 'Escape') {
-        if (!this.closeMenu() && this.q) this.setQuery('');
+        if (!this.closeMenu() && !this.editing && this.q) this.setQuery('');
       }
     });
     // Vuốt mạnh trái/phải để đổi Dòng chảy ⇄ Lịch (màn hẹp)

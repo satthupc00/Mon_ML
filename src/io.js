@@ -2,6 +2,7 @@
 import { isElectron, isNative } from './platform.js';
 import { label, pad2, isKey, keyOf, parseK } from './dates.js';
 import store from './store.js';
+import { plain } from './rich.js';
 
 export function exportJSON() {
   const entries = {};
@@ -11,7 +12,7 @@ export function exportJSON() {
 
 // Văn bản kiểu Google Docs: mỗi ngày một dòng "d/m tX nội dung"
 export function exportTXT(year, days) {
-  return `ML ${year}\n` + days.map(k => `${label(k)} ${store.get(k)?.text || ''}`.trimEnd()).join('\n') + '\n';
+  return `ML ${year}\n` + days.map(k => `${label(k)} ${plain(store.get(k)?.text)}`.trimEnd()).join('\n') + '\n';
 }
 
 // Trả về { entries: {key:{text,mood}}, count }
@@ -24,7 +25,7 @@ export function parseImport(text, year) {
     for (const [k, v] of Object.entries(src)) {
       if (!isKey(k)) continue;
       const e = typeof v === 'string' ? { text: v } : v;
-      out[k] = { text: String(e.text || ''), mood: e.mood === 'pos' || e.mood === 'neg' ? e.mood : null };
+      out[k] = { text: String(e.text || ''), mood: ['pos', 'neg', 'trip'].includes(e.mood) ? e.mood : null };
     }
     return { entries: out, count: Object.keys(out).length, kind: 'json' };
   } catch { /* không phải JSON → đọc như văn bản */ }

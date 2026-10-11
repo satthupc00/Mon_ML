@@ -19,6 +19,7 @@ export const I = {
   today: s('<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/><circle cx="12" cy="15" r="2" fill="currentColor"/>'),
   refresh: s('<path d="M20 11a8 8 0 0 0-14.6-4.5M4 4v4h4M4 13a8 8 0 0 0 14.6 4.5M20 20v-4h-4"/>'),
   fp: s('<path d="M6.5 8.5A6.5 6.5 0 0 1 18.5 11v2M5 12v1a8 8 0 0 0 1 4M12 11v3a6 6 0 0 0 1.5 4M9 13.5V11a3 3 0 0 1 6 0v2.5a9 9 0 0 0 .8 4M17.8 16.5A10 10 0 0 0 18.5 13"/>', 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"'),
+  check: s('<path d="m5 12.5 4.5 4.5L19 7.5"/>', 'fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"'),
   chev: s('<path d="m6 9 6 6 6-6"/>'),
   back: s('<path d="M20 12H8m4-5-5 5 5 5"/>'),
   eye: s('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'),

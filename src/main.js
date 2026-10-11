@@ -3,7 +3,7 @@ import store, { LS, parseFirebaseConfig, authMessage } from './store.js';
 import { showLock, checkPin, setPin } from './lock.js';
 import { sheet, closeTopSheet, confirmBox, alertBox, busy, esc, I } from './dialogs.js';
 import { exportJSON, exportTXT, parseImport, saveFile, stamp } from './io.js';
-import { initUpdates } from './update.js';
+import { initUpdates, checkNow } from './update.js';
 import { platform, isAndroid, appVersion } from './platform.js';
 
 let ui;
@@ -88,7 +88,7 @@ function openImport() {
     const r = parseImport(ta.value, +s.el.querySelector('[data-year]').value || ui.year);
     if (!r.count) { s.el.querySelector('[data-err]').textContent = 'Không tìm thấy ngày nào. Mỗi ngày cần bắt đầu bằng "ngày/tháng", ví dụ 8/10'; return; }
     const ks = Object.keys(r.entries).sort();
-    const clash = ks.filter(k => store.get(k)?.text.trim() && store.get(k).text !== r.entries[k].text).length;
+    const clash = ks.filter(k => store.get(k)?.text?.trim() && store.get(k).text !== r.entries[k].text).length;
     const ok = await confirmBox(`Nhập ${r.count} ngày (${ks[0].split('-').reverse().join('/')} → ${ks.at(-1).split('-').reverse().join('/')})${clash ? `, trong đó ${clash} ngày sẽ ghi đè nội dung đang có` : ''}?`, 'Nhập');
     if (!ok) return;
     await store.bulk(r.entries);
@@ -135,11 +135,13 @@ async function openMenu(u) {
     { id: 'sync', icon: I.cloud, label: store.user ? 'Đồng bộ · ' + (store.user.email || '') : 'Đồng bộ & tài khoản', run: openAccount },
     { id: 'pin', icon: I.key, label: 'Đổi mật khẩu mở app', run: openPin },
     { id: 'lock', icon: I.lock, label: 'Khóa ngay', run: lockNow },
+    { id: 'upd', icon: I.refresh, label: 'Kiểm tra cập nhật', run: () => checkNow(u) },
     { note: `Mon ML v${ver} · Created by Mondiro` },
   ]);
 }
 
 async function lockNow() {
+  ui.commitEdit();
   store.flush();
   ui.root.classList.add('locked');
   await showLock();

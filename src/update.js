@@ -25,14 +25,35 @@ export function initUpdates(ui) {
   if (isAndroid) setTimeout(() => checkAndroid(ui), 2500);
 }
 
+// Nút "Kiểm tra cập nhật" trong menu
+export async function checkNow(ui) {
+  ui.toast('Đang kiểm tra bản mới…');
+  if (isElectron) {
+    const r = await window.monml.checkUpdate();
+    if (r.status === 'available') ui.toast(`Có bản mới v${r.version}, đang tải về…`);
+    else if (r.status === 'latest') ui.toast(`Bạn đang dùng bản mới nhất (v${r.version})`);
+    else if (r.status === 'dev') ui.toast('Bản chạy thử, không cập nhật');
+    else ui.toast('Không kiểm tra được, thử lại khi có mạng');
+    return;
+  }
+  if (isAndroid) {
+    const r = await checkAndroid(ui);
+    if (r === 'latest') ui.toast(`Bạn đang dùng bản mới nhất (v${await appVersion()})`);
+    else if (r === 'error') ui.toast('Không kiểm tra được, thử lại khi có mạng');
+    else if (r === 'available') ui.toast('Có bản mới, bấm "Cập nhật" ở đầu màn hình');
+    return;
+  }
+  ui.toast('Bản web không cần cập nhật');
+}
+
 async function checkAndroid(ui) {
   try {
-    const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' } });
-    if (!r.ok) return;
+    const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' });
+    if (!r.ok) return 'error';
     const rel = await r.json();
     const cur = await appVersion();
     const apk = rel.assets?.find(a => a.name.endsWith('.apk'));
-    if (!apk || !newer(rel.tag_name, cur)) return;
+    if (!apk || !newer(rel.tag_name, cur)) return 'latest';
     const b = ui.banner(`<span>Có bản mới ${rel.tag_name} (đang dùng v${cur})</span><button>Cập nhật</button>`);
     const btn = b.querySelector('button');
     btn.onclick = async () => {
@@ -45,5 +66,6 @@ async function checkAndroid(ui) {
       sub.remove();
       btn.disabled = false; btn.textContent = 'Cập nhật';
     };
-  } catch { /* offline: bỏ qua */ }
+    return 'available';
+  } catch { return 'error'; }
 }
