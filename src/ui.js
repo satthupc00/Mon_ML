@@ -44,7 +44,7 @@ export class AppUI {
       <div class="views"><div class="track">
         <div class="pane flowp"><div class="flow" data-flow></div></div>
         <div class="pane calp"><div class="cal" data-cal></div></div>
-      </div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
+      </div><div class="fscroll"><div class="thumb"></div><div class="bubble"></div></div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
       <div class="editbar"><button data-act="bold" title="In đậm (Ctrl+B)" aria-label="In đậm"><b>B</b></button><button data-act="done" class="done" title="Xong, lưu và đồng bộ (Esc)" aria-label="Xong">${I.check}</button></div></div>
       <footer class="foot"><button class="sync" data-act="sync"><i></i><span data-st></span></button><span class="credit">Created by Mondiro</span></footer>
     </div>`;
@@ -53,8 +53,11 @@ export class AppUI {
     this.calEl = this.$('[data-cal]');
     this.flowP = this.$('.flowp');
     this.calP = this.$('.calp');
-    new ResizeObserver(() => { this.checkWide(); this.checkBottom(); }).observe(this.root);
-    this.flowP.addEventListener('scroll', () => this.checkBottom(), { passive: true });
+    new ResizeObserver(() => { this.checkWide(); this.checkBottom(); this.syncScrollbar(false); }).observe(this.root);
+    this.flowP.addEventListener('scroll', () => { this.checkBottom(); this.syncScrollbar(true); }, { passive: true });
+    // Bộ lọc SVG tạo hiệu ứng "giọt nước" cho các ô du lịch liền nhau trên lịch
+    if (!document.getElementById('monml-goo')) document.body.insertAdjacentHTML('beforeend', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="monml-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>');
+    this.bindScrollbar();
     this.checkWide();
     this.bind();
     store.on(ev => this.onStore(ev));
@@ -103,6 +106,7 @@ export class AppUI {
     this.flowP.scrollTop = s1; this.calP.scrollTop = s2;
     this.updateCount();
     this.checkBottom();
+    this.syncScrollbar(false);
     this.pendingRebuild = false;
     if (focusKey) this.focusEntry(focusKey, true);
   }
@@ -111,6 +115,48 @@ export class AppUI {
     const p = this.flowP;
     const far = p.scrollHeight - p.scrollTop - p.clientHeight > 240;
     this.$('.tobottom').classList.toggle('show', far);
+  }
+  // ----- Thanh cuộn bên phải của Dòng chảy (giữ kéo để cuộn nhanh) -----
+  syncScrollbar(show) {
+    const p = this.flowP, bar = this.$('.fscroll'), th = bar.firstElementChild;
+    const track = bar.clientHeight, ratio = p.clientHeight / Math.max(1, p.scrollHeight);
+    if (ratio >= 0.98) { bar.classList.remove('show'); return; }
+    const h = Math.max(44, track * ratio), max = p.scrollHeight - p.clientHeight;
+    th.style.height = h + 'px';
+    th.style.top = ((track - h) * (p.scrollTop / Math.max(1, max))) + 'px';
+    if (show) {
+      bar.classList.add('show');
+      clearTimeout(this._sbT);
+      this._sbT = setTimeout(() => { if (!bar.classList.contains('drag')) bar.classList.remove('show'); }, 1300);
+    }
+  }
+  bindScrollbar() {
+    const bar = this.$('.fscroll'), th = bar.firstElementChild, bub = bar.lastElementChild, p = this.flowP;
+    let startY = 0, startTop = 0;
+    const dayAt = () => {
+      const ents = this.flowEl.querySelectorAll('.ent');
+      const y = p.scrollTop + 40;
+      let lo = 0, hi = ents.length - 1, best = ents[0];
+      while (lo <= hi) { const m = (lo + hi) >> 1; if (ents[m].offsetTop <= y) { best = ents[m]; lo = m + 1; } else hi = m - 1; }
+      return best ? label(best.dataset.k) : '';
+    };
+    th.addEventListener('pointerdown', e => {
+      e.preventDefault(); e.stopPropagation();
+      th.setPointerCapture(e.pointerId);
+      startY = e.clientY; startTop = parseFloat(th.style.top) || 0;
+      bar.classList.add('drag', 'show');
+      bub.textContent = dayAt(); bub.style.top = (startTop + th.offsetHeight / 2) + 'px';
+    });
+    th.addEventListener('pointermove', e => {
+      if (!bar.classList.contains('drag')) return;
+      const track = bar.clientHeight - th.offsetHeight;
+      const top = Math.min(track, Math.max(0, startTop + e.clientY - startY));
+      p.scrollTop = (top / Math.max(1, track)) * (p.scrollHeight - p.clientHeight);
+      bub.textContent = dayAt(); bub.style.top = (top + th.offsetHeight / 2) + 'px';
+    });
+    const end = () => { bar.classList.remove('drag'); this.syncScrollbar(true); };
+    th.addEventListener('pointerup', end);
+    th.addEventListener('pointercancel', end);
   }
   updateCount() {
     const n = this.q.trim() ? this.daysOfYear().filter(k => this.match(k)).length : 0;
@@ -147,13 +193,14 @@ export class AppUI {
     let h = '';
     for (let m = 0; m < 12; m++) {
       const first = new Date(this.year, m, 1), days = new Date(this.year, m + 1, 0).getDate(), off = (first.getDay() + 6) % 7;
-      let cnt = 0, cells = '<div class="cell blank"></div>'.repeat(off);
+      let cnt = 0, cells = '<div class="cell blank"></div>'.repeat(off), goo = '<i></i>'.repeat(off);
       for (let d = 1; d <= days; d++) {
         const k = `${this.year}-${pad2(m + 1)}-${pad2(d)}`;
         if (plain(store.get(k)?.text).trim()) cnt++;
         cells += `<button class="${this.cellCls(k)}" data-day="${k}" title="${label(k)}">${d}</button>`;
+        goo += store.get(k)?.mood === 'trip' ? '<i class="b"></i>' : '<i></i>';
       }
-      h += `<div class="mhead" data-month="${m}"><h4>Tháng ${m + 1}</h4><span>${cnt ? cnt + ' ngày đã viết' : ''}</span></div><div class="month"><div class="wk">${['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(x => `<div>${x}</div>`).join('')}</div><div class="grid">${cells}</div></div>`;
+      h += `<div class="mhead" data-month="${m}"><h4>Tháng ${m + 1}</h4><span>${cnt ? cnt + ' ngày đã viết' : ''}</span></div><div class="month"><div class="wk">${['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map(x => `<div>${x}</div>`).join('')}</div><div class="gwrap">${goo.includes('"b"') ? `<div class="goo">${goo}</div>` : ''}<div class="grid">${cells}</div></div></div>`;
     }
     this.calEl.innerHTML = h;
   }
@@ -300,12 +347,13 @@ export class AppUI {
     R.addEventListener('click', ev => {
       const b = ev.target.closest('button,[data-open]');
       if (!ev.target.closest('.menu')) this.closeMenu();
+      if (this.open && !ev.target.closest('.acts,.date')) { this.open = null; const o = this.flowEl.querySelector('.ent.open'); o?.classList.remove('open'); }
       if (!b) return;
       const d = b.dataset;
       if (d.m) this.setMode(d.m);
       else if (d.y) this.setYear(this.year + +d.y);
       else if (d.open) { this.open = this.open === d.open ? null : d.open; this.refresh(); }
-      else if (d.mood) { const cur = store.get(d.k)?.mood; store.set(d.k, { mood: cur === d.mood ? null : d.mood }); }
+      else if (d.mood) { const k = d.k, cur = store.get(k)?.mood; b.classList.toggle('on', cur !== d.mood); setTimeout(() => { this.open = null; store.set(k, { mood: cur === d.mood ? null : d.mood }); }, 220); }
       else if (d.del) { const k = d.del; confirmBox(`Xóa nội dung ngày ${label(k)}?`, 'Xóa').then(ok => { if (ok) { this.open = null; store.set(k, { text: '', mood: null }); } }); }
       else if (b.hasAttribute('data-add')) { if (this.editing) this.commitEdit(); const k = this.nextKey; this.extra.add(k); this.open = null; this.refresh(k); }
       else if (d.day) this.openDay(d.day);
