@@ -10,7 +10,7 @@
     if (document.querySelector('.lock')) return;
     var d = document.createElement('pre');
     d.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:999;background:#2E2A2B;color:#fff;padding:12px;border-radius:12px;font:12px/1.45 monospace;white-space:pre-wrap;max-height:50vh;overflow:auto;border-left:3px solid #E5383B';
-    d.textContent = 'Mon ML không khởi động được. Hãy chụp màn hình này gửi lại.\n\n' + (errs.join('\n\n') || 'Không có thông báo lỗi.');
+    d.textContent = 'Mon Inkdays không khởi động được. Hãy chụp màn hình này gửi lại.\n\n' + (errs.join('\n\n') || 'Không có thông báo lỗi.');
     document.body.appendChild(d);
   }, 7000);
 })();

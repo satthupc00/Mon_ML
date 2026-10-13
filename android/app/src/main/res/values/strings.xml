@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Mon ML</string>
-    <string name="title_activity_main">Mon ML</string>
+    <string name="app_name">Mon Inkdays</string>
+    <string name="title_activity_main">Mon Inkdays</string>
     <string name="package_name">com.mondiro.monml</string>
     <string name="custom_url_scheme">com.mondiro.monml</string>
 </resources>

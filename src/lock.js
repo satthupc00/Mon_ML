@@ -37,7 +37,7 @@ export function showLock() {
     const mobile = isAndroid || (!window.monml && matchMedia('(pointer:coarse)').matches);
     const el = document.createElement('div');
     el.className = 'lock';
-    el.innerHTML = `<img class="logo" src="icon.svg" alt=""><h2><span class="m">Mon</span> ML</h2>
+    el.innerHTML = `<img class="logo" src="icon.svg" alt=""><h2><span class="m">Mon</span> Inkdays</h2>
       <p class="msg" data-msg></p>
       ${mobile ? `<div class="dots" data-dots>${'<i></i>'.repeat(4)}</div>
       <div class="keypad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button data-n="${n}">${n}</button>`).join('')}<button class="fp" data-fp aria-label="Mở bằng vân tay" hidden>${I.fp}</button><button data-n="0">0</button><button data-bk aria-label="Xóa">${I.back}</button></div>`
@@ -63,7 +63,7 @@ export function showLock() {
     const tryBio = async () => {
       if (!bio) return;
       try {
-        await bio.auth.authenticate({ reason: 'Mở nhật ký Mon ML', androidTitle: 'Mon ML', androidSubtitle: 'Chạm vân tay để mở nhật ký', cancelTitle: 'Dùng mật khẩu', allowDeviceCredential: false, androidConfirmationRequired: false });
+        await bio.auth.authenticate({ reason: 'Mở nhật ký Mon Inkdays', androidTitle: 'Mon Inkdays', androidSubtitle: 'Chạm vân tay để mở nhật ký', cancelTitle: 'Dùng mật khẩu', allowDeviceCredential: false, androidConfirmationRequired: false });
         done();
       } catch { msg.textContent = 'Nhập mật khẩu hoặc chạm biểu tượng vân tay'; }
     };

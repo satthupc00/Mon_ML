@@ -1,4 +1,4 @@
-# Mon ML
+# Mon Inkdays
 
 Nhật ký "My Life" của Mondiro: viết trên **Windows** và **Android (Z Fold 7)**, dữ liệu đồng bộ qua **Firebase**.
 

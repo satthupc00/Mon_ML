@@ -30,7 +30,7 @@ export class AppUI {
     this.extra = new Set(); // ngày vừa thêm bằng nút + nhưng chưa viết gì
     root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''}" data-mode="flow">
       <header class="top">
-        <div class="brand"><img src="icon.svg" alt=""><div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">ML</span></div><div class="brand-desc">Nhật kí</div></div></div>
+        <div class="brand"><img src="icon.svg" alt=""><div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">Inkdays</span></div><div class="brand-desc">Nhật kí</div></div></div>
         <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
         <div class="year"><button class="ibtn" data-y="-1" title="Năm trước" aria-label="Năm trước">${I.l}</button><b data-yl></b><button class="ibtn" data-y="1" title="Năm sau" aria-label="Năm sau">${I.r}</button></div>
         <button class="ibtn only-mob" data-act="search" title="Tìm kiếm" aria-label="Tìm kiếm">${I.search}</button>
@@ -100,6 +100,14 @@ export class AppUI {
   // ----- Vẽ -----
   refresh(focusKey) {
     const s1 = this.flowP.scrollTop, s2 = this.calP.scrollTop;
+    // Đang gõ mà phải vẽ lại: lưu chữ + vị trí con trỏ rồi mở lại đúng chỗ (tránh mất dấu nháy)
+    const ek = this.editing;
+    let caret = null;
+    if (ek) {
+      const t = this.flowEl.querySelector(`.ent[data-k="${ek}"] .txt`);
+      if (t) { caret = caretOffset(t); store.set(ek, { text: fromDOM(t) }, 'type'); }
+      this.editing = null;
+    }
     this.$('[data-yl]').textContent = this.year;
     this.renderFlow();
     this.renderCal();
@@ -108,6 +116,8 @@ export class AppUI {
     this.checkBottom();
     this.syncScrollbar(false);
     this.pendingRebuild = false;
+    if (ek && this.flowEl.querySelector(`.ent[data-k="${ek}"]`)) this.startEdit(ek, null, null, caret);
+    else if (ek) this.root.classList.remove('editmode');
     if (focusKey) this.focusEntry(focusKey, true);
   }
   // Nút mũi tên xuống cuối: hiện khi đang ở các dòng phía trên
@@ -234,15 +244,45 @@ export class AppUI {
   }
 
   // ----- Điều hướng -----
+  // Vuốt mạnh: luôn chuyển sang chế độ còn lại, trang mới trượt vào theo hướng vuốt
+  swipe(dir) {
+    const now = performance.now();
+    if (now - (this._swAt || 0) < 350) return;
+    this._swAt = now;
+    if (this.editing) this.commitEdit();
+    const next = this.mode === 'flow' ? 'cal' : 'flow';
+    const tr = this.$('.track');
+    tr.style.transition = 'none';
+    this.setMode(next);
+    void tr.offsetWidth;
+    tr.style.transition = '';
+    const pane = this.$(next === 'flow' ? '.flowp' : '.calp');
+    pane.classList.remove('in-l', 'in-r'); void pane.offsetWidth;
+    pane.classList.add(dir < 0 ? 'in-r' : 'in-l');
+    setTimeout(() => pane.classList.remove('in-l', 'in-r'), 500);
+  }
   setMode(m) {
     this.mode = m;
     this.root.dataset.mode = m;
     this.$$('.seg button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
   }
-  setYear(y) {
-    this.year = y; this.open = null; this.refresh();
-    this.flowP.scrollTop = this.flowP.scrollHeight;
-    this.scrollCalTo(y === new Date().getFullYear() ? new Date().getMonth() : 0);
+  setYear(y, animate) {
+    if (this.editing) this.commitEdit();
+    const dir = y > this.year ? 1 : -1;
+    const go = () => {
+      this.year = y; this.open = null; this.refresh();
+      this.flowP.scrollTop = this.flowP.scrollHeight;
+      this.scrollCalTo(y === new Date().getFullYear() ? new Date().getMonth() : 0);
+    };
+    if (!animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return go();
+    const els = [this.flowEl, this.calEl];
+    els.forEach(e => { e.classList.remove('yr-in-l', 'yr-in-r'); e.classList.add(dir > 0 ? 'yr-out-l' : 'yr-out-r'); });
+    clearTimeout(this._yrT);
+    this._yrT = setTimeout(() => {
+      go();
+      els.forEach(e => { e.classList.remove('yr-out-l', 'yr-out-r'); void e.offsetWidth; e.classList.add(dir > 0 ? 'yr-in-r' : 'yr-in-l'); });
+      setTimeout(() => els.forEach(e => e.classList.remove('yr-in-l', 'yr-in-r')), 450);
+    }, 170);
   }
   scrollCalTo(m) {
     const h = this.calEl.querySelector(`.mhead[data-month="${m}"]`);
@@ -263,7 +303,7 @@ export class AppUI {
   }
 
   // ----- Chế độ gõ: chạm 2 lần vào 1 ngày để gõ, bấm ✓ để xong và đồng bộ -----
-  startEdit(k, x, y) {
+  startEdit(k, x, y, caretAt) {
     if (this.editing === k) return;
     if (this.editing) this.commitEdit();
     const ent = this.flowEl.querySelector(`.ent[data-k="${k}"]`);
@@ -278,7 +318,9 @@ export class AppUI {
     t.focus({ preventScroll: true });
     const r = x != null && document.caretRangeFromPoint?.(x, y);
     if (r && t.contains(r.startContainer)) { const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    else if (caretAt != null) setCaret(t, caretAt);
     else placeEnd(t);
+    this.savedRange = getSelection().rangeCount ? getSelection().getRangeAt(0).cloneRange() : null;
     this.updateBold();
   }
   commitEdit() {
@@ -351,9 +393,9 @@ export class AppUI {
       if (!b) return;
       const d = b.dataset;
       if (d.m) this.setMode(d.m);
-      else if (d.y) this.setYear(this.year + +d.y);
-      else if (d.open) { this.open = this.open === d.open ? null : d.open; this.refresh(); }
-      else if (d.mood) { const k = d.k, cur = store.get(k)?.mood; b.classList.toggle('on', cur !== d.mood); setTimeout(() => { this.open = null; store.set(k, { mood: cur === d.mood ? null : d.mood }); }, 220); }
+      else if (d.y) this.setYear(this.year + +d.y, true);
+      else if (d.open) this.toggleTags(d.open);
+      else if (d.mood) { const k = d.k, cur = store.get(k)?.mood; b.classList.toggle('on', cur !== d.mood); setTimeout(() => { this.open = null; this.flowEl.querySelector('.ent.open')?.classList.remove('open'); store.set(k, { mood: cur === d.mood ? null : d.mood }); if (this.editing) this.restoreSel(); }, 220); }
       else if (d.del) { const k = d.del; confirmBox(`Xóa nội dung ngày ${label(k)}?`, 'Xóa').then(ok => { if (ok) { this.open = null; store.set(k, { text: '', mood: null }); } }); }
       else if (b.hasAttribute('data-add')) { if (this.editing) this.commitEdit(); const k = this.nextKey; this.extra.add(k); this.open = null; this.refresh(k); }
       else if (d.day) this.openDay(d.day);
@@ -361,8 +403,6 @@ export class AppUI {
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
       else if (d.act === 'menu') { if (!this.closeMenu()) this.onMenu(this); }
       else if (d.act === 'sync') this.onSync();
-      else if (d.act === 'done') this.commitEdit();
-      else if (d.act === 'bold') { this.restoreSel(); document.execCommand('bold'); this.updateBold(); const t = this.$('.ent.editing .txt'); if (t) store.set(this.editing, { text: fromDOM(t) }, 'type'); }
       else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
     R.addEventListener('input', ev => {
@@ -391,7 +431,23 @@ export class AppUI {
       this.updateBold();
     });
     // Nút B, ✓ không lấy mất con trỏ/vùng chọn
-    this.$('.editbar').addEventListener('pointerdown', e => e.preventDefault());
+    const eb = this.$('.editbar');
+    eb.addEventListener('pointerdown', e => e.preventDefault());
+    eb.addEventListener('mousedown', e => e.preventDefault());
+    eb.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+    eb.addEventListener('pointerup', e => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      e.preventDefault();
+      if (b.dataset.act === 'done') this.commitEdit();
+      else if (b.dataset.act === 'bold') {
+        this.restoreSel();
+        document.execCommand('bold');
+        this.updateBold();
+        const t = this.$('.ent.editing .txt');
+        if (t) store.set(this.editing, { text: fromDOM(t) }, 'type');
+      }
+    });
     R.addEventListener('keydown', ev => {
       if (!ev.target.classList?.contains('txt')) return;
       if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey)) { ev.preventDefault(); this.$('[data-add]').click(); }
@@ -407,6 +463,11 @@ export class AppUI {
       if (moved > 12 || dt > 400) { tap = null; return; }
       const ent = e.target.closest('.ent');
       if (!ent || e.target.closest('.date,.acts') || ent.dataset.k === this.editing) { tap = null; return; }
+      if (this.editing) {
+        tap = null;
+        this.startEdit(ent.dataset.k, e.clientX, e.clientY);
+        return;
+      }
       const now = performance.now();
       if (tap && tap.k === ent.dataset.k && now - tap.t < 420 && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 40) {
         tap = null;
@@ -439,7 +500,7 @@ export class AppUI {
       const dx = e.clientX - sx, dy = e.clientY - sy, dt = performance.now() - st;
       sx = null;
       if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && Math.abs(dx) / dt > 0.35 && !getSelection().toString())
-        this.setMode(dx < 0 ? 'cal' : 'flow');
+        this.swipe(dx);
     });
     // pointerup không tới khi trình duyệt cuộn ngang: dùng touch làm dự phòng
     let tx = null, ty, tt;
@@ -449,8 +510,22 @@ export class AppUI {
       const p = e.changedTouches[0], dx = p.clientX - tx, dy = p.clientY - ty, dt = performance.now() - tt;
       tx = null;
       if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && Math.abs(dx) / dt > 0.35 && !getSelection().toString())
-        this.setMode(dx < 0 ? 'cal' : 'flow');
+        this.swipe(dx);
     });
+  }
+
+  toggleTags(k) {
+    const was = this.open;
+    this.flowEl.querySelectorAll('.ent.open').forEach(e => e.classList.remove('open', 'below'));
+    this.open = was === k ? null : k;
+    const ent = this.open && this.flowEl.querySelector(`.ent[data-k="${k}"]`);
+    if (!ent) return;
+    ent.querySelector('.acts').innerHTML = this.actsHTML(k);
+    // Bảng màu hiện ngay phía trên dòng ngày; nếu sát mép trên màn hình thì hiện phía dưới
+    const room = ent.getBoundingClientRect().top - this.flowP.getBoundingClientRect().top;
+    ent.classList.toggle('below', room < 64);
+    ent.classList.add('open');
+    if (this.editing) this.restoreSel();
   }
 
   showMenu(items) {
@@ -467,6 +542,24 @@ export class AppUI {
   }
 }
 
+// Vị trí con trỏ tính theo số ký tự trong ô
+export function caretOffset(el) {
+  const s = getSelection();
+  if (!s.rangeCount || !el.contains(s.anchorNode)) return null;
+  const r = s.getRangeAt(0).cloneRange();
+  r.selectNodeContents(el);
+  r.setEnd(s.getRangeAt(0).endContainer, s.getRangeAt(0).endOffset);
+  return r.toString().length;
+}
+export function setCaret(el, n) {
+  const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  let node;
+  while ((node = w.nextNode())) {
+    if (n <= node.length) { const r = document.createRange(); r.setStart(node, n); r.collapse(true); const s = getSelection(); s.removeAllRanges(); s.addRange(r); return; }
+    n -= node.length;
+  }
+  placeEnd(el);
+}
 export function placeEnd(el) {
   const r = document.createRange();
   r.selectNodeContents(el); r.collapse(false);

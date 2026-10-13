@@ -1,4 +1,4 @@
-// Mon ML — vỏ Electron cho Windows
+// Mon Inkdays — vỏ Electron cho Windows
 const { app, BrowserWindow, protocol, net, ipcMain, dialog, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
@@ -9,6 +9,9 @@ const WWW = path.join(__dirname, '..', 'www');
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { standard: true, secure: true, supportFetchAPI: true, corsEnabled: true } },
 ]);
+
+// Đổi tên app nhưng giữ nguyên thư mục dữ liệu cũ "Mon ML" (đăng nhập, mật khẩu, nháp)
+app.setPath('userData', path.join(app.getPath('appData'), 'Mon ML'));
 
 if (!app.requestSingleInstanceLock()) app.quit();
 
@@ -25,7 +28,7 @@ function createWindow() {
   const st = loadState();
   win = new BrowserWindow({
     x: st.x, y: st.y, width: st.width, height: st.height, minWidth: 420, minHeight: 560,
-    title: 'Mon ML', backgroundColor: '#FFF8F0', show: false, autoHideMenuBar: true,
+    title: 'Mon Inkdays', backgroundColor: '#FFF8F0', show: false, autoHideMenuBar: true,
     icon: path.join(__dirname, '..', 'build', 'icon.png'),
     webPreferences: { preload: path.join(__dirname, 'preload.js'), contextIsolation: true, sandbox: true, spellcheck: false },
   });

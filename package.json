@@ -1,8 +1,8 @@
 {
   "name": "mon-ml",
-  "productName": "Mon ML",
-  "version": "1.0.7",
-  "description": "Mon ML - nhật ký đời mình, đồng bộ PC & điện thoại",
+  "productName": "Mon Inkdays",
+  "version": "1.0.8",
+  "description": "Mon Inkdays - nhật kí, đồng bộ PC & điện thoại",
   "author": "Mondiro",
   "license": "UNLICENSED",
   "private": true,
@@ -17,7 +17,7 @@
   },
   "build": {
     "appId": "com.mondiro.monml",
-    "productName": "Mon ML",
+    "productName": "Mon Inkdays",
     "copyright": "Mondiro",
     "directories": {
       "output": "dist",
@@ -45,7 +45,7 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "Mon ML"
+      "shortcutName": "Mon Inkdays"
     },
     "publish": [
       {

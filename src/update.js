@@ -61,7 +61,7 @@ async function checkAndroid(ui) {
       const sub = await ApkUpdater.addListener('progress', p => { btn.textContent = `Đang tải ${p.percent}%`; });
       try {
         const res = await ApkUpdater.downloadAndInstall({ url: apk.browser_download_url });
-        if (res.status === 'need-permission') { ui.toast('Cho phép "Cài app không rõ nguồn" cho Mon ML rồi bấm Cập nhật lại'); }
+        if (res.status === 'need-permission') { ui.toast('Cho phép "Cài app không rõ nguồn" cho Mon Inkdays rồi bấm Cập nhật lại'); }
       } catch (e) { ui.toast('Tải bản cập nhật lỗi: ' + (e.message || e)); }
       sub.remove();
       btn.disabled = false; btn.textContent = 'Cập nhật';

@@ -74,7 +74,7 @@ async function resetConfig() {
 // ---------- Nhập dữ liệu ----------
 function openImport() {
   const s = sheet(`<h3>Nhập dữ liệu</h3>
-    <p class="sub">Chọn file <b>.json</b> (xuất từ Mon ML) hoặc <b>.txt</b>, hoặc dán thẳng văn bản từ Google Docs. Mỗi ngày bắt đầu bằng dòng dạng <b>8/10 t5 …</b></p>
+    <p class="sub">Chọn file <b>.json</b> (xuất từ Mon Inkdays) hoặc <b>.txt</b>, hoặc dán thẳng văn bản từ Google Docs. Mỗi ngày bắt đầu bằng dòng dạng <b>8/10 t5 …</b></p>
     <div class="row" style="margin-bottom:12px"><button class="btn" data-file>${I.up}Chọn file</button></div>
     <input type="file" accept=".json,.txt,application/json,text/plain" hidden data-input>
     <label class="field">Hoặc dán văn bản (chữ in đậm sẽ hiện dạng **chữ**)<textarea data-text placeholder="ML 2026&#10;4/10 cn đám giỗ má…&#10;5/10 t2 họp team…"></textarea></label>
@@ -109,7 +109,7 @@ function openImport() {
 // ---------- Đổi mật khẩu mở app ----------
 function openPin() {
   const s = sheet(`<h3>Đổi mật khẩu mở app</h3>
-    <p class="sub">Mật khẩu này dùng để mở khóa Mon ML trên máy này. ${isAndroid ? 'Điện thoại dùng mã 4 số.' : ''}</p>
+    <p class="sub">Mật khẩu này dùng để mở khóa Mon Inkdays trên máy này. ${isAndroid ? 'Điện thoại dùng mã 4 số.' : ''}</p>
     <form data-f>
       <label class="field">Mật khẩu hiện tại<input type="password" name="cur" inputmode="${isAndroid ? 'numeric' : 'text'}" autofocus></label>
       <label class="field">Mật khẩu mới<input type="password" name="n1" inputmode="${isAndroid ? 'numeric' : 'text'}"></label>
@@ -144,7 +144,7 @@ async function openMenu(u) {
     { id: 'pin', icon: I.key, label: 'Đổi mật khẩu mở app', run: openPin },
     { id: 'lock', icon: I.lock, label: 'Khóa ngay', run: lockNow },
     { id: 'upd', icon: I.refresh, label: 'Kiểm tra cập nhật', run: () => checkNow(u) },
-    { note: `Mon ML v${ver} · Created by Mondiro` },
+    { note: `Mon Inkdays v${ver} · Created by Mondiro` },
   ]);
 }
 

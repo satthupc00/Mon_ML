@@ -80,7 +80,7 @@ input,textarea{font:inherit;color:inherit}
 
 /* ===== Dòng chảy ===== */
 .flow{padding:14px calc(18px + var(--sar)) 40px calc(18px + var(--sal))}
-.flow-paper{background:var(--card);border-radius:var(--r);padding:16px 18px 12px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 8px 24px -16px rgba(80,40,20,.25);max-width:860px;margin:0 auto}
+.flow-paper{background:var(--card);border-radius:var(--r);padding:16px 18px 12px;box-shadow:0 1px 0 var(--line),0 8px 24px -16px rgba(80,40,20,.25);max-width:860px;margin:0 auto}
 .ym{font:400 24px var(--hand);color:var(--muted);margin:0 0 6px;user-select:none}
 .empty-year{color:var(--muted);font-size:14px;margin:4px 0 12px}
 .ent{position:relative;margin:0 -18px;font-size:16px;line-height:1.6;padding:6px 18px;transition:background .3s}
@@ -95,6 +95,18 @@ input,textarea{font:inherit;color:inherit}
 .flow{touch-action:manipulation}
 .ent.editing{background:#FDFCFF;box-shadow:inset 0 0 0 2px #D9D2F7}
 .ent.editing .txt{display:inline;min-width:0;cursor:text;caret-color:var(--red)}
+.ent.editing.empty .txt{display:inline-block;min-width:55%;min-height:1.6em;vertical-align:top}
+/* Vuốt đổi chế độ: trang mới trượt vào theo hướng tay */
+.pane.in-r{animation:inR .42s var(--ease)}
+.pane.in-l{animation:inL .42s var(--ease)}
+@keyframes inR{from{transform:translateX(70px);opacity:0}}
+@keyframes inL{from{transform:translateX(-70px);opacity:0}}
+/* Chuyển năm: trượt trang */
+.flow,.cal{transition:transform .17s ease-in,opacity .17s ease-in}
+.yr-out-l{transform:translateX(-60px);opacity:0}
+.yr-out-r{transform:translateX(60px);opacity:0}
+.yr-in-r{animation:inR .42s var(--ease)}
+.yr-in-l{animation:inL .42s var(--ease)}
 .ent.flash{animation:flash 1.4s}
 @keyframes flash{0%,40%{background:var(--butter)}100%{background:transparent}}
 .ent.pop{animation:pop .5s var(--spring)}
@@ -107,9 +119,10 @@ input,textarea{font:inherit;color:inherit}
 .txt:empty:focus::before{content:"Viết gì đó cho ngày này…";color:#C6B9B0}
 .ent.empty .txt{display:inline-block;min-width:60%;min-height:1.6em;vertical-align:top}
 mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
-.acts{display:none;position:absolute;left:12px;top:2px;z-index:6;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
+.acts{display:none;position:absolute;left:12px;bottom:calc(100% - 6px);z-index:6;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
   background:rgba(255,255,255,.96);box-shadow:0 0 0 1px var(--line),0 14px 30px -12px rgba(60,30,20,.45);
-  transform-origin:24px 50%;animation:jelly .6s cubic-bezier(.2,.9,.3,1.2) both}
+  transform-origin:30px 100%;animation:jelly .6s cubic-bezier(.2,.9,.3,1.2) both}
+.ent.below .acts{bottom:auto;top:calc(100% - 6px);transform-origin:30px 0}
 .ent.open .acts{display:flex}
 .ent.open{z-index:7}
 @keyframes jelly{0%{opacity:0;transform:scale(.3,.2)}35%{opacity:1;transform:scale(1.12,.9)}55%{transform:scale(.94,1.06)}75%{transform:scale(1.03,.98)}100%{transform:scale(1)}}

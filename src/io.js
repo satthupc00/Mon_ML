@@ -7,13 +7,18 @@ import { plain } from './rich.js';
 export function exportJSON() {
   const entries = {};
   for (const k of store.keys()) { const e = store.get(k); entries[k] = { text: e.text, mood: e.mood || null }; }
-  return JSON.stringify({ app: 'Mon ML', format: 1, exportedAt: new Date().toISOString(), entries }, null, 1);
+  return JSON.stringify({ app: 'Mon Inkdays', format: 1, exportedAt: new Date().toISOString(), entries }, null, 1);
 }
 
 // Văn bản kiểu Google Docs: mỗi ngày một dòng "d/m tX nội dung"
 export function exportTXT(year, days) {
   return `ML ${year}\n` + days.map(k => `${label(k)} ${plain(store.get(k)?.text)}`.trimEnd()).join('\n') + '\n';
 }
+
+// Dòng mở đầu 1 ngày: "15/3", "15/3 t5", "ngày 15/03:", "- 15/3/2026 (thứ năm) …"
+// Thứ ghi kèm (nếu có) được bỏ qua, app tự tính thứ theo lịch của năm.
+const WEEKDAY = '(?:t\\s?[2-7]|th[ứu]\\s?(?:[2-7]|hai|ba|t[ưu]|n[ăa]m|s[áa]u|b[ảa]y)|cn|ch[ủu]\\s?nh[ậa]t)';
+const DAY_LINE = new RegExp('^[\\s•·*\\-–—]*(?:ng[àa]y\\s+)?(\\d{1,2})\\s*/\\s*(\\d{1,2})(?:\\s*/\\s*(\\d{2,4}))?(?:\\s*[,(]?\\s*' + WEEKDAY + '\\s*\\)?)?(?=$|[\\s.,:;)–—-])[\\s.,:;)–—-]*(.*)$', 'i');
 
 // Trả về { entries: {key:{text,mood}}, count }
 export function parseImport(text, year) {
@@ -35,7 +40,7 @@ export function parseImport(text, year) {
     const line = raw.trim();
     const hy = line.match(/^ML\s+(\d{4})$/i);
     if (hy) { y = +hy[1]; lastMonth = 0; cur = null; continue; }
-    const m = line.match(/^(\d{1,2})\s*\/\s*(\d{1,2})(?:\s*\/\s*(\d{2,4}))?(?:\s+(?:t\s?[2-7]|cn|thứ\s?[2-7]|chủ nhật))?\b[\s.,:;–-]*(.*)$/i);
+    const m = line.match(DAY_LINE);
     if (m) {
       const d = +m[1], mo = +m[2];
       let yy = m[3] ? +m[3] : y;
