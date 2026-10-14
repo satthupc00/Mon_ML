@@ -2,7 +2,7 @@ def M_path(x,y,s=1.0):
     P=[(0,210),(0,0),(62,0),(115,86),(168,0),(230,0),(230,210),(176,210),(176,96),(132,166),(98,166),(54,96),(54,210)]
     return "M"+"L".join(f"{x+px*s:.1f} {y+py*s:.1f}" for px,py in P)+"Z"
 
-def icon(name, bg1,bg2, head1,head2, m1,m2, tabs, ring, mx=86, my=276, ms=0.6, mrot=-6, lines="#D9C9B0", shadow="#6B3A2A"):
+def icon(name, bg1,bg2, head1,head2, m1,m2, tabs, ring, mx=110, my=254, ms=0.6, mrot=13, lines="#D9C9B0", shadow="#6B3A2A"):
     m=M_path(0,0)
     svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 <title>Mon Inkdays</title>

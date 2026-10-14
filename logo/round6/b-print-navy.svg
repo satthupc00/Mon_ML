@@ -19,7 +19,7 @@
  </g>
  <!-- chữ M in lên trang: phần ra ngoài mép giấy bị cắt -->
  <g clip-path="url(#page)">
-  <g transform="translate(86 276) rotate(-6) scale(0.6)">
+  <g transform="translate(110 254) rotate(13) scale(0.6)">
    <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#mf)" stroke="url(#mf)" stroke-width="10" stroke-linejoin="round"/>
   </g>
  </g>
