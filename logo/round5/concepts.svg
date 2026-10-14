@@ -1,0 +1,609 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1498" viewBox="0 0 1600 1498"><rect width="1600" height="1498" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Mon Inkdays — chữ M ló ra từ sau cuốn sổ</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Concepts for review — pick a direction (or tell me what you like in each).</text><rect x="60" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="c0-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="c0-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFD9C7"/></linearGradient>
+ <linearGradient id="c0-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A54C9"/><stop offset="1" stop-color="#2E347F"/></linearGradient>
+ <linearGradient id="c0-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c0-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="c0-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="c0-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="c0-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="c0-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c0-bg)"/>
+<g clip-path="url(#c0-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#c0-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c0-mf)" stroke="url(#c0-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c0-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#c0-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c0-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c0-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#c0-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s064-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s064-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFD9C7"/></linearGradient>
+ <linearGradient id="s064-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A54C9"/><stop offset="1" stop-color="#2E347F"/></linearGradient>
+ <linearGradient id="s064-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s064-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s064-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s064-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s064-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s064-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s064-bg)"/>
+<g clip-path="url(#s064-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s064-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s064-mf)" stroke="url(#s064-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s064-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s064-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s064-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s064-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s064-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="122" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="180" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s032-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s032-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFD9C7"/></linearGradient>
+ <linearGradient id="s032-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A54C9"/><stop offset="1" stop-color="#2E347F"/></linearGradient>
+ <linearGradient id="s032-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s032-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s032-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s032-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s032-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s032-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s032-bg)"/>
+<g clip-path="url(#s032-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s032-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s032-mf)" stroke="url(#s032-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s032-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s032-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s032-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s032-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s032-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="196" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="238" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s016-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s016-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFD9C7"/></linearGradient>
+ <linearGradient id="s016-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A54C9"/><stop offset="1" stop-color="#2E347F"/></linearGradient>
+ <linearGradient id="s016-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s016-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s016-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s016-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s016-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s016-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s016-bg)"/>
+<g clip-path="url(#s016-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s016-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s016-mf)" stroke="url(#s016-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s016-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s016-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s016-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s016-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s016-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="246" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · M đỏ + sổ xanh tím than</text><text x="90.0" y="664" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="90.0" y="698" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">M đỏ Mondiro, đầu sổ xanh tím than, khoen</text><text x="90.0" y="724" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">vàng, nền kem đào.</text><rect x="562.667" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="c1-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="c1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EE"/><stop offset="1" stop-color="#F6E6D2"/></linearGradient>
+ <linearGradient id="c1-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="c1-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c1-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="c1-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="c1-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="c1-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="c1-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c1-bg)"/>
+<g clip-path="url(#c1-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#c1-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c1-mf)" stroke="url(#c1-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c1-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#c1-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c1-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c1-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#c1-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="592.667" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s164-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s164-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EE"/><stop offset="1" stop-color="#F6E6D2"/></linearGradient>
+ <linearGradient id="s164-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s164-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s164-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s164-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s164-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s164-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s164-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s164-bg)"/>
+<g clip-path="url(#s164-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s164-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s164-mf)" stroke="url(#s164-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s164-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s164-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s164-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s164-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s164-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="624.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="682.667" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s132-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s132-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EE"/><stop offset="1" stop-color="#F6E6D2"/></linearGradient>
+ <linearGradient id="s132-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s132-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s132-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s132-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s132-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s132-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s132-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s132-bg)"/>
+<g clip-path="url(#s132-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s132-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s132-mf)" stroke="url(#s132-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s132-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s132-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s132-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s132-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s132-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="698.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="740.667" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s116-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s116-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EE"/><stop offset="1" stop-color="#F6E6D2"/></linearGradient>
+ <linearGradient id="s116-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s116-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s116-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s116-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <linearGradient id="s116-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s116-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s116-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s116-bg)"/>
+<g clip-path="url(#s116-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s116-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#9C1530" stroke="#9C1530" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s116-mf)" stroke="url(#s116-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s116-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s116-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s116-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s116-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s116-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="748.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · M đỏ + sổ đỏ</text><text x="592.6666666666667" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Tông đỏ đồng bộ, nền kem be.</text><rect x="1065.33" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="c2-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="c2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9FBF6"/><stop offset="1" stop-color="#BFEDE2"/></linearGradient>
+ <linearGradient id="c2-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB8AA"/><stop offset="1" stop-color="#1F8478"/></linearGradient>
+ <linearGradient id="c2-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c2-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="c2-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A65"/><stop offset="1" stop-color="#E64A3B"/></linearGradient>
+ <linearGradient id="c2-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="c2-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="c2-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c2-bg)"/>
+<g clip-path="url(#c2-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#c2-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B23426" stroke="#B23426" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c2-mf)" stroke="url(#c2-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c2-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#c2-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c2-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c2-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#c2-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1095.33" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s264-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s264-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9FBF6"/><stop offset="1" stop-color="#BFEDE2"/></linearGradient>
+ <linearGradient id="s264-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB8AA"/><stop offset="1" stop-color="#1F8478"/></linearGradient>
+ <linearGradient id="s264-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s264-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s264-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A65"/><stop offset="1" stop-color="#E64A3B"/></linearGradient>
+ <linearGradient id="s264-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s264-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s264-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s264-bg)"/>
+<g clip-path="url(#s264-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s264-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B23426" stroke="#B23426" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s264-mf)" stroke="url(#s264-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s264-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s264-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s264-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s264-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s264-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="1127.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1185.33" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s232-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s232-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9FBF6"/><stop offset="1" stop-color="#BFEDE2"/></linearGradient>
+ <linearGradient id="s232-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB8AA"/><stop offset="1" stop-color="#1F8478"/></linearGradient>
+ <linearGradient id="s232-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s232-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s232-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A65"/><stop offset="1" stop-color="#E64A3B"/></linearGradient>
+ <linearGradient id="s232-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s232-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s232-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s232-bg)"/>
+<g clip-path="url(#s232-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s232-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B23426" stroke="#B23426" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s232-mf)" stroke="url(#s232-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s232-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s232-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s232-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s232-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s232-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="1201.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1243.33" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s216-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s216-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9FBF6"/><stop offset="1" stop-color="#BFEDE2"/></linearGradient>
+ <linearGradient id="s216-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FB8AA"/><stop offset="1" stop-color="#1F8478"/></linearGradient>
+ <linearGradient id="s216-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s216-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <linearGradient id="s216-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A65"/><stop offset="1" stop-color="#E64A3B"/></linearGradient>
+ <linearGradient id="s216-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s216-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s216-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s216-bg)"/>
+<g clip-path="url(#s216-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s216-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B23426" stroke="#B23426" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s216-mf)" stroke="url(#s216-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s216-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s216-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s216-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s216-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s216-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="1251.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · M san hô + sổ xanh mòng két</text><text x="1095.3333333333335" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">M cam san hô, đầu sổ xanh mòng két, nền bạc</text><text x="1095.3333333333335" y="696" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">hà.</text><rect x="60" y="808" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="848" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="c3-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="c3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEF1FF"/><stop offset="1" stop-color="#C9D2FF"/></linearGradient>
+ <linearGradient id="c3-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E347F"/><stop offset="1" stop-color="#1C2058"/></linearGradient>
+ <linearGradient id="c3-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c3-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="c3-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD45C"/><stop offset="1" stop-color="#F2A325"/></linearGradient>
+ <linearGradient id="c3-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="c3-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="c3-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c3-bg)"/>
+<g clip-path="url(#c3-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#c3-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B87412" stroke="#B87412" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c3-mf)" stroke="url(#c3-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#c3-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#c3-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c3-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c3-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#c3-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="1174" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s364-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s364-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEF1FF"/><stop offset="1" stop-color="#C9D2FF"/></linearGradient>
+ <linearGradient id="s364-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E347F"/><stop offset="1" stop-color="#1C2058"/></linearGradient>
+ <linearGradient id="s364-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s364-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s364-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD45C"/><stop offset="1" stop-color="#F2A325"/></linearGradient>
+ <linearGradient id="s364-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s364-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s364-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s364-bg)"/>
+<g clip-path="url(#s364-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s364-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B87412" stroke="#B87412" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s364-mf)" stroke="url(#s364-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s364-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s364-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s364-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s364-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s364-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="122" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="180" y="1206" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s332-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s332-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEF1FF"/><stop offset="1" stop-color="#C9D2FF"/></linearGradient>
+ <linearGradient id="s332-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E347F"/><stop offset="1" stop-color="#1C2058"/></linearGradient>
+ <linearGradient id="s332-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s332-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s332-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD45C"/><stop offset="1" stop-color="#F2A325"/></linearGradient>
+ <linearGradient id="s332-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s332-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s332-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s332-bg)"/>
+<g clip-path="url(#s332-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s332-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B87412" stroke="#B87412" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s332-mf)" stroke="url(#s332-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s332-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s332-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s332-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s332-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s332-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="196" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="238" y="1222" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <clipPath id="s316-tile"><rect width="512" height="512" rx="114"/></clipPath>
+ <linearGradient id="s316-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEF1FF"/><stop offset="1" stop-color="#C9D2FF"/></linearGradient>
+ <linearGradient id="s316-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E347F"/><stop offset="1" stop-color="#1C2058"/></linearGradient>
+ <linearGradient id="s316-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s316-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="s316-mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD45C"/><stop offset="1" stop-color="#F2A325"/></linearGradient>
+ <linearGradient id="s316-gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="s316-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+ <filter id="s316-msh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s316-bg)"/>
+<g clip-path="url(#s316-tile)">
+ <!-- chữ M to nấp sau sổ, ló ra ở mép dưới trái -->
+ <g transform="translate(44 214) rotate(-7) scale(1.14)" filter="url(#s316-msh)">
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" transform="translate(9 11)" fill="#B87412" stroke="#B87412" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s316-mf)" stroke="url(#s316-mf)" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M0.0 210.0L0.0 0.0L62.0 0.0L115.0 86.0L168.0 0.0L230.0 0.0L230.0 210.0L176.0 210.0L176.0 96.0L132.0 166.0L98.0 166.0L54.0 96.0L54.0 210.0Z" fill="url(#s316-gl)"/>
+ </g>
+ <!-- cuốn sổ lò xo -->
+ <g transform="translate(150 6) scale(0.8) rotate(-5 256 270)">
+  <g filter="url(#s316-sh)">
+   <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+   <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+   <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+   <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s316-paper)"/>
+   <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s316-top)"/>
+   <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+   <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M146 290H344"/><path d="M146 328H280"/></g>
+  </g>
+  <g fill="url(#s316-ring)">
+   <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+   <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+  </g>
+ </g>
+</g>
+</svg></g><text x="246" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="1294" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">D · M vàng + sổ tím than</text><text x="90.0" y="1328" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">M vàng nắng, đầu sổ tím than, nền xanh</text><text x="90.0" y="1354" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">lavender.</text></svg>
