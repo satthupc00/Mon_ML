@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><mask id="mk"><rect width="512" height="512" fill="#fff"/>
+ <g transform="translate(18 -4) rotate(-5 256 270)"><g clip-path="url(#page2)"><g transform="translate(110 254) rotate(13) scale(0.6)"><path d="M0 210L0 0L62 0L115 86L168 0L230 0L230 210L176 210L176 96L132 166L98 166L54 96L54 210Z" fill="#000" stroke="#000" stroke-width="10" stroke-linejoin="round"/></g></g>
+ <rect x="100" y="164" width="288" height="12" fill="#000"/></g></mask>
+ <clipPath id="page2"><rect x="100" y="104" width="288" height="290" rx="30"/></clipPath></defs>
+<g transform="translate(256 256) scale(0.68) translate(-280 -260)"><g mask="url(#mk)"><g transform="translate(18 -4) rotate(-5 256 270)" fill="#000">
+ <rect x="104" y="112" width="292" height="322" rx="30"/><rect x="100" y="104" width="288" height="290" rx="30"/><rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/><rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/></g></g></g></svg>

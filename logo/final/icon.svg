@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Mon Inkdays</title><defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E6"/><stop offset="1" stop-color="#FFD9C7"/></linearGradient>
+ <linearGradient id="top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A54C9"/><stop offset="1" stop-color="#2E347F"/></linearGradient>
+ <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <linearGradient id="mf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="1" stop-color="#D7263D"/></linearGradient>
+ <clipPath id="page"><rect x="100" y="104" width="288" height="290" rx="30"/></clipPath>
+ <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".3"/></filter>
+</defs><rect width="512" height="512" rx="114" fill="url(#bg)"/><g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#paper)"/>
+ </g>
+ <g clip-path="url(#page)"><g transform="translate(110 254) rotate(13) scale(0.6)"><path d="M0 210L0 0L62 0L115 86L168 0L230 0L230 210L176 210L176 96L132 166L98 166L54 96L54 210Z" fill="url(#mf)" stroke="url(#mf)" stroke-width="10" stroke-linejoin="round"/></g></g>
+ <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#top)"/>
+ <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+ <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 210H344"/><path d="M146 240H344"/><path d="M260 284H344"/><path d="M260 316H330"/></g>
+ <g fill="url(#ring)"><rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/><rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/></g>
+</g></svg>
