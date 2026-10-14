@@ -1,0 +1,529 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1498" viewBox="0 0 1600 1498"><rect width="1600" height="1498" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Mon Inkdays — Day Pad + vết mực (phối màu)</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Concepts for review — pick a direction (or tell me what you like in each).</text><rect x="60" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="c0-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFD3B6"/></linearGradient>
+ <linearGradient id="c0-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="c0-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c0-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="c0-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#7A88FF"/><stop offset="1" stop-color="#23266B"/></radialGradient>
+ <filter id="c0-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="c0-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#23266B" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c0-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#c0-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c0-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c0-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#c0-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#c0-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#c0-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#c0-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s064-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFD3B6"/></linearGradient>
+ <linearGradient id="s064-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s064-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s064-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s064-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#7A88FF"/><stop offset="1" stop-color="#23266B"/></radialGradient>
+ <filter id="s064-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s064-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#23266B" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s064-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s064-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s064-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s064-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s064-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s064-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s064-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s064-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="122" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="180" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s032-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFD3B6"/></linearGradient>
+ <linearGradient id="s032-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s032-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s032-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s032-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#7A88FF"/><stop offset="1" stop-color="#23266B"/></radialGradient>
+ <filter id="s032-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s032-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#23266B" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s032-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s032-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s032-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s032-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s032-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s032-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s032-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s032-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="196" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="238" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s016-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6D6"/><stop offset="1" stop-color="#FFD3B6"/></linearGradient>
+ <linearGradient id="s016-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6F6A"/><stop offset="1" stop-color="#E0323F"/></linearGradient>
+ <linearGradient id="s016-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s016-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s016-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#7A88FF"/><stop offset="1" stop-color="#23266B"/></radialGradient>
+ <filter id="s016-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s016-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#23266B" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s016-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s016-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s016-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s016-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s016-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s016-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s016-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s016-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="246" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · Đỏ + mực tím than</text><text x="90.0" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Đầu sổ đỏ, mực xanh tím, nền kem đào.</text><rect x="562.667" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="c1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1F3"/><stop offset="1" stop-color="#FFD6DE"/></linearGradient>
+ <linearGradient id="c1-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C86F5"/><stop offset="1" stop-color="#3D43B8"/></linearGradient>
+ <linearGradient id="c1-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c1-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <radialGradient id="c1-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#6A78F7"/><stop offset="1" stop-color="#1E2160"/></radialGradient>
+ <filter id="c1-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="c1-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1E2160" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c1-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#c1-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c1-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c1-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#c1-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#c1-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#c1-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#c1-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="592.667" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s164-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1F3"/><stop offset="1" stop-color="#FFD6DE"/></linearGradient>
+ <linearGradient id="s164-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C86F5"/><stop offset="1" stop-color="#3D43B8"/></linearGradient>
+ <linearGradient id="s164-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s164-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <radialGradient id="s164-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#6A78F7"/><stop offset="1" stop-color="#1E2160"/></radialGradient>
+ <filter id="s164-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s164-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1E2160" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s164-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s164-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s164-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s164-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s164-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s164-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s164-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s164-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="624.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="682.667" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s132-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1F3"/><stop offset="1" stop-color="#FFD6DE"/></linearGradient>
+ <linearGradient id="s132-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C86F5"/><stop offset="1" stop-color="#3D43B8"/></linearGradient>
+ <linearGradient id="s132-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s132-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <radialGradient id="s132-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#6A78F7"/><stop offset="1" stop-color="#1E2160"/></radialGradient>
+ <filter id="s132-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s132-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1E2160" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s132-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s132-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s132-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s132-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s132-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s132-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s132-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s132-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="698.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="740.667" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s116-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF1F3"/><stop offset="1" stop-color="#FFD6DE"/></linearGradient>
+ <linearGradient id="s116-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C86F5"/><stop offset="1" stop-color="#3D43B8"/></linearGradient>
+ <linearGradient id="s116-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s116-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C6A15B"/><stop offset=".5" stop-color="#FFF0C2"/><stop offset="1" stop-color="#A47E3B"/></linearGradient>
+ <radialGradient id="s116-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#6A78F7"/><stop offset="1" stop-color="#1E2160"/></radialGradient>
+ <filter id="s116-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s116-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1E2160" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s116-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s116-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s116-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s116-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s116-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s116-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s116-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s116-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="748.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · Tím than đồng bộ</text><text x="592.6666666666667" y="664" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="592.6666666666667" y="698" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Đầu sổ cùng tông mực, khoen vàng, nền hồng</text><text x="592.6666666666667" y="724" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">phấn.</text><rect x="1065.33" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="c2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAFBF2"/><stop offset="1" stop-color="#BDEBD8"/></linearGradient>
+ <linearGradient id="c2-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD15C"/><stop offset="1" stop-color="#F2A93B"/></linearGradient>
+ <linearGradient id="c2-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c2-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="c2-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#4A4A7A"/><stop offset="1" stop-color="#141428"/></radialGradient>
+ <filter id="c2-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="c2-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#141428" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c2-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#c2-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c2-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c2-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#c2-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#c2-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#c2-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#c2-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1095.33" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s264-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAFBF2"/><stop offset="1" stop-color="#BDEBD8"/></linearGradient>
+ <linearGradient id="s264-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD15C"/><stop offset="1" stop-color="#F2A93B"/></linearGradient>
+ <linearGradient id="s264-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s264-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s264-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#4A4A7A"/><stop offset="1" stop-color="#141428"/></radialGradient>
+ <filter id="s264-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s264-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#141428" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s264-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s264-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s264-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s264-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s264-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s264-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s264-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s264-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="1127.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1185.33" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s232-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAFBF2"/><stop offset="1" stop-color="#BDEBD8"/></linearGradient>
+ <linearGradient id="s232-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD15C"/><stop offset="1" stop-color="#F2A93B"/></linearGradient>
+ <linearGradient id="s232-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s232-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s232-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#4A4A7A"/><stop offset="1" stop-color="#141428"/></radialGradient>
+ <filter id="s232-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s232-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#141428" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s232-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s232-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s232-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s232-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s232-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s232-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s232-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s232-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="1201.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="1243.33" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s216-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAFBF2"/><stop offset="1" stop-color="#BDEBD8"/></linearGradient>
+ <linearGradient id="s216-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD15C"/><stop offset="1" stop-color="#F2A93B"/></linearGradient>
+ <linearGradient id="s216-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s216-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s216-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#4A4A7A"/><stop offset="1" stop-color="#141428"/></radialGradient>
+ <filter id="s216-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s216-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#141428" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s216-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s216-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s216-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s216-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s216-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s216-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s216-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s216-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="1251.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · Vàng mù tạt + bạc hà</text><text x="1095.3333333333335" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Đầu sổ vàng, mực đen tím, nền xanh bạc hà.</text><rect x="60" y="808" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="848" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="c3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EC"/><stop offset="1" stop-color="#FFE2C4"/></linearGradient>
+ <linearGradient id="c3-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FC3B5"/><stop offset="1" stop-color="#21897F"/></linearGradient>
+ <linearGradient id="c3-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="c3-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="c3-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#FF6F7E"/><stop offset="1" stop-color="#8E1530"/></radialGradient>
+ <filter id="c3-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="c3-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#8E1530" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#c3-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#c3-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#c3-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#c3-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#c3-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#c3-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#c3-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#c3-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="90" y="1174" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s364-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EC"/><stop offset="1" stop-color="#FFE2C4"/></linearGradient>
+ <linearGradient id="s364-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FC3B5"/><stop offset="1" stop-color="#21897F"/></linearGradient>
+ <linearGradient id="s364-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s364-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s364-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#FF6F7E"/><stop offset="1" stop-color="#8E1530"/></radialGradient>
+ <filter id="s364-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s364-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#8E1530" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s364-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s364-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s364-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s364-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s364-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s364-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s364-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s364-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="122" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="180" y="1206" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s332-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EC"/><stop offset="1" stop-color="#FFE2C4"/></linearGradient>
+ <linearGradient id="s332-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FC3B5"/><stop offset="1" stop-color="#21897F"/></linearGradient>
+ <linearGradient id="s332-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s332-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s332-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#FF6F7E"/><stop offset="1" stop-color="#8E1530"/></radialGradient>
+ <filter id="s332-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s332-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#8E1530" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s332-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s332-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s332-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s332-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s332-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s332-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s332-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s332-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="196" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" x="238" y="1222" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+<title>Mon Inkdays</title>
+<defs>
+ <linearGradient id="s316-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF8EC"/><stop offset="1" stop-color="#FFE2C4"/></linearGradient>
+ <linearGradient id="s316-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FC3B5"/><stop offset="1" stop-color="#21897F"/></linearGradient>
+ <linearGradient id="s316-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFF4E2"/></linearGradient>
+ <linearGradient id="s316-ring" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9AA3B5"/><stop offset=".5" stop-color="#F4F6FA"/><stop offset="1" stop-color="#7C8597"/></linearGradient>
+ <radialGradient id="s316-ink" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#FF6F7E"/><stop offset="1" stop-color="#8E1530"/></radialGradient>
+ <filter id="s316-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#6B3A2A" flood-opacity=".28"/></filter>
+ <filter id="s316-ish" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#8E1530" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#s316-bg)"/>
+<g transform="translate(18 -4) rotate(-5 256 270)">
+ <g filter="url(#s316-sh)">
+  <rect x="112" y="128" width="288" height="306" rx="30" fill="#CDEFD5"/>
+  <rect x="108" y="120" width="288" height="300" rx="30" fill="#C9A48C"/>
+  <rect x="104" y="112" width="288" height="294" rx="30" fill="#F9D3DF"/>
+  <rect x="100" y="104" width="288" height="290" rx="30" fill="url(#s316-paper)"/>
+  <path d="M130 104H358A30 30 0 0 1 388 134V170H100V134A30 30 0 0 1 130 104Z" fill="url(#s316-top)"/>
+  <rect x="100" y="104" width="288" height="30" rx="30" fill="#fff" opacity=".15"/>
+  <g stroke="#D9C9B0" stroke-width="9" stroke-linecap="round"><path d="M146 214H344"/><path d="M146 252H344"/><path d="M196 290H344"/><path d="M226 328H316"/></g>
+ </g>
+ <g filter="url(#s316-ish)">
+  <path d="M200.9 372C201.5 374.6 199.6 377.7 197.8 380.1C196 382.5 192.4 384.5 190.1 386.5C187.8 388.5 185.8 390.1 184 391.9C182.3 393.7 181.4 395.7 179.7 397.2C178 398.7 176 400.1 173.7 400.9C171.4 401.7 168.2 401.5 165.9 401.9C163.7 402.4 161.6 402.2 160.4 403.8C159.3 405.5 159.4 408.3 159 411.9C158.7 415.5 159.2 421.5 158.2 425.6C157.3 429.7 155.6 434.7 153.3 436.6C151.1 438.6 147.5 438.5 144.6 437.1C141.7 435.7 138.5 431.4 136 428.3C133.5 425.3 131.7 421.1 129.8 418.8C127.9 416.5 126.4 415.5 124.6 414.7C122.7 413.9 120.6 414.4 118.6 414C116.7 413.5 114.7 412.9 113 411.9C111.2 411 110.1 409.2 108.2 408.2C106.3 407.3 104.6 406.5 101.8 406.2C98.9 405.9 94.8 406.7 91.1 406.5C87.3 406.2 82.1 406.2 79.4 404.7C76.6 403.2 74.3 400.4 74.5 397.5C74.7 394.5 77.6 390.2 80.3 386.9C83.1 383.7 88.3 380.4 91 377.9C93.8 375.4 96.3 373.9 96.9 372C97.5 370.1 95.9 368.6 94.7 366.6C93.5 364.5 90.8 362 89.6 359.6C88.5 357.2 88 354.5 88 352.1C88 349.7 89.1 347.7 89.7 345.2C90.2 342.8 90.7 340.4 91.2 337.6C91.6 334.8 91.4 331.1 92.4 328.4C93.4 325.7 94.7 322.4 97.1 321.3C99.5 320.2 103.5 320.5 107 321.8C110.6 323.2 115.2 327.1 118.4 329.5C121.6 331.9 124.3 335.4 126.4 336.2C128.5 336.9 129.4 336 131 334C132.6 332 133.9 327.4 136 324.3C138.1 321.3 140.8 317.4 143.4 315.7C146 314 149 313.9 151.5 314.2C154 314.6 156.2 316.6 158.4 317.9C160.7 319.1 162.8 320.5 165 321.8C167.1 323.2 169.8 323.9 171.5 325.7C173.2 327.5 175 329.8 175.3 332.7C175.6 335.6 174.6 339.8 173.6 343.2C172.6 346.5 169.9 350.3 169.4 352.7C168.9 355.1 168.7 356.5 170.6 357.7C172.5 358.9 176.8 358.9 180.8 360C184.7 361.1 190.8 362.3 194.2 364.3C197.5 366.3 200.3 369.4 200.9 372ZM102 340.7L70.3 328.4L60.4 349.6L90.2 366.1ZM52.3 339a13 13 0 1 0 26 0a13 13 0 1 0 -26 0ZM132.2 326.5L121.4 302.8L102.8 309.6L109.7 334.8ZM101.1 306.2a11 11 0 1 0 22 0a11 11 0 1 0 -22 0ZM90.9 376.7L69 386.8L75.2 403.7L98.4 397.4ZM62.1 395.3a10 10 0 1 0 20 0a10 10 0 1 0 -20 0ZM106.5 406.2L99.7 422.9L114 430.5L124.2 415.5ZM97.9 426.7a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM166.7 338.9L172.2 323.6L159.8 316.4L149.3 328.9ZM158 320a8 8 0 1 0 16 0a8 8 0 1 0 -16 0ZM130 412C128 442 134 458 142 464C152 472 162 460 158 444C156 432 156 422 158 412Z" fill="url(#s316-ink)"/>
+  <path d="M9 338a9 9 0 1 0 18 0a9 9 0 1 0 -18 0ZM46 288a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM204 424a6 6 0 1 0 12 0a6 6 0 1 0 -12 0ZM27 412a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM88 260a4 4 0 1 0 8 0a4 4 0 1 0 -8 0Z" fill="url(#s316-ink)"/>
+ </g>
+ <ellipse cx="118" cy="350" rx="15" ry="8" fill="#fff" opacity=".45" transform="rotate(-35 118 350)"/>
+ <circle cx="142" cy="340" r="4" fill="#fff" opacity=".5"/>
+ <g fill="url(#s316-ring)">
+  <rect x="150" y="80" width="16" height="56" rx="8"/><rect x="204" y="80" width="16" height="56" rx="8"/>
+  <rect x="258" y="80" width="16" height="56" rx="8"/><rect x="312" y="80" width="16" height="56" rx="8"/>
+ </g>
+</g>
+</svg></g><text x="246" y="1258" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="1294" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">D · Xanh mòng két + mực đỏ</text><text x="90.0" y="1328" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Đầu sổ xanh mòng két, mực đỏ rượu, nền kem.</text></svg>
