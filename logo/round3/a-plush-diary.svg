@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<title>Mon Inkdays — Plush Diary</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E8"/><stop offset="1" stop-color="#FFC7CF"/></linearGradient>
+  <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7A73"/><stop offset=".55" stop-color="#E5383B"/><stop offset="1" stop-color="#B8213A"/></linearGradient>
+  <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A51C33"/><stop offset="1" stop-color="#C92B3F"/></linearGradient>
+  <linearGradient id="pages" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFDF7"/><stop offset="1" stop-color="#EADCC6"/></linearGradient>
+  <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6C7BF2"/><stop offset="1" stop-color="#26296E"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFD66B"/><stop offset=".6" stop-color="#F6B13A"/><stop offset="1" stop-color="#D98D1F"/></linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#8E2238" flood-opacity=".35"/></filter>
+  <filter id="sh2" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#7A1A2A" flood-opacity=".35"/></filter>
+</defs>
+<rect width="512" height="512" rx="114" fill="url(#bg)"/>
+<ellipse cx="262" cy="440" rx="150" ry="22" fill="#B2404F" opacity=".18"/>
+<g transform="translate(10 4) rotate(-6 256 256)" filter="url(#sh)">
+  <!-- ruột sổ (mép giấy) -->
+  <rect x="150" y="98" width="234" height="306" rx="26" fill="url(#pages)"/>
+  <path d="M372 120V384M362 116V390" stroke="#E2D2B8" stroke-width="3" stroke-linecap="round"/>
+  <!-- ruy băng -->
+  <path d="M262 380H294V462L278 446L262 462Z" fill="url(#gold)"/>
+  <path d="M262 380H270V454L262 462Z" fill="#000" opacity=".08"/>
+  <!-- bìa -->
+  <rect x="124" y="84" width="238" height="306" rx="28" fill="url(#cover)"/>
+  <rect x="124" y="84" width="238" height="306" rx="28" fill="url(#sheen)"/>
+  <path d="M152 84H124v0a28 28 0 0 0 0 0V362a28 28 0 0 0 28 28h20V84Z" fill="url(#spine)"/>
+  <path d="M172 92V382" stroke="#8E1A2E" stroke-width="3" opacity=".6"/>
+  <path d="M148 108V366" stroke="#FFD3D3" stroke-width="3.5" stroke-dasharray="10 9" stroke-linecap="round"/>
+  <!-- dây thun -->
+  <rect x="318" y="84" width="18" height="306" fill="#7C1D2C"/>
+  <rect x="318" y="84" width="5" height="306" fill="#fff" opacity=".18"/>
+  <!-- nhãn + giọt mực -->
+  <g filter="url(#sh2)">
+    <rect x="190" y="148" width="108" height="124" rx="20" fill="#FFF8EC"/>
+  </g>
+  <path d="M244 166L268.25 208A28 28 0 1 1 219.75 208Z" fill="url(#ink)"/>
+  <ellipse cx="234" cy="226" rx="7" ry="10" fill="#fff" opacity=".75" transform="rotate(25 234 226)"/>
+</g>
+</svg>
