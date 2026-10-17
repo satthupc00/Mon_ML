@@ -95,7 +95,7 @@ input,textarea{font:inherit;color:inherit}
 .flow{touch-action:manipulation}
 .ent.editing{background:#FDFCFF;box-shadow:inset 0 0 0 2px #D9D2F7}
 .ent.editing .txt{display:inline;min-width:0;cursor:text;caret-color:var(--red)}
-.ent.editing.empty .txt{display:inline-block;min-width:55%;min-height:1.6em;vertical-align:top}
+.ent.editing.empty .txt{display:inline-block;min-width:3em;max-width:calc(100% - 110px);min-height:1.6em;vertical-align:top}
 /* Vuốt đổi chế độ: trang mới trượt vào theo hướng tay */
 .pane.in-r{animation:inR .42s var(--ease)}
 .pane.in-l{animation:inL .42s var(--ease)}
@@ -116,8 +116,8 @@ input,textarea{font:inherit;color:inherit}
 .ent.pos .date{color:var(--pos-ink);background:var(--pos)}
 .ent.neg .date{color:#fff;background:var(--neg)}
 .txt{outline:none;white-space:pre-wrap;word-break:break-word}
-.txt:empty:focus::before{content:"Viết gì đó cho ngày này…";color:#C6B9B0}
-.ent.empty .txt{display:inline-block;min-width:60%;min-height:1.6em;vertical-align:top}
+.txt:empty:focus::before{content:"Viết gì đó…";color:#C6B9B0}
+.ent.empty .txt{display:inline-block;min-width:3em;min-height:1.6em;vertical-align:top}
 mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .acts{display:none;position:absolute;left:12px;bottom:calc(100% - 6px);z-index:6;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
   background:rgba(255,255,255,.96);box-shadow:0 0 0 1px var(--line),0 14px 30px -12px rgba(60,30,20,.45);
@@ -156,6 +156,14 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 @keyframes bob{50%{transform:translateY(3px)}}
 .app:not(.wide)[data-mode=cal] .tobottom{opacity:0;pointer-events:none}
 .app.editmode .tobottom{opacity:0;pointer-events:none}
+/* Nút + Nhập nhanh (tab Lịch): nhảy tới hôm nay và gõ luôn */
+.quick{position:absolute;right:calc(18px + var(--sar));bottom:16px;z-index:6;height:50px;padding:0 20px 0 14px;border-radius:999px;background:var(--red);color:#fff;
+  display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;box-shadow:0 12px 24px -10px rgba(229,56,59,.7);
+  transition:opacity .35s ease,transform .4s var(--spring)}
+.quick svg{width:20px;height:20px}
+.quick:active{transform:scale(.92)}
+.app:not(.wide)[data-mode=flow] .quick,.app.editmode .quick{opacity:0;transform:translateY(12px) scale(.9);pointer-events:none}
+.app.wide .quick{right:auto;left:calc(16px + var(--sal))}
 /* Thanh gõ: B + ✓ */
 .editbar{position:fixed;right:calc(16px + var(--sar));bottom:calc(14px + var(--sab) + var(--kb,0px));z-index:30;display:flex;gap:10px;align-items:center;
   opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:opacity .35s ease,transform .4s var(--spring)}

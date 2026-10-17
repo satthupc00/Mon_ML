@@ -45,6 +45,7 @@ export class AppUI {
         <div class="pane flowp"><div class="flow" data-flow></div></div>
         <div class="pane calp"><div class="cal" data-cal></div></div>
       </div><div class="fscroll"><div class="thumb"></div><div class="bubble"></div></div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
+      <button class="quick" data-act="quick" title="Nhảy tới hôm nay và viết luôn">${I.plus}Nhập nhanh</button>
       <div class="editbar"><button data-act="bold" title="In đậm (Ctrl+B)" aria-label="In đậm"><b>B</b></button><button data-act="done" class="done" title="Xong, lưu và đồng bộ (Esc)" aria-label="Xong">${I.check}</button></div></div>
       <footer class="foot"><button class="sync" data-act="sync"><i></i><span data-st></span></button><span class="credit">Created by Mondiro</span></footer>
     </div>`;
@@ -403,6 +404,7 @@ export class AppUI {
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
       else if (d.act === 'menu') { if (!this.closeMenu()) this.onMenu(this); }
       else if (d.act === 'sync') this.onSync();
+      else if (d.act === 'quick') this.quickEntry();
       else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
     R.addEventListener('input', ev => {
@@ -512,6 +514,26 @@ export class AppUI {
       if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6 && Math.abs(dx) / dt > 0.35 && !getSelection().toString())
         this.swipe(dx);
     });
+  }
+
+  // Nút "+ Nhập nhanh": về năm nay, mở Dòng chảy ở hôm nay và vào chế độ gõ.
+  // Các ngày từ ngày viết gần nhất tới hôm nay đều hiện sẵn (để trống).
+  quickEntry() {
+    if (this.editing) this.commitEdit();
+    const k = todayKey(), y = +k.slice(0, 4);
+    this.year = y;
+    this.extra.add(k);
+    this.open = null;
+    if (!this.wide) this.setMode('flow');
+    this.refresh();
+    setTimeout(() => {
+      const e = this.flowEl.querySelector(`.ent[data-k="${k}"]`);
+      if (!e) return;
+      e.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      e.classList.add('pop');
+      setTimeout(() => e.classList.remove('pop'), 1500);
+      setTimeout(() => this.startEdit(k), 300);
+    }, this.wide ? 20 : 380);
   }
 
   toggleTags(k) {
