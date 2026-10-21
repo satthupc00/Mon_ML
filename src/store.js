@@ -28,9 +28,9 @@ const AUTH_ERR = {
   'auth/user-not-found': 'Chưa có tài khoản với email này',
   'auth/too-many-requests': 'Thử sai nhiều quá, đợi một lúc rồi thử lại',
   'auth/network-request-failed': 'Không có mạng',
-  'auth/operation-not-allowed': 'Project Firebase chưa bật đăng nhập Email/Password',
-  'auth/configuration-not-found': 'Project Firebase chưa bật Authentication',
-  'auth/api-key-not-valid.-please-pass-a-valid-api-key.': 'Config Firebase sai (apiKey)',
+  'auth/operation-not-allowed': 'Máy chủ đồng bộ chưa bật đăng nhập bằng email',
+  'auth/configuration-not-found': 'Máy chủ đồng bộ chưa bật đăng nhập',
+  'auth/api-key-not-valid.-please-pass-a-valid-api-key.': 'Cấu hình đồng bộ không đúng',
 };
 export const authMessage = e => AUTH_ERR[e?.code] || e?.message || 'Có lỗi xảy ra';
 

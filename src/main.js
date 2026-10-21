@@ -13,9 +13,9 @@ let ui;
 function openAccount() {
   const cfg = store.config();
   if (!cfg) {
-    const s = sheet(`<h3>${I.cloud.replace('<svg', '<svg style="width:20px;vertical-align:-3px;margin-right:6px"')}Kết nối Firebase</h3>
-      <p class="sub">Dán đoạn <b>firebaseConfig</b> lấy từ Firebase Console (Project settings → Your apps → Web app). Chỉ cần làm 1 lần trên mỗi máy.</p>
-      <label class="field">Firebase config<textarea data-cfg placeholder="const firebaseConfig = {&#10;  apiKey: &quot;…&quot;,&#10;  authDomain: &quot;…&quot;,&#10;  projectId: &quot;…&quot;,&#10;  appId: &quot;…&quot;&#10;};" autofocus></textarea></label>
+    const s = sheet(`<h3>${I.cloud.replace('<svg', '<svg style="width:20px;vertical-align:-3px;margin-right:6px"')}Kết nối đồng bộ</h3>
+      <p class="sub">Dán đoạn cấu hình máy chủ đồng bộ. Chỉ cần làm 1 lần trên mỗi máy.</p>
+      <label class="field">Cấu hình đồng bộ<textarea data-cfg placeholder="{&#10;  apiKey: &quot;…&quot;,&#10;  authDomain: &quot;…&quot;,&#10;  projectId: &quot;…&quot;,&#10;  appId: &quot;…&quot;&#10;};" autofocus></textarea></label>
       <div class="err" data-err></div>
       <div class="row"><button class="btn" data-no>Để sau</button><button class="btn primary" data-ok>Lưu & kết nối</button></div>
       <p class="hint">Chưa kết nối thì nhật ký vẫn lưu trên máy này, kết nối sau sẽ tự đẩy lên.</p>`);
@@ -32,10 +32,10 @@ function openAccount() {
     const s = sheet(`<h3>Đồng bộ</h3>
       <p class="sub">Đang đăng nhập: <b>${esc(store.user.email || '')}</b><br>Trạng thái: ${esc(ui.$('[data-st]').textContent)}${store.status === 'error' && store.lastError ? `<br><span style="color:var(--red)">${esc(store.lastError)}</span>` : ''}</p>
       <div class="row"><button class="btn" data-out>Đăng xuất</button><button class="btn primary" data-ok autofocus>Xong</button></div>
-      <p class="hint">Project: <code>${esc(cfg.projectId)}</code>${store.configIsBundled() ? '' : ' · <button class="link" data-cfg>Đổi config</button>'}</p>`);
+      <p class="hint">Máy chủ: <code>${esc(cfg.projectId)}</code>${store.configIsBundled() ? '' : ' · <button class="link" data-cfg>Đổi config</button>'}</p>`);
     s.el.querySelector('[data-ok]').onclick = () => s.close();
     s.el.querySelector('[data-out]').onclick = async () => {
-      if (await confirmBox('Đăng xuất khỏi tài khoản? Nhật ký vẫn nằm an toàn trên Firebase.', 'Đăng xuất')) { await store.logout(); s.close(); }
+      if (await confirmBox('Đăng xuất khỏi tài khoản? Nhật ký vẫn được lưu an toàn trên máy chủ đồng bộ.', 'Đăng xuất')) { await store.logout(); s.close(); }
     };
     s.el.querySelector('[data-cfg]')?.addEventListener('click', resetConfig);
     return;
@@ -49,7 +49,7 @@ function openAccount() {
       <div class="row"><button type="button" class="btn" data-reg>Tạo tài khoản</button><button class="btn primary" data-in>Đăng nhập</button></div>
     </form>
     <div class="row" style="justify-content:space-between;margin-top:6px"><button class="link" data-forgot>Quên mật khẩu?</button><button class="link" data-skip>Dùng offline trên máy này</button></div>
-    ${store.configIsBundled() ? '' : `<p class="hint">Project: <code>${esc(cfg.projectId)}</code> · <button class="link" data-cfg>Đổi config</button></p>`}`);
+    ${store.configIsBundled() ? '' : `<p class="hint">Máy chủ: <code>${esc(cfg.projectId)}</code> · <button class="link" data-cfg>Đổi config</button></p>`}`);
   const f = s.el.querySelector('[data-f]'), err = s.el.querySelector('[data-err]');
   const run = async (btn, fn) => {
     err.textContent = '';
@@ -68,7 +68,7 @@ function openAccount() {
   s.el.querySelector('[data-cfg]')?.addEventListener('click', resetConfig);
 }
 async function resetConfig() {
-  if (await confirmBox('Xóa config Firebase hiện tại để dán config khác?', 'Xóa config')) { store.setConfig(null); location.reload(); }
+  if (await confirmBox('Xóa cấu hình đồng bộ hiện tại để dán cấu hình khác?', 'Xóa config')) { store.setConfig(null); location.reload(); }
 }
 
 // ---------- Nhập dữ liệu ----------
@@ -143,7 +143,6 @@ async function openMenu(u) {
     { id: 'sync', icon: I.cloud, label: store.user ? 'Đồng bộ · ' + (store.user.email || '') : 'Đồng bộ & tài khoản', run: openAccount },
     { id: 'pin', icon: I.key, label: 'Đổi mật khẩu mở app', run: openPin },
     { id: 'lock', icon: I.lock, label: 'Khóa ngay', run: lockNow },
-    { id: 'upd', icon: I.refresh, label: 'Kiểm tra cập nhật', run: () => checkNow(u) },
     { note: `Mon Inkdays v${ver} · Created by Mondiro` },
   ]);
 }
@@ -159,7 +158,8 @@ async function lockNow() {
 // ---------- Khởi động ----------
 async function boot() {
   document.documentElement.dataset.platform = platform;
-  ui = new AppUI(document.getElementById('root'), { platform, onMenu: openMenu, onSync: openAccount });
+  if (platform === 'desktop') document.documentElement.classList.add('electron');
+  ui = new AppUI(document.getElementById('root'), { platform, onMenu: openMenu, onSync: openAccount, onUpdate: () => checkNow(ui) });
   if (isAndroid) {
     const { StatusBar, Style } = await import('@capacitor/status-bar');
     StatusBar.setStyle({ style: Style.Dark }).catch(() => {});

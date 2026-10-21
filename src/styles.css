@@ -27,11 +27,28 @@ input,textarea{font:inherit;color:inherit}
 .app.locked{visibility:hidden}
 .top{background:var(--cover);color:#fff;display:flex;align-items:center;gap:8px;
   padding:calc(10px + var(--sat)) calc(10px + var(--sar)) 10px calc(14px + var(--sal));flex:0 0 auto;user-select:none}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
-.brand img{width:34px;height:34px;flex:0 0 auto}
-.brand-name{font-size:17px;font-weight:800;line-height:1.15;white-space:nowrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-icon{width:34px;height:34px;flex:0 0 auto}
+.brand-name{font-size:17px;font-weight:700;line-height:34px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.latest{font-size:10.5px;font-weight:800;color:#2EB872;background:#2eb87224;padding:1px 7px;border-radius:20px;line-height:1.4;animation:pop .32s var(--spring)}
+.topgap{flex:1}
+/* Chấm đồng bộ (m-skill §2b) */
+.syncdot{width:38px;height:38px;border:0;background:none;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:0 0 auto}
+.syncdot i{width:12px;height:12px;border-radius:50%;background:#A6A9B0;box-shadow:0 0 0 4px rgba(166,169,176,.2);transition:background-color .3s,box-shadow .3s}
+.syncdot.synced i{background:#3DDC8A;box-shadow:0 0 0 4px rgba(61,220,138,.2)}
+.syncdot.pending i{background:#F5A623;box-shadow:0 0 0 4px rgba(245,166,35,.2);animation:syncPulse 1s ease-in-out infinite}
+.syncdot.error i{background:#E5383B;box-shadow:0 0 0 4px rgba(229,56,59,.25)}
+@keyframes syncPulse{50%{transform:scale(.7);opacity:.6}}
+/* Nút kiểm tra cập nhật */
+.upd{position:relative}
+.upd.checking svg{animation:spin .9s linear infinite}
+.upd.available{color:#3DDC8A;animation:updPulse 1.4s ease-in-out infinite}
+.upd.latest{color:#3DDC8A}
+.upd-latest{font-size:10px;font-weight:800;color:#3DDC8A;margin-left:2px}
+.app.droid .upd:has(.upd-latest:not([hidden])){width:auto;padding:0 6px;display:flex;gap:2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes updPulse{50%{opacity:.45;transform:scale(.9)}}
 .brand-name .m{color:var(--red)}.brand-name .a{color:#fff}
-.brand-desc{font-size:11.5px;color:#BFB4AE;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ibtn{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:0 0 auto;transition:transform .3s var(--spring),background .2s}
 .ibtn:hover{background:var(--cover-2)}.ibtn:active{transform:scale(.86)}
 .ibtn svg{width:20px;height:20px}
@@ -208,12 +225,6 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .legend i{display:inline-block;width:12px;height:12px;border-radius:4px;vertical-align:-2px;margin-right:4px}
 
 .foot{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;padding:6px calc(14px + var(--sar)) calc(8px + var(--sab)) calc(14px + var(--sal));font-size:11px;color:#A79A92;gap:8px;user-select:none}
-.sync{display:flex;align-items:center;gap:6px;border-radius:8px;padding:2px 4px;margin-left:-4px}
-.sync i{width:7px;height:7px;border-radius:50%;background:#C9BBB2}
-.sync.synced i{background:#4CB782;box-shadow:0 0 0 3px #D7F0E6}
-.sync.syncing i{background:#F2B84B;box-shadow:0 0 0 3px var(--butter);animation:pulse .8s infinite alternate}
-.sync.offline i{background:#C9BBB2;box-shadow:0 0 0 3px #EFE6DF}
-.sync.error i{background:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
 @keyframes pulse{to{opacity:.4}}
 .credit{white-space:nowrap}
 
@@ -258,7 +269,6 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .app.wide .pane.calp{order:-1;border-right:1px solid var(--line);background:var(--paper-2)}
 .app.wide .mhead{background:var(--paper-2)}
 .app.wide:not(.searching) .subbar{display:none}
-.app:not(.wide) .brand-desc{display:none}
 .app:not(.wide) .year .ibtn{width:26px}
 .app:not(.wide) .year b{min-width:40px;font-size:18px}
 .app:not(.wide) .ibtn{width:38px}
@@ -298,3 +308,16 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 @media (max-height:640px){.keypad{grid-template-columns:repeat(3,60px);gap:10px}.keypad button{height:60px;font-size:22px}.lock .logo{width:60px;height:60px}}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Android: không có logo + tên app, chỉ 1 hàng icon mỏng (m-skill §5) */
+.app.droid .brand{display:none}
+.app.droid .top{padding-top:calc(2px + var(--sat));padding-bottom:2px;gap:4px}
+.app.droid .ibtn,.app.droid .syncdot{width:38px;height:38px}
+.app.droid .year{height:36px}
+/* PC: header là thanh tiêu đề (ẩn title bar Windows, m-skill §2.1) */
+.electron .top{-webkit-app-region:drag;min-height:58px;padding-right:150px}
+.electron .top button,.electron .top input,.electron .top label,.electron .top a,.electron .top .year{-webkit-app-region:no-drag}
+.electron .lock::before{content:"";position:absolute;left:0;right:0;top:0;height:58px;-webkit-app-region:drag}
+.electron .lock>*{-webkit-app-region:no-drag}
+.electron .top{height:58px;min-height:58px;padding-top:0;padding-bottom:0}
+.app.droid .menu{top:calc(46px + var(--sat))}

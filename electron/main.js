@@ -29,6 +29,9 @@ function createWindow() {
   win = new BrowserWindow({
     x: st.x, y: st.y, width: st.width, height: st.height, minWidth: 420, minHeight: 560,
     title: 'Mon Inkdays', backgroundColor: '#FFF8F0', show: false, autoHideMenuBar: true,
+    // Ẩn thanh tiêu đề Windows: header của app là thanh tiêu đề, 3 nút cửa sổ cùng màu header
+    titleBarStyle: 'hidden',
+    titleBarOverlay: { color: '#2E2A2B', symbolColor: '#FFFFFF', height: 58 },
     icon: path.join(__dirname, '..', 'build', 'icon.png'),
     webPreferences: { preload: path.join(__dirname, 'preload.js'), contextIsolation: true, sandbox: true, spellcheck: false },
   });
@@ -83,6 +86,7 @@ function setupUpdates() {
   autoUpdater.autoDownload = true;
   autoUpdater.autoInstallOnAppQuit = true;
   autoUpdater.on('update-available', i => send({ state: 'downloading', version: i.version }));
+  autoUpdater.on('update-not-available', i => send({ state: 'latest', version: i?.version || app.getVersion() }));
   autoUpdater.on('download-progress', p => send({ state: 'downloading', version: autoUpdater.updateInfoAndProvider?.info?.version || '', percent: Math.round(p.percent) }));
   autoUpdater.on('update-downloaded', i => send({ state: 'ready', version: i.version }));
   autoUpdater.on('error', e => { console.error(e); send({ state: 'error' }); });

@@ -10,31 +10,35 @@ const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const norm = s => s.toLowerCase();
 
 const STATUS = {
-  local: 'Chưa đồng bộ · lưu trên máy',
-  signedout: 'Chưa đăng nhập · bấm để đồng bộ',
+  local: 'Chỉ lưu trên máy',
+  signedout: 'Chưa đăng nhập để đồng bộ',
   syncing: 'Đang đồng bộ…',
   synced: 'Đã đồng bộ',
   offline: 'Offline · sẽ đồng bộ khi có mạng',
-  error: 'Lỗi đồng bộ · bấm để xem',
+  error: 'Lỗi đồng bộ',
 };
 
 export class AppUI {
-  constructor(root, { platform, onMenu, onSync }) {
+  constructor(root, { platform, onMenu, onSync, onUpdate }) {
     this.platform = platform;
     this.onMenu = onMenu;
     this.onSync = onSync;
+    this.onUpdate = onUpdate;
     this.mode = 'flow';
     this.year = new Date().getFullYear();
     this.q = '';
     this.open = null;
     this.extra = new Set(); // ngày vừa thêm bằng nút + nhưng chưa viết gì
-    root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''}" data-mode="flow">
+    root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''} ${platform === 'android' ? 'droid' : ''}" data-mode="flow">
       <header class="top">
-        <div class="brand"><img src="icon.svg" alt=""><div style="min-width:0"><div class="brand-name"><span class="m">Mon</span> <span class="a">Inkdays</span></div><div class="brand-desc">Nhật kí</div></div></div>
-        <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
+        <div class="brand"><img class="brand-icon" src="icon.svg" alt=""><div class="brand-name"><span><span class="m">Mon</span> <span class="a">Inkdays</span></span><span class="latest" hidden>latest</span></div></div>
         <div class="year"><button class="ibtn" data-y="-1" title="Năm trước" aria-label="Năm trước">${I.l}</button><b data-yl></b><button class="ibtn" data-y="1" title="Năm sau" aria-label="Năm sau">${I.r}</button></div>
+        <span class="topgap"></span>
+        <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
+        <button type="button" class="syncdot" data-act="sync" title="Đồng bộ" aria-label="Đồng bộ"><i></i></button>
         <button class="ibtn only-mob" data-act="search" title="Tìm kiếm" aria-label="Tìm kiếm">${I.search}</button>
         <button class="ibtn" data-act="menu" title="Thêm" aria-label="Menu">${I.more}</button>
+        <button type="button" class="ibtn upd" data-act="upd" title="Kiểm tra cập nhật" aria-label="Kiểm tra cập nhật">${I.refresh}<span class="upd-latest" hidden>latest</span></button>
       </header>
       <div data-banner></div>
       <div class="subbar">
@@ -47,7 +51,7 @@ export class AppUI {
       </div><div class="fscroll"><div class="thumb"></div><div class="bubble"></div></div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
       <button class="quick" data-act="quick" title="Nhảy tới hôm nay và viết luôn">${I.plus}Nhập nhanh</button>
       <div class="editbar"><button data-act="bold" title="In đậm (Ctrl+B)" aria-label="In đậm"><b>B</b></button><button data-act="done" class="done" title="Xong, lưu và đồng bộ (Esc)" aria-label="Xong">${I.check}</button></div></div>
-      <footer class="foot"><button class="sync" data-act="sync"><i></i><span data-st></span></button><span class="credit">Created by Mondiro</span></footer>
+      <footer class="foot"><span></span><span class="credit">Created by Mondiro</span></footer>
     </div>`;
     this.root = root.firstElementChild;
     this.flowEl = this.$('[data-flow]');
@@ -238,10 +242,24 @@ export class AppUI {
     this.patchCells(ev.keys);
     this.updateCount();
   }
+  // Chấm đồng bộ góc phải trên: xám = chỉ trên máy, vàng nhấp nháy = đang đồng bộ, xanh lá = xong, đỏ = lỗi
   showStatus() {
-    const s = this.$('.sync');
-    s.className = 'sync ' + store.status;
-    this.$('[data-st]').textContent = STATUS[store.status] || '';
+    const s = this.$('.syncdot'), st = store.status;
+    const cls = st === 'synced' ? 'synced' : st === 'syncing' ? 'pending' : st === 'error' ? 'error' : '';
+    s.className = 'syncdot ' + cls;
+    const t = 'Đồng bộ: ' + (STATUS[st] || '') + (store.user?.email ? ' · ' + store.user.email : '');
+    s.title = t; s.setAttribute('aria-label', t);
+  }
+  // Nút kiểm tra cập nhật: checking = xoay, available = xanh nhấp nháy, latest = xanh lá (+ chữ latest)
+  setUpdate(state, note) {
+    const b = this.$('.upd');
+    b.classList.remove('checking', 'available', 'latest');
+    if (state) b.classList.add(state);
+    const tip = 'Kiểm tra cập nhật' + (note ? ' · ' + note : '');
+    b.title = tip; b.setAttribute('aria-label', tip);
+    const isLatest = state === 'latest';
+    this.$('.upd-latest').hidden = !(isLatest && this.platform === 'android');
+    this.$('.latest').hidden = !(isLatest && this.platform !== 'android');
   }
 
   // ----- Điều hướng -----
@@ -403,7 +421,8 @@ export class AppUI {
       else if (d.act === 'search') this.toggleSearch();
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
       else if (d.act === 'menu') { if (!this.closeMenu()) this.onMenu(this); }
-      else if (d.act === 'sync') this.onSync();
+      else if (d.act === 'sync') { this.toast(b.title); if (!store.user) this.onSync(); }
+      else if (d.act === 'upd') this.onUpdate?.();
       else if (d.act === 'quick') this.quickEntry();
       else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
