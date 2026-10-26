@@ -8,7 +8,7 @@ android {
     namespace = "com.mondiro.monml"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.mondiro.monml"
+        applicationId "com.mondiro.ml"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode vMajor * 10000 + vMinor * 100 + vPatch
@@ -20,17 +20,23 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // Khoá ký lấy từ GitHub Secrets (ANDROID_KEYSTORE_BASE64 + ANDROID_KEYSTORE_PASSWORD).
+    // KHÔNG để file khoá trong repo (repo public). Alias cố định: mondiro.
+    def ksFile = System.getenv("ANDROID_KEYSTORE_FILE")
+    def ksPass = System.getenv("ANDROID_KEYSTORE_PASSWORD")
     signingConfigs {
-        release {
-            storeFile file('monml-release.jks')
-            storePassword System.getenv('MONML_KEYSTORE_PASSWORD') ?: 'monml-mondiro'
-            keyAlias 'monml'
-            keyPassword System.getenv('MONML_KEYSTORE_PASSWORD') ?: 'monml-mondiro'
+        mondiro {
+            if (ksFile && ksPass) {
+                storeFile file(ksFile)
+                storePassword ksPass
+                keyAlias "mondiro"
+                keyPassword ksPass
+            }
         }
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            signingConfig((ksFile && ksPass) ? signingConfigs.mondiro : signingConfigs.debug)
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
