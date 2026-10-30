@@ -264,7 +264,15 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 /* ===== 2 cột: màn trong Z Fold, PC ===== */
 .app.wide .seg{display:none}
 .app.wide .subbar .seg{display:none}
-.app.wide .track{width:100%;transform:none!important;display:grid;grid-template-columns:minmax(300px,40%) 1fr}
+.app.wide .track{width:100%;transform:none!important;display:grid;grid-template-columns:minmax(300px,40%) 1fr;transition:grid-template-columns .35s var(--ease)}
+/* PC: thu gọn cột Lịch */
+.app.wide.calhidden .track{grid-template-columns:minmax(0px,0%) 1fr}
+.app.wide.calhidden .pane.calp{border-right:0;overflow:hidden;opacity:0;pointer-events:none}
+.app.wide .pane.calp{transition:opacity .25s ease}
+.app.wide.calhidden .quick{opacity:0;pointer-events:none}
+.calbtn svg{transition:transform .3s var(--spring)}
+.app.calhidden .calbtn svg{transform:scaleX(-1)}
+.app.calhidden .calbtn{background:var(--cover-2)}
 .app.wide .pane{width:auto}
 .app.wide .pane.calp{order:-1;border-right:1px solid var(--line);background:var(--paper-2)}
 .app.wide .mhead{background:var(--paper-2)}
@@ -321,3 +329,4 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .electron .lock>*{-webkit-app-region:no-drag}
 .electron .top{height:58px;min-height:58px;padding-top:0;padding-bottom:0}
 .app.droid .menu{top:calc(46px + var(--sat))}
+.app.desk.wide .calbtn{display:grid}

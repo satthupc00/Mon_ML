@@ -32,6 +32,7 @@ export class AppUI {
     root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''} ${platform === 'android' ? 'droid' : ''}" data-mode="flow">
       <header class="top">
         <div class="brand"><img class="brand-icon" src="icon.svg" alt=""><div class="brand-name"><span><span class="m">Mon</span> <span class="a">Inkdays</span></span><span class="latest" hidden>latest</span></div></div>
+        <button type="button" class="ibtn calbtn only-desk" data-act="cal" title="Ẩn/hiện lịch (Ctrl+L)" aria-label="Ẩn/hiện lịch">${I.panel}</button>
         <div class="year"><button class="ibtn" data-y="-1" title="Năm trước" aria-label="Năm trước">${I.l}</button><b data-yl></b><button class="ibtn" data-y="1" title="Năm sau" aria-label="Năm sau">${I.r}</button></div>
         <span class="topgap"></span>
         <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
@@ -63,6 +64,7 @@ export class AppUI {
     // Bộ lọc SVG tạo hiệu ứng "giọt nước" cho các ô du lịch liền nhau trên lịch
     if (!document.getElementById('monml-goo')) document.body.insertAdjacentHTML('beforeend', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="monml-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>');
     this.bindScrollbar();
+    try { if (platform === 'desktop' && localStorage.getItem('monml.calHidden')) this.root.classList.add('calhidden'); } catch { /* bỏ qua */ }
     this.checkWide();
     this.bind();
     store.on(ev => this.onStore(ev));
@@ -424,6 +426,7 @@ export class AppUI {
       else if (d.act === 'sync') { this.toast(b.title); if (!store.user) this.onSync(); }
       else if (d.act === 'upd') this.onUpdate?.();
       else if (d.act === 'quick') this.quickEntry();
+      else if (d.act === 'cal') this.toggleCal();
       else if (d.act === 'bottom') this.flowP.scrollTo({ top: this.flowP.scrollHeight, behavior: 'smooth' });
     });
     R.addEventListener('input', ev => {
@@ -503,7 +506,8 @@ export class AppUI {
       vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit);
     }
     document.addEventListener('keydown', ev => {
-      if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'f') {
+      if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'l' && this.platform === 'desktop') { ev.preventDefault(); this.toggleCal(); }
+      else if ((ev.ctrlKey || ev.metaKey) && ev.key.toLowerCase() === 'f') {
         ev.preventDefault();
         const i = this.$('.app.desk.wide .searchbar.only-desk input') || (this.toggleSearch(true), null);
         i?.focus(); i?.select();
@@ -553,6 +557,14 @@ export class AppUI {
       setTimeout(() => e.classList.remove('pop'), 1500);
       setTimeout(() => this.startEdit(k), 300);
     }, this.wide ? 20 : 380);
+  }
+
+  // PC: thu gọn / mở lại cột Lịch, nhớ lựa chọn giữa các lần mở app
+  toggleCal(force) {
+    const hide = force ?? !this.root.classList.contains('calhidden');
+    this.root.classList.toggle('calhidden', hide);
+    try { localStorage.setItem('monml.calHidden', hide ? '1' : ''); } catch { /* bỏ qua */ }
+    setTimeout(() => this.syncScrollbar(false), 380);
   }
 
   toggleTags(k) {
