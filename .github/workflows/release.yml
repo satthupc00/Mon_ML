@@ -58,6 +58,7 @@ jobs:
             Mon ML v${{ needs.check.outputs.version }}
             - Windows: tải **MonML-Setup-${{ needs.check.outputs.version }}.exe**
             - Android (Z Fold 7): tải **MonML-${{ needs.check.outputs.version }}.apk**
+            - Lưu ý từ v1.1.2: app Android đã đăng ký chính chủ với Google, đổi khoá ký + mã app mới `com.mondiro.ml`. Lần đầu cần cài bản mới rồi gỡ bản cũ (nhớ đồng bộ dữ liệu trước). Các bản sau cài đè bình thường.
           files: |
             dist/*.exe
             dist/*.exe.blockmap
@@ -82,6 +83,16 @@ jobs:
       - run: npm ci
       - name: Build web + sync Capacitor
         run: npm run android:sync
+      - name: Giải mã khoá ký (GitHub Secrets)
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$KS_B64" ] || [ -z "$KS_PASS" ]; then echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64 / ANDROID_KEYSTORE_PASSWORD"; exit 1; fi
+          echo "$KS_B64" | base64 -d > "$RUNNER_TEMP/mondiro.jks"
+          echo "ANDROID_KEYSTORE_FILE=$RUNNER_TEMP/mondiro.jks" >> "$GITHUB_ENV"
+          echo "ANDROID_KEYSTORE_PASSWORD=$KS_PASS" >> "$GITHUB_ENV"
+          echo "::add-mask::$KS_PASS"
       - name: Build APK
         working-directory: android
         run: |
