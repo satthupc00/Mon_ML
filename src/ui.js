@@ -64,6 +64,13 @@ export class AppUI {
     // Bộ lọc SVG tạo hiệu ứng "giọt nước" cho các ô du lịch liền nhau trên lịch
     if (!document.getElementById('monml-goo')) document.body.insertAdjacentHTML('beforeend', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="monml-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>');
     this.bindScrollbar();
+    // Mở app: Dòng chảy luôn nằm ở dòng cuối, kể cả khi dữ liệu đồng bộ về / font tải xong làm trang dài ra.
+    // Thôi bám đáy khi người dùng tự cuộn hoặc bắt đầu gõ.
+    this.stickBottom = true;
+    const unstick = () => { this.stickBottom = false; };
+    ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(ev => this.flowP.addEventListener(ev, unstick, { passive: true }));
+    this.$('.fscroll').addEventListener('pointerdown', unstick);
+    new ResizeObserver(() => { if (this.stickBottom) this.flowP.scrollTop = this.flowP.scrollHeight; }).observe(this.flowEl);
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible' && !this.editing && this.renderedToday && this.renderedToday !== todayKey()) this.refresh();
     });
@@ -121,7 +128,7 @@ export class AppUI {
     this.$('[data-yl]').textContent = this.year;
     this.renderFlow();
     this.renderCal();
-    this.flowP.scrollTop = s1; this.calP.scrollTop = s2;
+    this.flowP.scrollTop = this.stickBottom ? this.flowP.scrollHeight : s1; this.calP.scrollTop = s2;
     this.updateCount();
     this.checkBottom();
     this.syncScrollbar(false);
