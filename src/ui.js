@@ -199,7 +199,7 @@ export class AppUI {
     const ds = this.daysOfYear();
     let h = `<div class="flow-paper"><p class="ym">ML ${this.year}</p>`;
     if (!ds.length) h += `<p class="empty-year">Năm ${this.year} chưa có trang nào. Chọn 1 ngày trên lịch để bắt đầu viết.</p>`;
-    h += `<div class="ents">${ds.map(k => this.entHTML(k)).join('')}</div></div>`;
+    h += `<div class="ents" contenteditable="true" spellcheck="false">${ds.map(k => this.entHTML(k)).join('')}</div></div>`;
     this.flowEl.innerHTML = h;
     this.renderedToday = todayKey();
   }
@@ -331,14 +331,7 @@ export class AppUI {
     const host = this.host;
     const ent = host?.querySelector(`.ent[data-k="${k}"]`);
     if (!ent) return;
-    if (!this.editing) {
-      // vào chế độ gõ: bỏ tô từ khóa, mở toàn bộ vùng các ngày cho gõ
-      host.querySelectorAll('.ent').forEach(e => { e.querySelector('.txt').innerHTML = toHTML(store.get(e.dataset.k)?.text || '', esc); });
-      host.contentEditable = 'true';
-      host.spellcheck = false;
-      this.root.classList.add('editmode');
-      this.open = null;
-    }
+    if (!this.editing) { this.root.classList.add('editmode'); this.open = null; }
     host.focus({ preventScroll: true });
     const t = ent.querySelector('.txt');
     const r = x != null && document.caretRangeFromPoint?.(x, y);
@@ -367,10 +360,10 @@ export class AppUI {
     this.savedRange = null;
     this.root.classList.remove('editmode');
     this.$('.boldpop').hidden = true;
-    if (host) { host.contentEditable = 'false'; host.blur(); }
+    host?.blur();
     getSelection().removeAllRanges();
     store.flush();
-    this.refresh();
+    if (this.pendingRebuild) this.refresh();
   }
   restoreSel() {
     const host = this.host;
@@ -486,6 +479,13 @@ export class AppUI {
       else document.execCommand('insertText', false, rich);
     });
     // Nhớ vùng chữ đang chọn (bấm nút trên màn cảm ứng có thể làm mất vùng chọn)
+    // Chạm vào chữ là gõ được ngay: vùng các ngày nhận focus = đang gõ
+    R.addEventListener('focusin', e => {
+      if (!e.target.classList?.contains('ents') || this.editing) return;
+      this.root.classList.add('editmode');
+      this.open = null;
+      this.editing = '…';
+    });
     document.addEventListener('selectionchange', () => {
       if (!this.editing) return;
       this.normalizeCaret();
@@ -540,23 +540,6 @@ export class AppUI {
         if (inside(document.activeElement) || inside(lastDown)) return;
         this.commitEdit();
       }, 250);
-    });
-    // Chạm 2 lần (hoặc double-click) vào nội dung 1 ngày để vào chế độ gõ
-    let tap = null, down = null;
-    this.flowEl.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
-    this.flowEl.addEventListener('pointerup', e => {
-      if (!down) return;
-      const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y), dt = performance.now() - down.t;
-      down = null;
-      if (moved > 12 || dt > 400) { tap = null; return; }
-      const ent = e.target.closest('.ent');
-      if (this.editing || !ent || e.target.closest('.date,.acts')) { tap = null; return; }
-      const now = performance.now();
-      if (tap && tap.k === ent.dataset.k && now - tap.t < 420 && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 40) {
-        tap = null;
-        getSelection().removeAllRanges();
-        this.startEdit(ent.dataset.k, e.clientX, e.clientY);
-      } else tap = { k: ent.dataset.k, t: now, x: e.clientX, y: e.clientY };
     });
     // Bàn phím ảo che màn hình: đẩy thanh B / ✓ lên trên bàn phím
     const vv = window.visualViewport;
