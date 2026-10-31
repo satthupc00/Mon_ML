@@ -403,7 +403,7 @@ export class AppUI {
     pop.classList.toggle('on', on);
     const left = Math.min(box.width - 52, Math.max(8, rect.left + rect.width / 2 - box.left - 22));
     const top = rect.bottom - box.top + 10;
-    pop.style.transform = `translate(${left}px, ${top}px)`;
+    pop.style.left = left + 'px'; pop.style.top = top + 'px'; // đặt thẳng vị trí, chỉ hiện mờ dần (không chạy)
   }
   openDay(k) {
     if (+k.slice(0, 4) !== this.year) this.year = +k.slice(0, 4);
