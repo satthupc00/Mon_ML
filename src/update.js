@@ -1,8 +1,8 @@
-// Tự cập nhật từ GitHub Releases (satthupc00/Mon_ML) + trạng thái nút "Kiểm tra cập nhật" trên header
+// Tự cập nhật từ GitHub Releases (satthupc00/Mon_Inkdays) + trạng thái nút "Kiểm tra cập nhật" trên header
 import { isElectron, isAndroid, appVersion } from './platform.js';
 import { registerPlugin } from '@capacitor/core';
 
-const REPO = 'satthupc00/Mon_ML';
+const REPO = 'satthupc00/Mon_Inkdays';
 const ApkUpdater = registerPlugin('ApkUpdater');
 let installAndroid = null; // hàm tải + cài APK khi đã có bản mới
 
