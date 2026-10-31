@@ -330,3 +330,24 @@ mark{background:var(--hit);color:inherit;border-radius:4px;padding:0 1px}
 .electron .top{height:58px;min-height:58px;padding-top:0;padding-bottom:0}
 .app.droid .menu{top:calc(46px + var(--sat))}
 .app.desk.wide .calbtn{display:grid}
+
+/* Chế độ gõ liền mạch qua các ngày */
+.ents{outline:none}
+.ents[contenteditable=true] .txt{cursor:text;caret-color:var(--red)}
+.ents[contenteditable=true] .date,.ents[contenteditable=true] .acts{user-select:none;-webkit-user-select:none}
+/* Nút B chỉ hiện khi bôi đen chữ */
+.boldpop{position:absolute;left:0;top:0;z-index:40;width:44px;height:44px;border-radius:14px;background:var(--cover);color:#fff;font-size:19px;
+  display:grid;place-items:center;box-shadow:0 10px 22px -8px rgba(46,42,43,.55);animation:pop .3s var(--spring);transition:transform .12s ease-out,background .15s}
+.boldpop.on{background:var(--red)}
+.boldpop[hidden]{display:none}
+/* PC: nút thu gọn lịch nằm trên mép ngăn cách 2 cột */
+.calhandle{position:absolute;top:50%;left:calc(max(300px, 40%) - 14px);z-index:9;width:28px;height:56px;margin-top:-28px;border-radius:14px;
+  background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--line),0 6px 16px -8px rgba(60,30,20,.45);
+  transition:left .35s var(--ease),background .15s,transform .2s var(--spring)}
+.app.desk.wide .calhandle{display:grid;place-items:center}
+.calhandle:hover{background:#FFF1EC;color:var(--red)}
+.calhandle:active{transform:scale(.92)}
+.calhandle svg{width:18px;height:18px;transition:transform .35s var(--spring)}
+.app.calhidden .calhandle{left:6px}
+.app.calhidden .calhandle svg{transform:rotate(180deg)}
+.app:not(.wide):not(.droid) .brand-name{display:none}

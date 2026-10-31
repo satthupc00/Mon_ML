@@ -32,7 +32,6 @@ export class AppUI {
     root.innerHTML = `<div class="app locked ${platform === 'desktop' ? 'desk' : ''} ${platform === 'android' ? 'droid' : ''}" data-mode="flow">
       <header class="top">
         <div class="brand"><img class="brand-icon" src="icon.svg" alt=""><div class="brand-name"><span><span class="m">Mon</span> <span class="a">Inkdays</span></span><span class="latest" hidden>latest</span></div></div>
-        <button type="button" class="ibtn calbtn only-desk" data-act="cal" title="Ẩn/hiện lịch (Ctrl+L)" aria-label="Ẩn/hiện lịch">${I.panel}</button>
         <div class="year"><button class="ibtn" data-y="-1" title="Năm trước" aria-label="Năm trước">${I.l}</button><b data-yl></b><button class="ibtn" data-y="1" title="Năm sau" aria-label="Năm sau">${I.r}</button></div>
         <span class="topgap"></span>
         <label class="searchbar only-desk" title="Tìm kiếm (Ctrl+F)">${I.search}<input placeholder="Tìm từ khóa…" data-q enterkeyhint="search"><span class="cnt" data-cnt></span></label>
@@ -51,7 +50,8 @@ export class AppUI {
         <div class="pane calp"><div class="cal" data-cal></div></div>
       </div><div class="fscroll"><div class="thumb"></div><div class="bubble"></div></div><button class="tobottom" data-act="bottom" title="Xuống cuối" aria-label="Xuống cuối">${I.chev}</button>
       <button class="quick" data-act="quick" title="Nhảy tới hôm nay và viết luôn">${I.plus}Nhập nhanh</button>
-      <div class="editbar"><button data-act="bold" title="In đậm (Ctrl+B)" aria-label="In đậm"><b>B</b></button><button data-act="done" class="done" title="Xong, lưu và đồng bộ (Esc)" aria-label="Xong">${I.check}</button></div></div>
+      <button type="button" class="calhandle only-desk" data-act="cal" title="Thu gọn / mở lịch (Ctrl+L)" aria-label="Thu gọn / mở lịch">${I.l}</button>
+      <button type="button" class="boldpop" title="In đậm (Ctrl+B)" aria-label="In đậm" hidden><b>B</b></button></div>
       <footer class="foot"><span></span><span class="credit">Created by Mondiro</span></footer>
     </div>`;
     this.root = root.firstElementChild;
@@ -60,10 +60,13 @@ export class AppUI {
     this.flowP = this.$('.flowp');
     this.calP = this.$('.calp');
     new ResizeObserver(() => { this.checkWide(); this.checkBottom(); this.syncScrollbar(false); }).observe(this.root);
-    this.flowP.addEventListener('scroll', () => { this.checkBottom(); this.syncScrollbar(true); }, { passive: true });
+    this.flowP.addEventListener('scroll', () => { this.checkBottom(); this.syncScrollbar(true); if (this.editing) this.updateBold(); }, { passive: true });
     // Bộ lọc SVG tạo hiệu ứng "giọt nước" cho các ô du lịch liền nhau trên lịch
     if (!document.getElementById('monml-goo')) document.body.insertAdjacentHTML('beforeend', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="monml-goo"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></svg>');
     this.bindScrollbar();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && !this.editing && this.renderedToday && this.renderedToday !== todayKey()) this.refresh();
+    });
     try { if (platform === 'desktop' && localStorage.getItem('monml.calHidden')) this.root.classList.add('calhidden'); } catch { /* bỏ qua */ }
     this.checkWide();
     this.bind();
@@ -181,7 +184,7 @@ export class AppUI {
   }
   entHTML(k) {
     const e = store.get(k) || { text: '', mood: null };
-    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span><span class="acts">${this.actsHTML(k)}</span></p>`;
+    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" contenteditable="false" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span><span class="acts" contenteditable="false">${this.actsHTML(k)}</span></p>`;
   }
   entCls(k) {
     const e = store.get(k);
@@ -195,12 +198,10 @@ export class AppUI {
   renderFlow() {
     const ds = this.daysOfYear();
     let h = `<div class="flow-paper"><p class="ym">ML ${this.year}</p>`;
-    if (!ds.length) h += `<p class="empty-year">Năm ${this.year} chưa có trang nào. Bấm nút bên dưới để bắt đầu viết.</p>`;
-    for (const k of ds) h += this.entHTML(k);
-    const next = ds.length ? addDay(ds.at(-1), 1) : (this.year === new Date().getFullYear() ? todayKey() : `${this.year}-01-01`);
-    this.nextKey = next;
-    h += `<button class="add" data-add title="Thêm ngày tiếp theo (Ctrl+Enter)"><span class="plus">${I.plus}</span>Thêm <span class="nd">${label(next)}</span></button></div>`;
+    if (!ds.length) h += `<p class="empty-year">Năm ${this.year} chưa có trang nào. Chọn 1 ngày trên lịch để bắt đầu viết.</p>`;
+    h += `<div class="ents">${ds.map(k => this.entHTML(k)).join('')}</div></div>`;
     this.flowEl.innerHTML = h;
+    this.renderedToday = todayKey();
   }
   cellCls(k) {
     const e = store.get(k);
@@ -229,7 +230,7 @@ export class AppUI {
     if (!el) return false;
     el.className = this.entCls(k);
     const t = el.querySelector('.txt');
-    if (this.editing !== k) t.innerHTML = this.hl(store.get(k)?.text || '');
+    if (this.editing !== k) t.innerHTML = this.editing ? toHTML(store.get(k)?.text || '', esc) : this.hl(store.get(k)?.text || '');
     el.querySelector('.acts').innerHTML = this.actsHTML(k);
     return true;
   }
@@ -323,48 +324,86 @@ export class AppUI {
     if (edit) setTimeout(() => this.startEdit(k), 320);
   }
 
-  // ----- Chế độ gõ: chạm 2 lần vào 1 ngày để gõ, bấm ✓ để xong và đồng bộ -----
+  // ----- Chế độ gõ: chạm 2 lần để bắt đầu; cả trang Dòng chảy gõ liền mạch như văn bản Word,
+  // mũi tên lên/xuống đi qua các ngày. Gõ tới đâu tự lưu + đồng bộ tới đó.
+  get host() { return this.flowEl.querySelector('.ents'); }
   startEdit(k, x, y, caretAt) {
-    if (this.editing === k) return;
-    if (this.editing) this.commitEdit();
-    const ent = this.flowEl.querySelector(`.ent[data-k="${k}"]`);
+    const host = this.host;
+    const ent = host?.querySelector(`.ent[data-k="${k}"]`);
     if (!ent) return;
+    if (!this.editing) {
+      // vào chế độ gõ: bỏ tô từ khóa, mở toàn bộ vùng các ngày cho gõ
+      host.querySelectorAll('.ent').forEach(e => { e.querySelector('.txt').innerHTML = toHTML(store.get(e.dataset.k)?.text || '', esc); });
+      host.contentEditable = 'true';
+      host.spellcheck = false;
+      this.root.classList.add('editmode');
+      this.open = null;
+    }
+    host.focus({ preventScroll: true });
     const t = ent.querySelector('.txt');
-    this.editing = k;
-    this.open = null;
-    ent.className = this.entCls(k);
-    t.innerHTML = toHTML(store.get(k)?.text || '', esc);
-    t.contentEditable = 'true';
-    this.root.classList.add('editmode');
-    t.focus({ preventScroll: true });
     const r = x != null && document.caretRangeFromPoint?.(x, y);
     if (r && t.contains(r.startContainer)) { const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
     else if (caretAt != null) setCaret(t, caretAt);
     else placeEnd(t);
-    this.savedRange = getSelection().rangeCount ? getSelection().getRangeAt(0).cloneRange() : null;
-    this.updateBold();
+    this.setActive(k);
+  }
+  // Dòng đang có con trỏ
+  setActive(k) {
+    if (this.editing === k) return;
+    this.flowEl.querySelector('.ent.editing')?.classList.remove('editing');
+    this.editing = k;
+    this.flowEl.querySelector(`.ent[data-k="${k}"]`)?.classList.add('editing');
+  }
+  saveTxt(t) {
+    const text = fromDOM(t);
+    t.closest('.ent').classList.toggle('empty', !plain(text).trim());
+    if (text !== (store.get(t.dataset.k)?.text || '')) store.set(t.dataset.k, { text }, 'type');
   }
   commitEdit() {
-    const k = this.editing;
-    if (!k) return;
-    const t = this.flowEl.querySelector(`.ent[data-k="${k}"] .txt`);
+    if (!this.editing) return;
+    const host = this.host;
+    host?.querySelectorAll('.txt').forEach(t => { if (t.dataset.k === this.editing) this.saveTxt(t); });
     this.editing = null;
     this.savedRange = null;
     this.root.classList.remove('editmode');
-    if (t) { const text = fromDOM(t); t.contentEditable = 'false'; t.blur(); store.set(k, { text }); }
-    else this.refresh();
+    this.$('.boldpop').hidden = true;
+    if (host) { host.contentEditable = 'false'; host.blur(); }
+    getSelection().removeAllRanges();
     store.flush();
+    this.refresh();
   }
   restoreSel() {
-    const t = this.$('.ent.editing .txt');
-    if (!t) return;
-    if (document.activeElement !== t) t.focus({ preventScroll: true });
-    if (this.savedRange && t.contains(this.savedRange.startContainer)) { const sel = getSelection(); sel.removeAllRanges(); sel.addRange(this.savedRange); }
+    const host = this.host;
+    if (!host || !this.editing) return;
+    if (document.activeElement !== host) host.focus({ preventScroll: true });
+    if (this.savedRange && host.contains(this.savedRange.startContainer)) { const sel = getSelection(); sel.removeAllRanges(); sel.addRange(this.savedRange); }
   }
+  // Ô chữ chứa 1 nút DOM (hoặc null)
+  txtOf(n) { return (n?.nodeType === 1 ? n : n?.parentElement)?.closest?.('.txt') || null; }
+  // Con trỏ lọt ra ngoài ô chữ (vd đứng trước nhãn ngày) thì đưa về ô chữ của ngày đó
+  normalizeCaret() {
+    const host = this.host, sel = getSelection();
+    if (!host || !sel.rangeCount || !sel.isCollapsed || !host.contains(sel.anchorNode)) return;
+    if (this.txtOf(sel.anchorNode)) return;
+    let ent = (sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement).closest('.ent');
+    if (!ent && sel.anchorNode === host) ent = host.children[Math.min(sel.anchorOffset, host.children.length - 1)];
+    const t = ent?.querySelector('.txt');
+    if (t) { const r = document.createRange(); r.setStart(t, 0); r.collapse(true); sel.removeAllRanges(); sel.addRange(r); }
+  }
+  // Nút B chỉ hiện khi đang bôi đen chữ trong 1 ngày
   updateBold() {
+    const pop = this.$('.boldpop'), sel = getSelection();
+    if (!this.editing || !sel.rangeCount || sel.isCollapsed) { pop.hidden = true; return; }
+    const r = sel.getRangeAt(0), a = this.txtOf(r.startContainer), b = this.txtOf(r.endContainer);
+    if (!a || a !== b) { pop.hidden = true; return; }
+    pop.hidden = false;
+    const rect = r.getBoundingClientRect(), box = (pop.offsetParent || this.root).getBoundingClientRect();
     let on = false;
-    try { on = !!this.editing && document.queryCommandState('bold'); } catch { /* bỏ qua */ }
-    this.$('[data-act=bold]').classList.toggle('on', on);
+    try { on = document.queryCommandState('bold'); } catch { /* bỏ qua */ }
+    pop.classList.toggle('on', on);
+    const left = Math.min(box.width - 52, Math.max(8, rect.left + rect.width / 2 - box.left - 22));
+    const top = rect.bottom - box.top + 10;
+    pop.style.transform = `translate(${left}px, ${top}px)`;
   }
   openDay(k) {
     if (+k.slice(0, 4) !== this.year) this.year = +k.slice(0, 4);
@@ -418,7 +457,6 @@ export class AppUI {
       else if (d.open) this.toggleTags(d.open);
       else if (d.mood) { const k = d.k, cur = store.get(k)?.mood; b.classList.toggle('on', cur !== d.mood); setTimeout(() => { this.open = null; this.flowEl.querySelector('.ent.open')?.classList.remove('open'); store.set(k, { mood: cur === d.mood ? null : d.mood }); if (this.editing) this.restoreSel(); }, 220); }
       else if (d.del) { const k = d.del; confirmBox(`Xóa nội dung ngày ${label(k)}?`, 'Xóa').then(ok => { if (ok) { this.open = null; store.set(k, { text: '', mood: null }); } }); }
-      else if (b.hasAttribute('data-add')) { if (this.editing) this.commitEdit(); const k = this.nextKey; this.extra.add(k); this.open = null; this.refresh(k); }
       else if (d.day) this.openDay(d.day);
       else if (d.act === 'search') this.toggleSearch();
       else if (d.act === 'clearq') { this.setQuery(''); this.$('.subbar [data-q]').focus(); }
@@ -432,15 +470,15 @@ export class AppUI {
     R.addEventListener('input', ev => {
       const t = ev.target;
       if (t.dataset.q !== undefined) { this.setQuery(t.value); return; }
-      if (t.classList.contains('txt') && t.dataset.k === this.editing) {
-        const text = fromDOM(t);
-        t.closest('.ent').classList.toggle('empty', !plain(text).trim());
-        store.set(t.dataset.k, { text }, 'type'); // lưu nháp liên tục, ✓ để chốt
+      if (this.editing && t.classList.contains('ents')) {
+        const sel = getSelection(), txt = sel.rangeCount && this.txtOf(sel.anchorNode);
+        if (txt) this.saveTxt(txt); // gõ tới đâu lưu + đồng bộ tới đó
+        this.updateBold();
       }
     });
     // Dán chữ: giữ chữ in đậm (vd copy từ Google Docs), bỏ các định dạng khác
     R.addEventListener('paste', ev => {
-      if (!ev.target.closest?.('.txt[contenteditable=true]')) return;
+      if (!this.editing || !ev.target.closest?.('.ents')) return;
       ev.preventDefault();
       const html = ev.clipboardData.getData('text/html');
       const rich = html ? htmlToRich(html) : ev.clipboardData.getData('text/plain');
@@ -450,32 +488,58 @@ export class AppUI {
     // Nhớ vùng chữ đang chọn (bấm nút trên màn cảm ứng có thể làm mất vùng chọn)
     document.addEventListener('selectionchange', () => {
       if (!this.editing) return;
-      const sel = getSelection(), t = this.$('.ent.editing .txt');
-      if (sel.rangeCount && t && t.contains(sel.anchorNode)) this.savedRange = sel.getRangeAt(0).cloneRange();
+      this.normalizeCaret();
+      const sel = getSelection(), t = sel.rangeCount && this.txtOf(sel.anchorNode);
+      if (t && this.host?.contains(t)) {
+        if (t.dataset.k !== this.editing) { const prev = this.host.querySelector(`.txt[data-k="${this.editing}"]`); if (prev) this.saveTxt(prev); this.setActive(t.dataset.k); }
+        this.savedRange = sel.getRangeAt(0).cloneRange();
+      }
       this.updateBold();
     });
     // Nút B, ✓ không lấy mất con trỏ/vùng chọn
-    const eb = this.$('.editbar');
-    eb.addEventListener('pointerdown', e => e.preventDefault());
-    eb.addEventListener('mousedown', e => e.preventDefault());
-    eb.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
-    eb.addEventListener('pointerup', e => {
-      const b = e.target.closest('button');
-      if (!b) return;
+    const bp = this.$('.boldpop');
+    bp.addEventListener('pointerdown', e => e.preventDefault());
+    bp.addEventListener('mousedown', e => e.preventDefault());
+    bp.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+    bp.addEventListener('pointerup', e => {
       e.preventDefault();
-      if (b.dataset.act === 'done') this.commitEdit();
-      else if (b.dataset.act === 'bold') {
-        this.restoreSel();
-        document.execCommand('bold');
-        this.updateBold();
-        const t = this.$('.ent.editing .txt');
-        if (t) store.set(this.editing, { text: fromDOM(t) }, 'type');
-      }
+      this.restoreSel();
+      document.execCommand('bold');
+      const t = this.txtOf(getSelection().anchorNode);
+      if (t) this.saveTxt(t);
+      this.updateBold();
     });
     R.addEventListener('keydown', ev => {
-      if (!ev.target.classList?.contains('txt')) return;
-      if (ev.key === 'Enter' && (ev.ctrlKey || ev.metaKey)) { ev.preventDefault(); this.$('[data-add]').click(); }
-      else if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); this.commitEdit(); }
+      if (!this.editing || !ev.target.classList?.contains('ents')) return;
+      if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); this.commitEdit(); }
+    });
+    // Giữ nguyên cấu trúc từng ngày: không xoá xuyên qua nhãn ngày, Enter = xuống dòng trong ngày đó
+    R.addEventListener('beforeinput', ev => {
+      if (!this.editing || !ev.target.classList?.contains('ents')) return;
+      const sel = getSelection();
+      if (!sel.rangeCount) return ev.preventDefault();
+      const r = sel.getRangeAt(0), a = this.txtOf(r.startContainer), b = this.txtOf(r.endContainer);
+      const it = ev.inputType;
+      if (it === 'formatBold' || it === 'historyUndo' || it === 'historyRedo') return;
+      if (!a || a !== b || it === 'insertFromDrop' || it === 'deleteByDrag') { ev.preventDefault(); return; }
+      if (it === 'insertParagraph') { ev.preventDefault(); document.execCommand('insertLineBreak'); return; }
+      if (sel.isCollapsed && it.startsWith('delete')) {
+        const off = caretOffset(a), len = a.textContent.length;
+        if (/Backward$/.test(it) && off === 0) ev.preventDefault();
+        else if (/Forward$/.test(it) && off >= len && !a.querySelector('br:last-child')) ev.preventDefault();
+      }
+    });
+    // Rời chế độ gõ khi chạm ra ngoài vùng chữ (header, lịch…) hoặc bàn phím ảo được cất đi
+    let lastDown = null;
+    R.addEventListener('pointerdown', e => { lastDown = e.target; }, true);
+    R.addEventListener('focusout', e => {
+      if (!this.editing || !e.target.classList?.contains('ents')) return;
+      setTimeout(() => {
+        if (!this.editing) return;
+        const inside = n => n && (this.host?.contains(n) || n.closest?.('.boldpop,.scrim,.menu'));
+        if (inside(document.activeElement) || inside(lastDown)) return;
+        this.commitEdit();
+      }, 250);
     });
     // Chạm 2 lần (hoặc double-click) vào nội dung 1 ngày để vào chế độ gõ
     let tap = null, down = null;
@@ -486,12 +550,7 @@ export class AppUI {
       down = null;
       if (moved > 12 || dt > 400) { tap = null; return; }
       const ent = e.target.closest('.ent');
-      if (!ent || e.target.closest('.date,.acts') || ent.dataset.k === this.editing) { tap = null; return; }
-      if (this.editing) {
-        tap = null;
-        this.startEdit(ent.dataset.k, e.clientX, e.clientY);
-        return;
-      }
+      if (this.editing || !ent || e.target.closest('.date,.acts')) { tap = null; return; }
       const now = performance.now();
       if (tap && tap.k === ent.dataset.k && now - tap.t < 420 && Math.hypot(e.clientX - tap.x, e.clientY - tap.y) < 40) {
         tap = null;
@@ -502,7 +561,14 @@ export class AppUI {
     // Bàn phím ảo che màn hình: đẩy thanh B / ✓ lên trên bàn phím
     const vv = window.visualViewport;
     if (vv) {
-      const fit = () => this.root.style.setProperty('--kb', Math.max(0, innerHeight - vv.height - vv.offsetTop) + 'px');
+      let kbOpen = false;
+      const fit = () => {
+        const kb = Math.max(0, innerHeight - vv.height - vv.offsetTop);
+        this.root.style.setProperty('--kb', kb + 'px');
+        if (kb > 120) kbOpen = true;
+        else if (kbOpen) { kbOpen = false; if (this.editing && this.platform === 'android') this.commitEdit(); } // cất bàn phím = gõ xong
+        if (this.editing) this.updateBold();
+      };
       vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit);
     }
     document.addEventListener('keydown', ev => {
