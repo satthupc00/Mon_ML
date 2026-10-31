@@ -606,12 +606,11 @@ export class AppUI {
     // Bàn phím ảo che màn hình: đẩy thanh B / ✓ lên trên bàn phím
     const vv = window.visualViewport;
     if (vv) {
-      let kbOpen = false;
+      // Lưu ý: KHÔNG tự thoát chế độ gõ khi bàn phím "có vẻ" được cất — trên Android cửa sổ co lại theo bàn phím
+      // nên phép đo dễ báo nhầm, làm bàn phím vừa bật lên đã tắt. Thoát gõ bằng nút Back hoặc chạm ra ngoài.
       const fit = () => {
         const kb = Math.max(0, innerHeight - vv.height - vv.offsetTop);
         this.root.style.setProperty('--kb', kb + 'px');
-        if (kb > 120) kbOpen = true;
-        else if (kbOpen) { kbOpen = false; if (this.editing && this.platform === 'android') this.commitEdit(); } // cất bàn phím = gõ xong
         if (this.editing) this.updateBold();
       };
       vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit);
