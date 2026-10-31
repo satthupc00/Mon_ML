@@ -5,6 +5,7 @@ import { confirmBox } from './dialogs.js';
 import { plain, toHTML, fromDOM, htmlToRich } from './rich.js';
 
 export const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ZW = '\u200B'; // ký tự vô hình giữ chỗ cho con trỏ trong ô chữ trống
 const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // So khớp không phân biệt hoa thường (giữ dấu tiếng Việt)
 const norm = s => s.toLowerCase();
@@ -122,7 +123,7 @@ export class AppUI {
     let caret = null;
     if (ek) {
       const t = this.flowEl.querySelector(`.ent[data-k="${ek}"] .txt`);
-      if (t) { caret = caretOffset(t); store.set(ek, { text: fromDOM(t) }, 'type'); }
+      if (t) { caret = caretOffset(t); this.saveTxt(t); }
       this.editing = null;
     }
     this.$('[data-yl]').textContent = this.year;
@@ -191,7 +192,7 @@ export class AppUI {
   }
   entHTML(k) {
     const e = store.get(k) || { text: '', mood: null };
-    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" contenteditable="false" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" spellcheck="false" data-k="${k}">${this.hl(e.text)}</span><span class="acts" contenteditable="false">${this.actsHTML(k)}</span></p>`;
+    return `<p class="${this.entCls(k)}" data-k="${k}"><span class="date" contenteditable="false" data-open="${k}" title="Gán tag màu">${label(k)}</span><span class="txt" spellcheck="false" data-k="${k}">${this.hl(e.text) || ZW}</span><span class="acts" contenteditable="false">${this.actsHTML(k)}</span></p>`;
   }
   entCls(k) {
     const e = store.get(k);
@@ -237,7 +238,7 @@ export class AppUI {
     if (!el) return false;
     el.className = this.entCls(k);
     const t = el.querySelector('.txt');
-    if (this.editing !== k) t.innerHTML = this.editing ? toHTML(store.get(k)?.text || '', esc) : this.hl(store.get(k)?.text || '');
+    if (this.editing !== k) t.innerHTML = (this.editing ? toHTML(store.get(k)?.text || '', esc) : this.hl(store.get(k)?.text || '')) || ZW;
     el.querySelector('.acts').innerHTML = this.actsHTML(k);
     return true;
   }
@@ -355,7 +356,7 @@ export class AppUI {
     this.flowEl.querySelector(`.ent[data-k="${k}"]`)?.classList.add('editing');
   }
   saveTxt(t) {
-    const text = fromDOM(t);
+    const text = fromDOM(t).replace(/\u200B/g, '');
     t.closest('.ent').classList.toggle('empty', !plain(text).trim());
     if (text !== (store.get(t.dataset.k)?.text || '')) store.set(t.dataset.k, { text }, 'type');
   }
@@ -387,8 +388,42 @@ export class AppUI {
     if (this.txtOf(sel.anchorNode)) return;
     let ent = (sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement).closest('.ent');
     if (!ent && sel.anchorNode === host) ent = host.children[Math.min(sel.anchorOffset, host.children.length - 1)];
-    const t = ent?.querySelector('.txt');
-    if (t) { const r = document.createRange(); r.setStart(t, 0); r.collapse(true); sel.removeAllRanges(); sel.addRange(r); }
+    const t = ent && this.ensureTxt(ent);
+    if (t) this.caretInto(t, 'start');
+  }
+  // Mỗi ngày luôn có 1 ô chữ, ô trống chứa ký tự vô hình (\u200B) để con trỏ đứng được bên trong
+  ensureTxt(ent) {
+    let t = ent.querySelector('.txt');
+    if (!t) {
+      t = document.createElement('span');
+      t.className = 'txt'; t.spellcheck = false; t.dataset.k = ent.dataset.k;
+      ent.insertBefore(t, ent.querySelector('.acts'));
+    }
+    // chữ lọt ra ngoài ô (nằm thẳng trong dòng ngày) thì gom lại vào ô
+    for (const n of [...ent.childNodes]) {
+      if (n === t || n.nodeType === 1 && n.matches('.date,.acts')) continue;
+      if (n.nodeType === 3 && !n.nodeValue.length) { n.remove(); continue; }
+      t.appendChild(n);
+    }
+    if (!t.textContent.length && !t.querySelector('br')) t.textContent = ZW;
+    return t;
+  }
+  caretInto(t, where) {
+    const sel = getSelection(), r = document.createRange();
+    const first = t.firstChild;
+    if (first && first.nodeType === 3 && first.nodeValue === ZW) r.setStart(first, 1);
+    else if (where === 'end') { r.selectNodeContents(t); r.collapse(false); }
+    else r.setStart(t, 0);
+    r.collapse(true); sel.removeAllRanges(); sel.addRange(r);
+  }
+  // Chữ trước / sau con trỏ trong 1 ô (bỏ ký tự vô hình)
+  textAround(t) {
+    const sel = getSelection(); if (!sel.rangeCount) return ['', ''];
+    const r = sel.getRangeAt(0), b = document.createRange(), a = document.createRange();
+    b.selectNodeContents(t); b.setEnd(r.startContainer, r.startOffset);
+    a.selectNodeContents(t); a.setStart(r.endContainer, r.endOffset);
+    const clean = s => s.replace(/\u200B/g, '');
+    return [clean(b.toString()) + (b.cloneContents().querySelector?.('br') ? '\n' : ''), clean(a.toString()) + (a.cloneContents().querySelector?.('br') ? '\n' : '')];
   }
   // Nút B chỉ hiện khi đang bôi đen chữ trong 1 ngày
   updateBold() {
@@ -471,7 +506,11 @@ export class AppUI {
       const t = ev.target;
       if (t.dataset.q !== undefined) { this.setQuery(t.value); return; }
       if (this.editing && t.classList.contains('ents')) {
-        const sel = getSelection(), txt = sel.rangeCount && this.txtOf(sel.anchorNode);
+        const sel = getSelection();
+        const ent = sel.rangeCount && (sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement)?.closest('.ent');
+        if (ent && !this.txtOf(sel.anchorNode)) { const tx = this.ensureTxt(ent); this.caretInto(tx, 'end'); }
+        else if (ent) { const tx = ent.querySelector('.txt'); if (tx && !tx.textContent.length && !tx.querySelector('br')) { tx.textContent = ZW; this.caretInto(tx); } }
+        const txt = sel.rangeCount && this.txtOf(sel.anchorNode);
         if (txt) this.saveTxt(txt); // gõ tới đâu lưu + đồng bộ tới đó
         this.updateBold();
       }
@@ -528,12 +567,28 @@ export class AppUI {
       const r = sel.getRangeAt(0), a = this.txtOf(r.startContainer), b = this.txtOf(r.endContainer);
       const it = ev.inputType;
       if (it === 'formatBold' || it === 'historyUndo' || it === 'historyRedo') return;
+      if (!a && sel.isCollapsed && it.startsWith('insert')) {
+        // con trỏ đứng ngoài ô chữ (vd sát nhãn ngày của ngày trống): đưa vào ô rồi gõ tiếp
+        ev.preventDefault();
+        const ent = (r.startContainer.nodeType === 1 ? r.startContainer : r.startContainer.parentElement).closest('.ent');
+        if (!ent) return;
+        const tx = this.ensureTxt(ent);
+        this.caretInto(tx, 'end');
+        if (it === 'insertParagraph' || it === 'insertLineBreak') document.execCommand('insertLineBreak');
+        else if (ev.data) document.execCommand('insertText', false, ev.data);
+        return;
+      }
       if (!a || a !== b || it === 'insertFromDrop' || it === 'deleteByDrag') { ev.preventDefault(); return; }
       if (it === 'insertParagraph') { ev.preventDefault(); document.execCommand('insertLineBreak'); return; }
-      if (sel.isCollapsed && it.startsWith('delete')) {
-        const off = caretOffset(a), len = a.textContent.length;
-        if (/Backward$/.test(it) && off === 0) ev.preventDefault();
-        else if (/Forward$/.test(it) && off >= len && !a.querySelector('br:last-child')) ev.preventDefault();
+      if (it.startsWith('delete')) {
+        const [before, after] = this.textAround(a);
+        if (sel.isCollapsed && /Backward$/.test(it) && !before) { ev.preventDefault(); return; }
+        if (sel.isCollapsed && /Forward$/.test(it) && !after) { ev.preventDefault(); return; }
+        // xoá hết chữ trong ô: tự làm trống ô (giữ lại ô, không để trình duyệt xoá luôn ô chữ)
+        if ((!before && !after) || (sel.isCollapsed && (before + after).length <= 1)) {
+          ev.preventDefault();
+          a.textContent = ZW; this.caretInto(a); this.saveTxt(a);
+        }
       }
     });
     // Rời chế độ gõ khi chạm ra ngoài vùng chữ (header, lịch…) hoặc bàn phím ảo được cất đi
